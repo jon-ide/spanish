@@ -381,40 +381,50 @@ function speak(text, lang, rate, voiceSelectId) {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-    // On iOS, avoid aggressive cancel as it often causes a start hiccup.
-    // Only cancel if something is actively speaking.
+    // On non-iOS, clear any stuck state. On iOS avoid aggressive cancel (causes clipping).
     if (!isIOS && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) {
       window.speechSynthesis.cancel();
     }
     window.speechSynthesis.resume();
 
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = lang;
-    utter.rate = parseFloat(rate) || 1;
     const voice = getSelectedVoice(voiceSelectId);
-    if (voice) utter.voice = voice;
+    const baseRate = parseFloat(rate) || 1;
 
-    let settled = false;
-    const done = () => {
-      if (settled) return;
-      settled = true;
-      resolve();
-    };
+    const doSpeak = (utterText, onFinish) => {
+      const utter = new SpeechSynthesisUtterance(utterText);
+      utter.lang = lang;
+      utter.rate = baseRate;
+      if (voice) utter.voice = voice;
 
-    utter.onend = done;
-    utter.onerror = (e) => {
-      console.warn('Speech error', e);
-      done();
-    };
-
-    // Safety net
-    setTimeout(done, Math.max(8000, text.length * 100 / (utter.rate || 1)));
-
-    // Longer delay on iOS to let the speech engine settle after any prior activity
-    const delay = isIOS ? 150 : 50;
-    setTimeout(() => {
+      let settled = false;
+      const finish = () => {
+        if (settled) return;
+        settled = true;
+        onFinish();
+      };
+      utter.onend = finish;
+      utter.onerror = finish;
       window.speechSynthesis.speak(utter);
-    }, delay);
+      // Safety
+      setTimeout(finish, Math.max(6000, utterText.length * 90 / baseRate));
+    };
+
+    // On iOS, speak a near-silent warmup first so the engine is awake and the real utterance starts cleanly
+    if (isIOS) {
+      const warmup = new SpeechSynthesisUtterance('\u200b'); // zero-width space, almost inaudible
+      warmup.lang = lang;
+      warmup.rate = 1;
+      warmup.volume = 0.01;
+      if (voice) warmup.voice = voice;
+      window.speechSynthesis.speak(warmup);
+      setTimeout(() => {
+        doSpeak(text, resolve);
+      }, 120);
+    } else {
+      setTimeout(() => {
+        doSpeak(text, resolve);
+      }, 40);
+    }
   });
 }
 
