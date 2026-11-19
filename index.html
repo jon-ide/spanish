@@ -378,8 +378,12 @@ function speak(text, lang, rate, voiceSelectId) {
   return new Promise((resolve) => {
     if (!text) { resolve(); return; }
 
-    // Force Chrome out of any stuck state
-    if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    // On iOS, avoid aggressive cancel as it often causes a start hiccup.
+    // Only cancel if something is actively speaking.
+    if (!isIOS && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) {
       window.speechSynthesis.cancel();
     }
     window.speechSynthesis.resume();
@@ -404,12 +408,13 @@ function speak(text, lang, rate, voiceSelectId) {
     };
 
     // Safety net
-    setTimeout(done, Math.max(5000, text.length * 80 / (utter.rate || 1)));
+    setTimeout(done, Math.max(8000, text.length * 100 / (utter.rate || 1)));
 
-    // Small delay after any cancel/resume so Chrome accepts the new utterance
+    // Longer delay on iOS to let the speech engine settle after any prior activity
+    const delay = isIOS ? 150 : 50;
     setTimeout(() => {
       window.speechSynthesis.speak(utter);
-    }, 50);
+    }, delay);
   });
 }
 
@@ -434,7 +439,6 @@ async function playSequence(startIdx, endIdx) {
       currentIndex = i;
       render();
       updateCurrentDisplay();
-      saveLastPlayed(i);
       const s = sentences[i];
       setStatus(`Playing ${i + 1}/${sentences.length}...`);
       await speak(s.english, 'en-US', 1, 'enVoice');
@@ -444,6 +448,9 @@ async function playSequence(startIdx, endIdx) {
       await speak(s.spanish, 'es-MX', spanishRate, 'esVoice');
       if (stopRequested) break;
       await new Promise(r => setTimeout(r, pauseEsMs));
+      if (stopRequested) break;
+      // Only mark this sentence as completed (for Resume) after the full cycle finishes
+      saveLastPlayed(i);
     }
     if (stopRequested) break;
   }
@@ -467,13 +474,13 @@ async function playOne(idx) {
   currentIndex = idx;
   render();
   updateCurrentDisplay();
-  saveLastPlayed(idx);
   const s = sentences[idx];
   setStatus(`Playing sentence ${idx + 1}...`);
   await speak(s.english, 'en-US', 1, 'enVoice');
   await new Promise(r => setTimeout(r, pauseEnMs));
   await speak(s.spanish, 'es-MX', spanishRate, 'esVoice');
   await new Promise(r => setTimeout(r, pauseEsMs));
+  saveLastPlayed(idx);
   currentIndex = -1;
   render();
   updateCurrentDisplay();
