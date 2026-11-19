@@ -182,7 +182,8 @@ function updateCurrentDisplay() {
   const esEl = document.getElementById('currentEs');
   if (currentIndex >= 0 && currentIndex < sentences.length) {
     const s = sentences[currentIndex];
-    enEl.textContent = s.english || '—';
+    const num = currentIndex + 1;
+    enEl.innerHTML = '<strong>#' + num + '</strong><br>' + (s.english || '—');
     esEl.textContent = s.spanish || '—';
   } else {
     enEl.textContent = '—';
@@ -409,17 +410,19 @@ function speak(text, lang, rate, voiceSelectId) {
       setTimeout(finish, Math.max(6000, utterText.length * 90 / baseRate));
     };
 
-    // On iOS, speak a near-silent warmup first so the engine is awake and the real utterance starts cleanly
+    // On iOS, do a short low-volume warmup utterance so the speech engine is fully awake
+    // before the real text (reduces first-syllable clipping)
     if (isIOS) {
-      const warmup = new SpeechSynthesisUtterance('\u200b'); // zero-width space, almost inaudible
+      const warmup = new SpeechSynthesisUtterance('.');
       warmup.lang = lang;
-      warmup.rate = 1;
-      warmup.volume = 0.01;
+      warmup.rate = 1.2;
+      warmup.volume = 0.05;
       if (voice) warmup.voice = voice;
       window.speechSynthesis.speak(warmup);
+      // Give the engine a bit more time to settle
       setTimeout(() => {
         doSpeak(text, resolve);
-      }, 120);
+      }, 180);
     } else {
       setTimeout(() => {
         doSpeak(text, resolve);
