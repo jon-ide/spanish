@@ -410,16 +410,16 @@ function speak(text, lang, rate, voiceSelectId) {
       setTimeout(finish, Math.max(6000, utterText.length * 90 / baseRate));
     };
 
-    // On iOS, do a short low-volume warmup utterance so the speech engine is fully awake
-    // before the real text (reduces first-syllable clipping)
+    // On iOS, prime the speech engine with a silent/near-silent warmup so the real
+    // utterance starts cleanly without an audible "someone starting to speak" sound
     if (isIOS) {
-      const warmup = new SpeechSynthesisUtterance('.');
+      const warmup = new SpeechSynthesisUtterance('\u200b'); // zero-width space
       warmup.lang = lang;
-      warmup.rate = 1.2;
-      warmup.volume = 0.05;
+      warmup.rate = 1;
+      warmup.volume = 0; // completely silent
       if (voice) warmup.voice = voice;
       window.speechSynthesis.speak(warmup);
-      // Give the engine a bit more time to settle
+      // Same settle time that eliminated the clipping
       setTimeout(() => {
         doSpeak(text, resolve);
       }, 180);
