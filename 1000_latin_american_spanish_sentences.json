@@ -1,0 +1,3994 @@
+[
+  {
+    "english": "Good morning. Did you sleep well?",
+    "spanish": "Buenos días. ¿Dormiste bien?"
+  },
+  {
+    "english": "Good afternoon, nice to see you.",
+    "spanish": "Buenas tardes, qué gusto verte."
+  },
+  {
+    "english": "Good evening, how was your day?",
+    "spanish": "Buenas noches, ¿cómo estuvo tu día?"
+  },
+  {
+    "english": "My name is Ana. What's your name?",
+    "spanish": "Me llamo Ana. ¿Cómo te llamas?"
+  },
+  {
+    "english": "I'm from the United States, but I live here now.",
+    "spanish": "Soy de Estados Unidos, pero ahora vivo aquí."
+  },
+  {
+    "english": "Where are you from originally?",
+    "spanish": "¿De dónde eres originalmente?"
+  },
+  {
+    "english": "How long have you lived in this city?",
+    "spanish": "¿Cuánto tiempo llevas viviendo en esta ciudad?"
+  },
+  {
+    "english": "I have been here for about three years.",
+    "spanish": "Llevo aquí unos tres años."
+  },
+  {
+    "english": "It's been a long time since I've seen you.",
+    "spanish": "Hace mucho que no te veo."
+  },
+  {
+    "english": "How have things been lately?",
+    "spanish": "¿Cómo te ha ido últimamente?"
+  },
+  {
+    "english": "Everything is going well, thanks for asking.",
+    "spanish": "Todo va bien, gracias por preguntar."
+  },
+  {
+    "english": "I'm doing pretty well, and you?",
+    "spanish": "Estoy bastante bien, ¿y tú?"
+  },
+  {
+    "english": "Sorry, I didn't catch your name.",
+    "spanish": "Perdón, no entendí tu nombre."
+  },
+  {
+    "english": "Could you say that again, please?",
+    "spanish": "¿Podrías repetir eso, por favor?"
+  },
+  {
+    "english": "Please speak a little more slowly.",
+    "spanish": "Por favor, habla un poco más despacio."
+  },
+  {
+    "english": "I'm still learning Spanish.",
+    "spanish": "Todavía estoy aprendiendo español."
+  },
+  {
+    "english": "I understand more than I can speak.",
+    "spanish": "Entiendo más de lo que puedo hablar."
+  },
+  {
+    "english": "I don't know how to say that in Spanish.",
+    "spanish": "No sé cómo decir eso en español."
+  },
+  {
+    "english": "What does that word mean?",
+    "spanish": "¿Qué significa esa palabra?"
+  },
+  {
+    "english": "How do you spell your last name?",
+    "spanish": "¿Cómo se escribe tu apellido?"
+  },
+  {
+    "english": "Could you write it down for me?",
+    "spanish": "¿Podrías escribirlo para mí?"
+  },
+  {
+    "english": "Do you mind if I ask you a question?",
+    "spanish": "¿Te molesta si te hago una pregunta?"
+  },
+  {
+    "english": "Of course, go ahead.",
+    "spanish": "Claro, adelante."
+  },
+  {
+    "english": "Thanks for your help; I really appreciate it.",
+    "spanish": "Gracias por tu ayuda; de verdad lo agradezco."
+  },
+  {
+    "english": "You're welcome. It's no trouble.",
+    "spanish": "De nada. No es ninguna molestia."
+  },
+  {
+    "english": "Excuse me, can I get past you?",
+    "spanish": "Disculpa, ¿me dejas pasar?"
+  },
+  {
+    "english": "I'm sorry I'm late; traffic was terrible.",
+    "spanish": "Perdón por llegar tarde; había muchísimo tráfico."
+  },
+  {
+    "english": "Don't worry, you're right on time.",
+    "spanish": "No te preocupes, llegas justo a tiempo."
+  },
+  {
+    "english": "I have to go, but it was nice talking to you.",
+    "spanish": "Me tengo que ir, pero fue un gusto hablar contigo."
+  },
+  {
+    "english": "See you later. Have a good day!",
+    "spanish": "Nos vemos. ¡Que tengas un buen día!"
+  },
+  {
+    "english": "Have a safe trip.",
+    "spanish": "Que tengas buen viaje."
+  },
+  {
+    "english": "Give my regards to your family.",
+    "spanish": "Dale saludos a tu familia."
+  },
+  {
+    "english": "I hope everything works out.",
+    "spanish": "Espero que todo salga bien."
+  },
+  {
+    "english": "Congratulations! You deserve it.",
+    "spanish": "¡Felicidades! Te lo mereces."
+  },
+  {
+    "english": "Happy birthday! I hope you have a wonderful day.",
+    "spanish": "¡Feliz cumpleaños! Espero que tengas un día maravilloso."
+  },
+  {
+    "english": "I'm glad you could come.",
+    "spanish": "Me alegra que hayas podido venir."
+  },
+  {
+    "english": "Thanks for inviting me.",
+    "spanish": "Gracias por invitarme."
+  },
+  {
+    "english": "Would you like to join us?",
+    "spanish": "¿Te gustaría acompañarnos?"
+  },
+  {
+    "english": "What are you doing?",
+    "spanish": "¿Qué estás haciendo?"
+  },
+  {
+    "english": "What are you looking for?",
+    "spanish": "¿Qué estás buscando?"
+  },
+  {
+    "english": "What do you think about this?",
+    "spanish": "¿Qué piensas de esto?"
+  },
+  {
+    "english": "What would you do in my place?",
+    "spanish": "¿Qué harías en mi lugar?"
+  },
+  {
+    "english": "What happened yesterday?",
+    "spanish": "¿Qué pasó ayer?"
+  },
+  {
+    "english": "What has changed since then?",
+    "spanish": "¿Qué ha cambiado desde entonces?"
+  },
+  {
+    "english": "What are you going to do tomorrow?",
+    "spanish": "¿Qué vas a hacer mañana?"
+  },
+  {
+    "english": "What time does the store open?",
+    "spanish": "¿A qué hora abre la tienda?"
+  },
+  {
+    "english": "What time do you usually get up?",
+    "spanish": "¿A qué hora te levantas normalmente?"
+  },
+  {
+    "english": "Where did you put my keys?",
+    "spanish": "¿Dónde pusiste mis llaves?"
+  },
+  {
+    "english": "Where can I find a pharmacy?",
+    "spanish": "¿Dónde puedo encontrar una farmacia?"
+  },
+  {
+    "english": "Where were you when I called?",
+    "spanish": "¿Dónde estabas cuando llamé?"
+  },
+  {
+    "english": "Where should we meet?",
+    "spanish": "¿Dónde deberíamos encontrarnos?"
+  },
+  {
+    "english": "When are you coming back?",
+    "spanish": "¿Cuándo vas a regresar?"
+  },
+  {
+    "english": "When did you last see him?",
+    "spanish": "¿Cuándo lo viste por última vez?"
+  },
+  {
+    "english": "Why are you in such a hurry?",
+    "spanish": "¿Por qué tienes tanta prisa?"
+  },
+  {
+    "english": "Why didn't you tell me earlier?",
+    "spanish": "¿Por qué no me lo dijiste antes?"
+  },
+  {
+    "english": "Why do you think that happened?",
+    "spanish": "¿Por qué crees que pasó eso?"
+  },
+  {
+    "english": "Who told you that?",
+    "spanish": "¿Quién te dijo eso?"
+  },
+  {
+    "english": "Who is taking care of the children?",
+    "spanish": "¿Quién está cuidando a los niños?"
+  },
+  {
+    "english": "Whose bag is this?",
+    "spanish": "¿De quién es esta bolsa?"
+  },
+  {
+    "english": "Which one do you prefer?",
+    "spanish": "¿Cuál prefieres?"
+  },
+  {
+    "english": "Which bus goes downtown?",
+    "spanish": "¿Qué autobús va al centro?"
+  },
+  {
+    "english": "How does this work?",
+    "spanish": "¿Cómo funciona esto?"
+  },
+  {
+    "english": "How did you find out?",
+    "spanish": "¿Cómo te enteraste?"
+  },
+  {
+    "english": "How much does it cost?",
+    "spanish": "¿Cuánto cuesta?"
+  },
+  {
+    "english": "How many people are coming?",
+    "spanish": "¿Cuántas personas vienen?"
+  },
+  {
+    "english": "How often do you exercise?",
+    "spanish": "¿Con qué frecuencia haces ejercicio?"
+  },
+  {
+    "english": "How far is it from here?",
+    "spanish": "¿Qué tan lejos queda de aquí?"
+  },
+  {
+    "english": "How long will it take?",
+    "spanish": "¿Cuánto tiempo va a tardar?"
+  },
+  {
+    "english": "How was your weekend?",
+    "spanish": "¿Cómo estuvo tu fin de semana?"
+  },
+  {
+    "english": "How can I help you?",
+    "spanish": "¿Cómo puedo ayudarte?"
+  },
+  {
+    "english": "Is this seat taken?",
+    "spanish": "¿Está ocupado este asiento?"
+  },
+  {
+    "english": "Are you free this afternoon?",
+    "spanish": "¿Estás libre esta tarde?"
+  },
+  {
+    "english": "Have you ever been to Mexico?",
+    "spanish": "¿Alguna vez has estado en México?"
+  },
+  {
+    "english": "Do you know what time it is?",
+    "spanish": "¿Sabes qué hora es?"
+  },
+  {
+    "english": "Would you mind opening the window?",
+    "spanish": "¿Te importaría abrir la ventana?"
+  },
+  {
+    "english": "Can I pay by card?",
+    "spanish": "¿Puedo pagar con tarjeta?"
+  },
+  {
+    "english": "Could you show me where it is?",
+    "spanish": "¿Podrías mostrarme dónde queda?"
+  },
+  {
+    "english": "Is there anything I can do?",
+    "spanish": "¿Hay algo que pueda hacer?"
+  },
+  {
+    "english": "I think you're right.",
+    "spanish": "Creo que tienes razón."
+  },
+  {
+    "english": "I don't think that's a good idea.",
+    "spanish": "No creo que sea una buena idea."
+  },
+  {
+    "english": "In my opinion, this is the best option.",
+    "spanish": "En mi opinión, esta es la mejor opción."
+  },
+  {
+    "english": "It depends on what you need.",
+    "spanish": "Depende de lo que necesites."
+  },
+  {
+    "english": "I'm not sure what he means.",
+    "spanish": "No estoy seguro de lo que quiere decir."
+  },
+  {
+    "english": "That sounds like a good plan.",
+    "spanish": "Eso suena como un buen plan."
+  },
+  {
+    "english": "I agree with you completely.",
+    "spanish": "Estoy completamente de acuerdo contigo."
+  },
+  {
+    "english": "I see things a little differently.",
+    "spanish": "Yo lo veo de una manera un poco diferente."
+  },
+  {
+    "english": "You're probably right.",
+    "spanish": "Probablemente tengas razón."
+  },
+  {
+    "english": "I don't care which one we choose.",
+    "spanish": "No me importa cuál elijamos."
+  },
+  {
+    "english": "It doesn't matter to me.",
+    "spanish": "A mí me da igual."
+  },
+  {
+    "english": "That's exactly what I was thinking.",
+    "spanish": "Eso es exactamente lo que estaba pensando."
+  },
+  {
+    "english": "I had never thought about it that way.",
+    "spanish": "Nunca lo había pensado de esa manera."
+  },
+  {
+    "english": "I would rather stay home tonight.",
+    "spanish": "Preferiría quedarme en casa esta noche."
+  },
+  {
+    "english": "I'd like to try something new.",
+    "spanish": "Me gustaría probar algo nuevo."
+  },
+  {
+    "english": "I'm used to getting up early.",
+    "spanish": "Estoy acostumbrado a levantarme temprano."
+  },
+  {
+    "english": "I'm not used to this kind of weather.",
+    "spanish": "No estoy acostumbrado a este tipo de clima."
+  },
+  {
+    "english": "It's getting late, so we should leave.",
+    "spanish": "Se está haciendo tarde, así que deberíamos irnos."
+  },
+  {
+    "english": "It looks like it's going to rain.",
+    "spanish": "Parece que va a llover."
+  },
+  {
+    "english": "I feel much better today.",
+    "spanish": "Hoy me siento mucho mejor."
+  },
+  {
+    "english": "I have a lot on my mind right now.",
+    "spanish": "Tengo muchas cosas en la cabeza ahora mismo."
+  },
+  {
+    "english": "I can't make up my mind.",
+    "spanish": "No logro decidirme."
+  },
+  {
+    "english": "I changed my mind at the last minute.",
+    "spanish": "Cambié de opinión a último momento."
+  },
+  {
+    "english": "I made a mistake, but I'll fix it.",
+    "spanish": "Cometí un error, pero lo voy a corregir."
+  },
+  {
+    "english": "There's no reason to get upset.",
+    "spanish": "No hay razón para enojarse."
+  },
+  {
+    "english": "Everything happens for a reason.",
+    "spanish": "Todo pasa por alguna razón."
+  },
+  {
+    "english": "That's not what I meant.",
+    "spanish": "No quise decir eso."
+  },
+  {
+    "english": "I didn't mean to hurt your feelings.",
+    "spanish": "No quería herir tus sentimientos."
+  },
+  {
+    "english": "I was just about to call you.",
+    "spanish": "Justo iba a llamarte."
+  },
+  {
+    "english": "I almost forgot to tell you.",
+    "spanish": "Casi se me olvida decírtelo."
+  },
+  {
+    "english": "I have no idea what happened.",
+    "spanish": "No tengo ni idea de lo que pasó."
+  },
+  {
+    "english": "As far as I know, he's still here.",
+    "spanish": "Que yo sepa, él todavía está aquí."
+  },
+  {
+    "english": "To be honest, I'm a little worried.",
+    "spanish": "Para ser sincero, estoy un poco preocupado."
+  },
+  {
+    "english": "The important thing is that we're together.",
+    "spanish": "Lo importante es que estamos juntos."
+  },
+  {
+    "english": "It's worth trying at least once.",
+    "spanish": "Vale la pena intentarlo al menos una vez."
+  },
+  {
+    "english": "I can't believe how quickly time passes.",
+    "spanish": "No puedo creer lo rápido que pasa el tiempo."
+  },
+  {
+    "english": "I hope you understand what I'm saying.",
+    "spanish": "Espero que entiendas lo que estoy diciendo."
+  },
+  {
+    "english": "I wish I had more free time.",
+    "spanish": "Ojalá tuviera más tiempo libre."
+  },
+  {
+    "english": "If I were you, I would wait a little.",
+    "spanish": "Si yo fuera tú, esperaría un poco."
+  },
+  {
+    "english": "The more I practice, the easier it gets.",
+    "spanish": "Cuanto más practico, más fácil se vuelve."
+  },
+  {
+    "english": "I usually make coffee as soon as I wake up.",
+    "spanish": "Normalmente preparo café en cuanto me despierto."
+  },
+  {
+    "english": "I take a shower before breakfast.",
+    "spanish": "Me ducho antes del desayuno."
+  },
+  {
+    "english": "I get dressed and leave the house at seven.",
+    "spanish": "Me visto y salgo de casa a las siete."
+  },
+  {
+    "english": "I take the bus to work every morning.",
+    "spanish": "Tomo el autobús al trabajo todas las mañanas."
+  },
+  {
+    "english": "I work from home three days a week.",
+    "spanish": "Trabajo desde casa tres días a la semana."
+  },
+  {
+    "english": "I come home around six in the evening.",
+    "spanish": "Llego a casa alrededor de las seis de la tarde."
+  },
+  {
+    "english": "I need to clean the kitchen.",
+    "spanish": "Tengo que limpiar la cocina."
+  },
+  {
+    "english": "The dishes are still in the sink.",
+    "spanish": "Los platos todavía están en el fregadero."
+  },
+  {
+    "english": "Could you take out the trash?",
+    "spanish": "¿Puedes sacar la basura?"
+  },
+  {
+    "english": "I forgot to turn off the lights.",
+    "spanish": "Se me olvidó apagar las luces."
+  },
+  {
+    "english": "Please close the door behind you.",
+    "spanish": "Por favor, cierra la puerta al salir."
+  },
+  {
+    "english": "The keys are on the table next to the phone.",
+    "spanish": "Las llaves están sobre la mesa, al lado del teléfono."
+  },
+  {
+    "english": "Your jacket is hanging behind the door.",
+    "spanish": "Tu chaqueta está colgada detrás de la puerta."
+  },
+  {
+    "english": "There's a supermarket across the street.",
+    "spanish": "Hay un supermercado al otro lado de la calle."
+  },
+  {
+    "english": "The bathroom is at the end of the hallway.",
+    "spanish": "El baño está al final del pasillo."
+  },
+  {
+    "english": "I can't find the remote control.",
+    "spanish": "No encuentro el control remoto."
+  },
+  {
+    "english": "The internet stopped working this morning.",
+    "spanish": "El internet dejó de funcionar esta mañana."
+  },
+  {
+    "english": "Could you turn the television down?",
+    "spanish": "¿Podrías bajar el volumen del televisor?"
+  },
+  {
+    "english": "The room is too cold; please turn on the heater.",
+    "spanish": "Hace demasiado frío en la habitación; por favor, enciende la calefacción."
+  },
+  {
+    "english": "We need to buy groceries for the week.",
+    "spanish": "Tenemos que comprar comida para la semana."
+  },
+  {
+    "english": "I'm going to do the laundry tomorrow.",
+    "spanish": "Voy a lavar la ropa mañana."
+  },
+  {
+    "english": "These clothes need to be ironed.",
+    "spanish": "Hay que planchar esta ropa."
+  },
+  {
+    "english": "The baby is sleeping, so keep your voice down.",
+    "spanish": "El bebé está durmiendo, así que habla bajito."
+  },
+  {
+    "english": "I left my wallet in the other room.",
+    "spanish": "Dejé mi cartera en la otra habitación."
+  },
+  {
+    "english": "Can you water the plants while I'm away?",
+    "spanish": "¿Puedes regar las plantas mientras estoy fuera?"
+  },
+  {
+    "english": "The neighbors are making too much noise.",
+    "spanish": "Los vecinos están haciendo demasiado ruido."
+  },
+  {
+    "english": "We ran out of milk and bread.",
+    "spanish": "Nos quedamos sin leche ni pan."
+  },
+  {
+    "english": "I have to fix the broken chair.",
+    "spanish": "Tengo que arreglar la silla rota."
+  },
+  {
+    "english": "Please put everything back where it belongs.",
+    "spanish": "Por favor, vuelve a poner cada cosa en su lugar."
+  },
+  {
+    "english": "I like to read for a while before going to bed.",
+    "spanish": "Me gusta leer un rato antes de acostarme."
+  },
+  {
+    "english": "I'm hungry; let's find something to eat.",
+    "spanish": "Tengo hambre; busquemos algo para comer."
+  },
+  {
+    "english": "I'm thirsty. Could I have some water?",
+    "spanish": "Tengo sed. ¿Me podrías dar un poco de agua?"
+  },
+  {
+    "english": "What do you recommend?",
+    "spanish": "¿Qué me recomienda?"
+  },
+  {
+    "english": "I'd like a table for two, please.",
+    "spanish": "Quisiera una mesa para dos, por favor."
+  },
+  {
+    "english": "Could we see the menu, please?",
+    "spanish": "¿Nos podría traer el menú, por favor?"
+  },
+  {
+    "english": "Does this dish contain meat?",
+    "spanish": "¿Este plato lleva carne?"
+  },
+  {
+    "english": "I'm allergic to peanuts.",
+    "spanish": "Soy alérgico a los cacahuates."
+  },
+  {
+    "english": "Could you make it without onions?",
+    "spanish": "¿Lo podría preparar sin cebolla?"
+  },
+  {
+    "english": "I'd like the chicken with rice.",
+    "spanish": "Quisiera el pollo con arroz."
+  },
+  {
+    "english": "Can I have the dressing on the side?",
+    "spanish": "¿Me puede traer el aderezo aparte?"
+  },
+  {
+    "english": "The food smells delicious.",
+    "spanish": "La comida huele delicioso."
+  },
+  {
+    "english": "This is a little too spicy for me.",
+    "spanish": "Esto está un poco picante para mí."
+  },
+  {
+    "english": "Could we have the check, please?",
+    "spanish": "¿Nos puede traer la cuenta, por favor?"
+  },
+  {
+    "english": "Is the tip included?",
+    "spanish": "¿La propina está incluida?"
+  },
+  {
+    "english": "Let's split the bill.",
+    "spanish": "Dividamos la cuenta."
+  },
+  {
+    "english": "I already ate, but I'll have some coffee.",
+    "spanish": "Ya comí, pero voy a tomar un café."
+  },
+  {
+    "english": "I don't eat meat, but I do eat fish.",
+    "spanish": "No como carne, pero sí como pescado."
+  },
+  {
+    "english": "We need a loaf of bread and a dozen eggs.",
+    "spanish": "Necesitamos una barra de pan y una docena de huevos."
+  },
+  {
+    "english": "Where can I find the fresh vegetables?",
+    "spanish": "¿Dónde puedo encontrar las verduras frescas?"
+  },
+  {
+    "english": "How much are these shoes?",
+    "spanish": "¿Cuánto cuestan estos zapatos?"
+  },
+  {
+    "english": "Do you have this shirt in a larger size?",
+    "spanish": "¿Tiene esta camisa en una talla más grande?"
+  },
+  {
+    "english": "Can I try it on?",
+    "spanish": "¿Me lo puedo probar?"
+  },
+  {
+    "english": "I'm just looking, thank you.",
+    "spanish": "Solo estoy mirando, gracias."
+  },
+  {
+    "english": "Is there a discount if I pay in cash?",
+    "spanish": "¿Hay descuento si pago en efectivo?"
+  },
+  {
+    "english": "Could I get a receipt?",
+    "spanish": "¿Me podría dar un recibo?"
+  },
+  {
+    "english": "The store closes in fifteen minutes.",
+    "spanish": "La tienda cierra en quince minutos."
+  },
+  {
+    "english": "I'm looking for a gift for my sister.",
+    "spanish": "Estoy buscando un regalo para mi hermana."
+  },
+  {
+    "english": "This is more expensive than I expected.",
+    "spanish": "Esto es más caro de lo que esperaba."
+  },
+  {
+    "english": "Do you accept returns?",
+    "spanish": "¿Aceptan devoluciones?"
+  },
+  {
+    "english": "I need to exchange this for a different color.",
+    "spanish": "Necesito cambiar esto por otro color."
+  },
+  {
+    "english": "I'm looking for the nearest bus stop.",
+    "spanish": "Estoy buscando la parada de autobús más cercana."
+  },
+  {
+    "english": "Does this bus go to the airport?",
+    "spanish": "¿Este autobús va al aeropuerto?"
+  },
+  {
+    "english": "Where do I buy a ticket?",
+    "spanish": "¿Dónde compro un boleto?"
+  },
+  {
+    "english": "One ticket to the city center, please.",
+    "spanish": "Un boleto al centro, por favor."
+  },
+  {
+    "english": "How many stops are there before the station?",
+    "spanish": "¿Cuántas paradas hay antes de la estación?"
+  },
+  {
+    "english": "Please let me know when we get there.",
+    "spanish": "Por favor, avíseme cuando lleguemos."
+  },
+  {
+    "english": "I think we got on the wrong train.",
+    "spanish": "Creo que nos subimos al tren equivocado."
+  },
+  {
+    "english": "The train is delayed because of the weather.",
+    "spanish": "El tren está retrasado por el clima."
+  },
+  {
+    "english": "How much is a taxi to the hotel?",
+    "spanish": "¿Cuánto cuesta un taxi hasta el hotel?"
+  },
+  {
+    "english": "Could you drop me off at this address?",
+    "spanish": "¿Me puede dejar en esta dirección?"
+  },
+  {
+    "english": "Turn left at the next street.",
+    "spanish": "Gira a la izquierda en la próxima calle."
+  },
+  {
+    "english": "Go straight for two blocks.",
+    "spanish": "Sigue derecho dos cuadras."
+  },
+  {
+    "english": "The bank is between the pharmacy and the bakery.",
+    "spanish": "El banco está entre la farmacia y la panadería."
+  },
+  {
+    "english": "It's opposite the main entrance.",
+    "spanish": "Está enfrente de la entrada principal."
+  },
+  {
+    "english": "You have to cross the bridge.",
+    "spanish": "Tienes que cruzar el puente."
+  },
+  {
+    "english": "We are going in the wrong direction.",
+    "spanish": "Vamos en la dirección equivocada."
+  },
+  {
+    "english": "I got lost while looking for the museum.",
+    "spanish": "Me perdí mientras buscaba el museo."
+  },
+  {
+    "english": "Could you show me on the map?",
+    "spanish": "¿Me lo podría mostrar en el mapa?"
+  },
+  {
+    "english": "I have a reservation under the name García.",
+    "spanish": "Tengo una reservación a nombre de García."
+  },
+  {
+    "english": "What time is check-in?",
+    "spanish": "¿A qué hora es el registro de entrada?"
+  },
+  {
+    "english": "Is breakfast included in the price?",
+    "spanish": "¿El desayuno está incluido en el precio?"
+  },
+  {
+    "english": "Could I have a room with a view?",
+    "spanish": "¿Podría tener una habitación con vista?"
+  },
+  {
+    "english": "The air conditioner doesn't seem to work.",
+    "spanish": "Parece que el aire acondicionado no funciona."
+  },
+  {
+    "english": "Can you recommend a good place to visit nearby?",
+    "spanish": "¿Me puede recomendar un buen lugar para visitar cerca de aquí?"
+  },
+  {
+    "english": "We have to leave early to avoid traffic.",
+    "spanish": "Tenemos que salir temprano para evitar el tráfico."
+  },
+  {
+    "english": "I prefer to travel by bus because it's cheaper.",
+    "spanish": "Prefiero viajar en autobús porque es más barato."
+  },
+  {
+    "english": "Have you ever traveled alone?",
+    "spanish": "¿Alguna vez has viajado solo?"
+  },
+  {
+    "english": "I forgot to pack my phone charger.",
+    "spanish": "Se me olvidó empacar el cargador del teléfono."
+  },
+  {
+    "english": "My flight leaves at half past nine.",
+    "spanish": "Mi vuelo sale a las nueve y media."
+  },
+  {
+    "english": "Where is the baggage claim area?",
+    "spanish": "¿Dónde está la zona de reclamo de equipaje?"
+  },
+  {
+    "english": "I have a meeting at ten.",
+    "spanish": "Tengo una reunión a las diez."
+  },
+  {
+    "english": "I'll send you the report this afternoon.",
+    "spanish": "Te enviaré el informe esta tarde."
+  },
+  {
+    "english": "Have you finished the project yet?",
+    "spanish": "¿Ya terminaste el proyecto?"
+  },
+  {
+    "english": "I'm still working on the last section.",
+    "spanish": "Todavía estoy trabajando en la última sección."
+  },
+  {
+    "english": "We need to find a solution as soon as possible.",
+    "spanish": "Tenemos que encontrar una solución lo antes posible."
+  },
+  {
+    "english": "Could you explain the instructions one more time?",
+    "spanish": "¿Podrías explicar las instrucciones una vez más?"
+  },
+  {
+    "english": "I'll get back to you when I have more information.",
+    "spanish": "Te responderé cuando tenga más información."
+  },
+  {
+    "english": "Let's discuss this after lunch.",
+    "spanish": "Hablemos de esto después del almuerzo."
+  },
+  {
+    "english": "I don't have enough time to finish today.",
+    "spanish": "No tengo suficiente tiempo para terminar hoy."
+  },
+  {
+    "english": "The deadline has been moved to Friday.",
+    "spanish": "La fecha límite se cambió al viernes."
+  },
+  {
+    "english": "I made a list of the things we need to do.",
+    "spanish": "Hice una lista de las cosas que tenemos que hacer."
+  },
+  {
+    "english": "Please let me know if anything changes.",
+    "spanish": "Por favor, avísame si algo cambia."
+  },
+  {
+    "english": "I couldn't attend the meeting yesterday.",
+    "spanish": "No pude asistir a la reunión ayer."
+  },
+  {
+    "english": "She is responsible for customer service.",
+    "spanish": "Ella es responsable del servicio al cliente."
+  },
+  {
+    "english": "We are looking for someone with experience.",
+    "spanish": "Estamos buscando a alguien con experiencia."
+  },
+  {
+    "english": "I learned a lot from that course.",
+    "spanish": "Aprendí mucho en ese curso."
+  },
+  {
+    "english": "I have to study for an exam next week.",
+    "spanish": "Tengo que estudiar para un examen la próxima semana."
+  },
+  {
+    "english": "Could you check my answers?",
+    "spanish": "¿Podrías revisar mis respuestas?"
+  },
+  {
+    "english": "I made progress, even though it was difficult.",
+    "spanish": "Avancé, aunque fue difícil."
+  },
+  {
+    "english": "I need to practice speaking every day.",
+    "spanish": "Necesito practicar hablar todos los días."
+  },
+  {
+    "english": "I read the article, but I didn't understand the conclusion.",
+    "spanish": "Leí el artículo, pero no entendí la conclusión."
+  },
+  {
+    "english": "Can you send me the link by email?",
+    "spanish": "¿Me puedes enviar el enlace por correo electrónico?"
+  },
+  {
+    "english": "My phone battery is almost dead.",
+    "spanish": "La batería de mi teléfono está casi agotada."
+  },
+  {
+    "english": "I'll call you as soon as I arrive.",
+    "spanish": "Te llamaré en cuanto llegue."
+  },
+  {
+    "english": "I didn't receive your message.",
+    "spanish": "No recibí tu mensaje."
+  },
+  {
+    "english": "The connection keeps dropping.",
+    "spanish": "La conexión se sigue cortando."
+  },
+  {
+    "english": "Could you share your screen?",
+    "spanish": "¿Podrías compartir tu pantalla?"
+  },
+  {
+    "english": "I accidentally deleted the file.",
+    "spanish": "Borré el archivo por accidente."
+  },
+  {
+    "english": "Save a copy before you close the document.",
+    "spanish": "Guarda una copia antes de cerrar el documento."
+  },
+  {
+    "english": "I prefer to talk about this in person.",
+    "spanish": "Prefiero hablar de esto en persona."
+  },
+  {
+    "english": "My parents live in a small town near the coast.",
+    "spanish": "Mis padres viven en un pueblo pequeño cerca de la costa."
+  },
+  {
+    "english": "I have two brothers and one sister.",
+    "spanish": "Tengo dos hermanos y una hermana."
+  },
+  {
+    "english": "My older brother is married and has a daughter.",
+    "spanish": "Mi hermano mayor está casado y tiene una hija."
+  },
+  {
+    "english": "We usually have dinner together on Sundays.",
+    "spanish": "Normalmente cenamos juntos los domingos."
+  },
+  {
+    "english": "My family is very important to me.",
+    "spanish": "Mi familia es muy importante para mí."
+  },
+  {
+    "english": "I'm going to visit my grandparents this weekend.",
+    "spanish": "Voy a visitar a mis abuelos este fin de semana."
+  },
+  {
+    "english": "How is your mother feeling?",
+    "spanish": "¿Cómo se siente tu mamá?"
+  },
+  {
+    "english": "My son started school last month.",
+    "spanish": "Mi hijo empezó la escuela el mes pasado."
+  },
+  {
+    "english": "The children are playing in the garden.",
+    "spanish": "Los niños están jugando en el jardín."
+  },
+  {
+    "english": "We met through a mutual friend.",
+    "spanish": "Nos conocimos por medio de un amigo en común."
+  },
+  {
+    "english": "We've known each other since high school.",
+    "spanish": "Nos conocemos desde la secundaria."
+  },
+  {
+    "english": "I haven't seen my best friend in months.",
+    "spanish": "No he visto a mi mejor amigo en meses."
+  },
+  {
+    "english": "Would you like to have dinner with me sometime?",
+    "spanish": "¿Te gustaría cenar conmigo algún día?"
+  },
+  {
+    "english": "I'm happy when I spend time with you.",
+    "spanish": "Me siento feliz cuando paso tiempo contigo."
+  },
+  {
+    "english": "We need to talk about our plans.",
+    "spanish": "Tenemos que hablar de nuestros planes."
+  },
+  {
+    "english": "I don't want us to argue about this.",
+    "spanish": "No quiero que discutamos por esto."
+  },
+  {
+    "english": "She told me that she was moving away.",
+    "spanish": "Ella me dijo que se iba a mudar."
+  },
+  {
+    "english": "He apologized for what he had said.",
+    "spanish": "Él se disculpó por lo que había dicho."
+  },
+  {
+    "english": "I hope they can solve their problems.",
+    "spanish": "Espero que puedan resolver sus problemas."
+  },
+  {
+    "english": "Let's invite everyone to the party.",
+    "spanish": "Invitemos a todos a la fiesta."
+  },
+  {
+    "english": "I don't feel very well today.",
+    "spanish": "Hoy no me siento muy bien."
+  },
+  {
+    "english": "I have a headache and a sore throat.",
+    "spanish": "Me duele la cabeza y tengo dolor de garganta."
+  },
+  {
+    "english": "I've had a cough for three days.",
+    "spanish": "Llevo tres días con tos."
+  },
+  {
+    "english": "I think I have a fever.",
+    "spanish": "Creo que tengo fiebre."
+  },
+  {
+    "english": "Where is the nearest hospital?",
+    "spanish": "¿Dónde está el hospital más cercano?"
+  },
+  {
+    "english": "I need to make an appointment with a doctor.",
+    "spanish": "Necesito pedir una cita con un médico."
+  },
+  {
+    "english": "Can you tell me where it hurts?",
+    "spanish": "¿Me puede decir dónde le duele?"
+  },
+  {
+    "english": "Take this medicine with food.",
+    "spanish": "Tome este medicamento con comida."
+  },
+  {
+    "english": "I'm feeling better than I did yesterday.",
+    "spanish": "Me siento mejor que ayer."
+  },
+  {
+    "english": "I need to get some rest.",
+    "spanish": "Necesito descansar un poco."
+  },
+  {
+    "english": "I'm worried about my friend.",
+    "spanish": "Estoy preocupado por mi amigo."
+  },
+  {
+    "english": "She seems very tired lately.",
+    "spanish": "Ella parece muy cansada últimamente."
+  },
+  {
+    "english": "I'm excited about the trip.",
+    "spanish": "Estoy emocionado por el viaje."
+  },
+  {
+    "english": "He was disappointed with the results.",
+    "spanish": "Él estaba decepcionado con los resultados."
+  },
+  {
+    "english": "Don't be afraid to ask for help.",
+    "spanish": "No tengas miedo de pedir ayuda."
+  },
+  {
+    "english": "I was surprised to see you here.",
+    "spanish": "Me sorprendió verte aquí."
+  },
+  {
+    "english": "That makes me feel uncomfortable.",
+    "spanish": "Eso me hace sentir incómodo."
+  },
+  {
+    "english": "I'm in a good mood today.",
+    "spanish": "Hoy estoy de buen humor."
+  },
+  {
+    "english": "I get nervous when I speak in public.",
+    "spanish": "Me pongo nervioso cuando hablo en público."
+  },
+  {
+    "english": "Everything will be okay; try to relax.",
+    "spanish": "Todo va a estar bien; trata de relajarte."
+  },
+  {
+    "english": "Call the police! Someone has stolen my bag.",
+    "spanish": "¡Llama a la policía! Alguien me robó la bolsa."
+  },
+  {
+    "english": "I need help; it's an emergency.",
+    "spanish": "Necesito ayuda; es una emergencia."
+  },
+  {
+    "english": "Be careful when you cross the street.",
+    "spanish": "Ten cuidado al cruzar la calle."
+  },
+  {
+    "english": "Don't touch that; it could be dangerous.",
+    "spanish": "No toques eso; podría ser peligroso."
+  },
+  {
+    "english": "I lost my passport and don't know what to do.",
+    "spanish": "Perdí mi pasaporte y no sé qué hacer."
+  },
+  {
+    "english": "It's very hot outside today.",
+    "spanish": "Hoy hace mucho calor afuera."
+  },
+  {
+    "english": "It's been raining since early this morning.",
+    "spanish": "Ha estado lloviendo desde temprano esta mañana."
+  },
+  {
+    "english": "The weather is supposed to improve tomorrow.",
+    "spanish": "Se supone que el clima va a mejorar mañana."
+  },
+  {
+    "english": "I love walking when the sun is setting.",
+    "spanish": "Me encanta caminar cuando se está poniendo el sol."
+  },
+  {
+    "english": "The days are getting shorter.",
+    "spanish": "Los días se están haciendo más cortos."
+  },
+  {
+    "english": "It's colder here than I expected.",
+    "spanish": "Aquí hace más frío de lo que esperaba."
+  },
+  {
+    "english": "What do you like to do in your free time?",
+    "spanish": "¿Qué te gusta hacer en tu tiempo libre?"
+  },
+  {
+    "english": "I enjoy listening to music while I cook.",
+    "spanish": "Disfruto escuchar música mientras cocino."
+  },
+  {
+    "english": "We watched a movie and then went for a walk.",
+    "spanish": "Vimos una película y después salimos a caminar."
+  },
+  {
+    "english": "I haven't read that book yet.",
+    "spanish": "Todavía no he leído ese libro."
+  },
+  {
+    "english": "What kind of music do you usually listen to?",
+    "spanish": "¿Qué tipo de música escuchas normalmente?"
+  },
+  {
+    "english": "I used to play soccer when I was a child.",
+    "spanish": "Antes jugaba al fútbol cuando era niño."
+  },
+  {
+    "english": "I'm trying to learn how to play the guitar.",
+    "spanish": "Estoy tratando de aprender a tocar la guitarra."
+  },
+  {
+    "english": "We should go to the beach this weekend.",
+    "spanish": "Deberíamos ir a la playa este fin de semana."
+  },
+  {
+    "english": "The park is full of people on Sundays.",
+    "spanish": "El parque está lleno de gente los domingos."
+  },
+  {
+    "english": "I would like to spend more time outdoors.",
+    "spanish": "Me gustaría pasar más tiempo al aire libre."
+  },
+  {
+    "english": "She dances better than anyone I know.",
+    "spanish": "Ella baila mejor que cualquier persona que conozco."
+  },
+  {
+    "english": "I prefer quiet places where I can read.",
+    "spanish": "Prefiero los lugares tranquilos donde puedo leer."
+  },
+  {
+    "english": "Have you seen the latest episode?",
+    "spanish": "¿Has visto el último episodio?"
+  },
+  {
+    "english": "I don't have much free time during the week.",
+    "spanish": "No tengo mucho tiempo libre entre semana."
+  },
+  {
+    "english": "I was cooking when you called.",
+    "spanish": "Estaba cocinando cuando llamaste."
+  },
+  {
+    "english": "We were talking about you a moment ago.",
+    "spanish": "Estábamos hablando de ti hace un momento."
+  },
+  {
+    "english": "I had already left when he arrived.",
+    "spanish": "Yo ya me había ido cuando él llegó."
+  },
+  {
+    "english": "They had never seen snow before that trip.",
+    "spanish": "Nunca habían visto nieve antes de ese viaje."
+  },
+  {
+    "english": "I have lived here since 2020.",
+    "spanish": "Vivo aquí desde 2020."
+  },
+  {
+    "english": "Have you finished what you were doing?",
+    "spanish": "¿Has terminado lo que estabas haciendo?"
+  },
+  {
+    "english": "I've never tried that kind of food.",
+    "spanish": "Nunca he probado ese tipo de comida."
+  },
+  {
+    "english": "She has just arrived at the office.",
+    "spanish": "Ella acaba de llegar a la oficina."
+  },
+  {
+    "english": "We haven't decided where to go yet.",
+    "spanish": "Todavía no hemos decidido adónde ir."
+  },
+  {
+    "english": "By this time tomorrow, I'll be on the plane.",
+    "spanish": "A esta hora mañana estaré en el avión."
+  },
+  {
+    "english": "I'll help you if I have time.",
+    "spanish": "Te ayudaré si tengo tiempo."
+  },
+  {
+    "english": "We're going to move to another apartment next month.",
+    "spanish": "Vamos a mudarnos a otro departamento el próximo mes."
+  },
+  {
+    "english": "I would travel more if I had more money.",
+    "spanish": "Viajaría más si tuviera más dinero."
+  },
+  {
+    "english": "Would you come with me if I asked you?",
+    "spanish": "¿Vendrías conmigo si te lo pidiera?"
+  },
+  {
+    "english": "If it rains, we'll stay inside.",
+    "spanish": "Si llueve, nos quedaremos adentro."
+  },
+  {
+    "english": "If I had known, I would have called you.",
+    "spanish": "Si lo hubiera sabido, te habría llamado."
+  },
+  {
+    "english": "I hope you have a good time.",
+    "spanish": "Espero que lo pases bien."
+  },
+  {
+    "english": "I hope everything goes well tomorrow.",
+    "spanish": "Espero que todo salga bien mañana."
+  },
+  {
+    "english": "I want you to tell me the truth.",
+    "spanish": "Quiero que me digas la verdad."
+  },
+  {
+    "english": "It's important that we arrive on time.",
+    "spanish": "Es importante que lleguemos a tiempo."
+  },
+  {
+    "english": "I'm glad you're here.",
+    "spanish": "Me alegra que estés aquí."
+  },
+  {
+    "english": "I don't think he knows the answer.",
+    "spanish": "No creo que él sepa la respuesta."
+  },
+  {
+    "english": "Maybe they are waiting for us.",
+    "spanish": "Quizás nos estén esperando."
+  },
+  {
+    "english": "Although it's expensive, it's worth it.",
+    "spanish": "Aunque es caro, vale la pena."
+  },
+  {
+    "english": "Call me when you get home.",
+    "spanish": "Llámame cuando llegues a casa."
+  },
+  {
+    "english": "Tell me what happened.",
+    "spanish": "Dime qué pasó."
+  },
+  {
+    "english": "Don't forget to lock the door.",
+    "spanish": "No olvides cerrar la puerta con llave."
+  },
+  {
+    "english": "Let's leave before it gets dark.",
+    "spanish": "Vámonos antes de que oscurezca."
+  },
+  {
+    "english": "Please sit down and make yourself comfortable.",
+    "spanish": "Por favor, siéntate y ponte cómodo."
+  },
+  {
+    "english": "Take your time; there's no hurry.",
+    "spanish": "Tómate tu tiempo; no hay prisa."
+  },
+  {
+    "english": "Let me know what you decide.",
+    "spanish": "Avísame qué decides."
+  },
+  {
+    "english": "I wish I could stay longer.",
+    "spanish": "Ojalá pudiera quedarme más tiempo."
+  },
+  {
+    "english": "It would be better if we left now.",
+    "spanish": "Sería mejor que nos fuéramos ahora."
+  },
+  {
+    "english": "I doubt that they will accept the offer.",
+    "spanish": "Dudo que acepten la oferta."
+  },
+  {
+    "english": "Unless you hurry, you'll miss the bus.",
+    "spanish": "A menos que te apures, perderás el autobús."
+  },
+  {
+    "english": "As soon as I finish, I'll send it to you.",
+    "spanish": "En cuanto termine, te lo enviaré."
+  },
+  {
+    "english": "I used to live near the university.",
+    "spanish": "Antes vivía cerca de la universidad."
+  },
+  {
+    "english": "When I was younger, I wanted to be a teacher.",
+    "spanish": "Cuando era más joven, quería ser maestro."
+  },
+  {
+    "english": "Yesterday I went shopping with my cousin.",
+    "spanish": "Ayer fui de compras con mi primo."
+  },
+  {
+    "english": "Last year we spent the holidays in Colombia.",
+    "spanish": "El año pasado pasamos las vacaciones en Colombia."
+  },
+  {
+    "english": "I'm waiting for you in front of the building.",
+    "spanish": "Te estoy esperando delante del edificio."
+  },
+  {
+    "english": "The book is under the bed, behind the suitcase.",
+    "spanish": "El libro está debajo de la cama, detrás de la maleta."
+  },
+  {
+    "english": "She walked through the park with her dog.",
+    "spanish": "Ella caminó por el parque con su perro."
+  },
+  {
+    "english": "We talked about the problem for an hour.",
+    "spanish": "Hablamos del problema durante una hora."
+  },
+  {
+    "english": "I bought this for my mother.",
+    "spanish": "Compré esto para mi mamá."
+  },
+  {
+    "english": "This letter is from my brother.",
+    "spanish": "Esta carta es de mi hermano."
+  },
+  {
+    "english": "I can't do it without your help.",
+    "spanish": "No puedo hacerlo sin tu ayuda."
+  },
+  {
+    "english": "He went out instead of staying home.",
+    "spanish": "Él salió en vez de quedarse en casa."
+  },
+  {
+    "english": "I'll be back in less than an hour.",
+    "spanish": "Volveré en menos de una hora."
+  },
+  {
+    "english": "We have been friends for many years.",
+    "spanish": "Somos amigos desde hace muchos años."
+  },
+  {
+    "english": "I gave it to her yesterday.",
+    "spanish": "Se lo di ayer."
+  },
+  {
+    "english": "Can you bring it to me tomorrow?",
+    "spanish": "¿Me lo puedes traer mañana?"
+  },
+  {
+    "english": "I told them the whole story.",
+    "spanish": "Les conté toda la historia."
+  },
+  {
+    "english": "She sent us a photograph.",
+    "spanish": "Ella nos envió una fotografía."
+  },
+  {
+    "english": "I don't remember where I put them.",
+    "spanish": "No recuerdo dónde los puse."
+  },
+  {
+    "english": "This is the person I told you about.",
+    "spanish": "Esta es la persona de la que te hablé."
+  },
+  {
+    "english": "The man who lives upstairs is a doctor.",
+    "spanish": "El hombre que vive arriba es médico."
+  },
+  {
+    "english": "I know someone who can help us.",
+    "spanish": "Conozco a alguien que puede ayudarnos."
+  },
+  {
+    "english": "That's the reason why I left early.",
+    "spanish": "Esa es la razón por la que me fui temprano."
+  },
+  {
+    "english": "Do whatever you think is best.",
+    "spanish": "Haz lo que creas que es mejor."
+  },
+  {
+    "english": "I have something important to tell you.",
+    "spanish": "Tengo algo importante que decirte."
+  },
+  {
+    "english": "There's nothing to worry about.",
+    "spanish": "No hay nada de qué preocuparse."
+  },
+  {
+    "english": "Neither my brother nor I knew the answer.",
+    "spanish": "Ni mi hermano ni yo sabíamos la respuesta."
+  },
+  {
+    "english": "You can choose either this one or that one.",
+    "spanish": "Puedes elegir este o aquel."
+  },
+  {
+    "english": "I have been waiting here since noon.",
+    "spanish": "He estado esperando aquí desde el mediodía."
+  },
+  {
+    "english": "She works from Monday to Friday.",
+    "spanish": "Ella trabaja de lunes a viernes."
+  },
+  {
+    "english": "We walked along the river until sunset.",
+    "spanish": "Caminamos junto al río hasta el atardecer."
+  },
+  {
+    "english": "He put the letter inside the envelope.",
+    "spanish": "Él puso la carta dentro del sobre."
+  },
+  {
+    "english": "The children ran toward their parents.",
+    "spanish": "Los niños corrieron hacia sus padres."
+  },
+  {
+    "english": "According to the news, the roads are closed.",
+    "spanish": "Según las noticias, las carreteras están cerradas."
+  },
+  {
+    "english": "I don't have enough money to buy it.",
+    "spanish": "No tengo suficiente dinero para comprarlo."
+  },
+  {
+    "english": "Could you lend me a few dollars?",
+    "spanish": "¿Me podrías prestar unos dólares?"
+  },
+  {
+    "english": "I'll pay you back tomorrow.",
+    "spanish": "Te devolveré el dinero mañana."
+  },
+  {
+    "english": "I forgot my password again.",
+    "spanish": "Olvidé mi contraseña otra vez."
+  },
+  {
+    "english": "Something strange happened last night.",
+    "spanish": "Anoche pasó algo extraño."
+  },
+  {
+    "english": "There's a problem with my order.",
+    "spanish": "Hay un problema con mi pedido."
+  },
+  {
+    "english": "I ordered it online last week.",
+    "spanish": "Lo pedí por internet la semana pasada."
+  },
+  {
+    "english": "It hasn't arrived yet.",
+    "spanish": "Todavía no ha llegado."
+  },
+  {
+    "english": "I need to return this package.",
+    "spanish": "Necesito devolver este paquete."
+  },
+  {
+    "english": "Can you help me carry these bags?",
+    "spanish": "¿Me puedes ayudar a cargar estas bolsas?"
+  },
+  {
+    "english": "The elevator isn't working.",
+    "spanish": "El ascensor no funciona."
+  },
+  {
+    "english": "Let's take the stairs.",
+    "spanish": "Subamos por las escaleras."
+  },
+  {
+    "english": "I left the window open by mistake.",
+    "spanish": "Dejé la ventana abierta por error."
+  },
+  {
+    "english": "Someone is knocking at the door.",
+    "spanish": "Alguien está tocando la puerta."
+  },
+  {
+    "english": "I'll see who it is.",
+    "spanish": "Voy a ver quién es."
+  },
+  {
+    "english": "Make yourself at home.",
+    "spanish": "Siéntete como en tu casa."
+  },
+  {
+    "english": "Would you like something to drink?",
+    "spanish": "¿Quieres algo de tomar?"
+  },
+  {
+    "english": "There's coffee if you want some.",
+    "spanish": "Hay café si quieres."
+  },
+  {
+    "english": "I'm full; I can't eat another bite.",
+    "spanish": "Estoy lleno; no puedo comer ni un bocado más."
+  },
+  {
+    "english": "Save me a little for later.",
+    "spanish": "Guárdame un poco para después."
+  },
+  {
+    "english": "I have to think about it.",
+    "spanish": "Tengo que pensarlo."
+  },
+  {
+    "english": "Give me a second to check.",
+    "spanish": "Dame un segundo para revisar."
+  },
+  {
+    "english": "I'll let you know tomorrow.",
+    "spanish": "Te aviso mañana."
+  },
+  {
+    "english": "It slipped my mind.",
+    "spanish": "Se me pasó por completo."
+  },
+  {
+    "english": "I didn't have a chance to call.",
+    "spanish": "No tuve oportunidad de llamar."
+  },
+  {
+    "english": "We should keep in touch.",
+    "spanish": "Deberíamos mantenernos en contacto."
+  },
+  {
+    "english": "It's been a difficult week.",
+    "spanish": "Ha sido una semana difícil."
+  },
+  {
+    "english": "Things are not always as they seem.",
+    "spanish": "Las cosas no siempre son como parecen."
+  },
+  {
+    "english": "I would never do that to you.",
+    "spanish": "Nunca te haría eso."
+  },
+  {
+    "english": "You can count on me.",
+    "spanish": "Puedes contar conmigo."
+  },
+  {
+    "english": "I'm looking forward to seeing you.",
+    "spanish": "Tengo muchas ganas de verte."
+  },
+  {
+    "english": "I can't wait for the weekend.",
+    "spanish": "No veo la hora de que llegue el fin de semana."
+  },
+  {
+    "english": "Let's see what happens.",
+    "spanish": "Veamos qué pasa."
+  },
+  {
+    "english": "There's still time to change our plans.",
+    "spanish": "Todavía hay tiempo para cambiar nuestros planes."
+  },
+  {
+    "english": "We have to make a decision today.",
+    "spanish": "Tenemos que tomar una decisión hoy."
+  },
+  {
+    "english": "It took me a while to understand.",
+    "spanish": "Me tomó un tiempo entenderlo."
+  },
+  {
+    "english": "I didn't expect things to turn out this way.",
+    "spanish": "No esperaba que las cosas terminaran así."
+  },
+  {
+    "english": "The sooner we start, the sooner we'll finish.",
+    "spanish": "Cuanto antes empecemos, antes terminaremos."
+  },
+  {
+    "english": "Even though I was tired, I kept working.",
+    "spanish": "Aunque estaba cansado, seguí trabajando."
+  },
+  {
+    "english": "I would like to know more about your country.",
+    "spanish": "Me gustaría saber más sobre tu país."
+  },
+  {
+    "english": "I need to find a place to stay.",
+    "spanish": "Necesito encontrar un lugar donde quedarme."
+  },
+  {
+    "english": "We are trying to save money for a house.",
+    "spanish": "Estamos tratando de ahorrar dinero para una casa."
+  },
+  {
+    "english": "She forgot to bring her identification.",
+    "spanish": "Ella olvidó traer su identificación."
+  },
+  {
+    "english": "He promised that he would be there.",
+    "spanish": "Él prometió que estaría allí."
+  },
+  {
+    "english": "I don't remember his phone number.",
+    "spanish": "No recuerdo su número de teléfono."
+  },
+  {
+    "english": "Do you remember what she said?",
+    "spanish": "¿Te acuerdas de lo que dijo?"
+  },
+  {
+    "english": "I wonder if they are still open.",
+    "spanish": "Me pregunto si todavía están abiertos."
+  },
+  {
+    "english": "It seems that nobody knows the answer.",
+    "spanish": "Parece que nadie sabe la respuesta."
+  },
+  {
+    "english": "I would like to know how you did it.",
+    "spanish": "Me gustaría saber cómo lo hiciste."
+  },
+  {
+    "english": "You should tell her how you feel.",
+    "spanish": "Deberías decirle cómo te sientes."
+  },
+  {
+    "english": "You don't have to come if you are busy.",
+    "spanish": "No tienes que venir si estás ocupado."
+  },
+  {
+    "english": "You must be tired after such a long trip.",
+    "spanish": "Debes de estar cansado después de un viaje tan largo."
+  },
+  {
+    "english": "I might go out later if the weather improves.",
+    "spanish": "Tal vez salga más tarde si mejora el clima."
+  },
+  {
+    "english": "We may need to change the date.",
+    "spanish": "Puede que tengamos que cambiar la fecha."
+  },
+  {
+    "english": "He can speak three languages.",
+    "spanish": "Él sabe hablar tres idiomas."
+  },
+  {
+    "english": "I couldn't sleep because of the noise.",
+    "spanish": "No pude dormir por el ruido."
+  },
+  {
+    "english": "She knows how to drive, but she doesn't have a car.",
+    "spanish": "Ella sabe manejar, pero no tiene carro."
+  },
+  {
+    "english": "I forgot that today was your day off.",
+    "spanish": "Olvidé que hoy era tu día libre."
+  },
+  {
+    "english": "I thought you were going to stay longer.",
+    "spanish": "Pensé que ibas a quedarte más tiempo."
+  },
+  {
+    "english": "We were hoping you could come.",
+    "spanish": "Esperábamos que pudieras venir."
+  },
+  {
+    "english": "I had to cancel the appointment.",
+    "spanish": "Tuve que cancelar la cita."
+  },
+  {
+    "english": "They have been working here for a long time.",
+    "spanish": "Ellos llevan mucho tiempo trabajando aquí."
+  },
+  {
+    "english": "I've been trying to reach you all day.",
+    "spanish": "He estado tratando de comunicarme contigo todo el día."
+  },
+  {
+    "english": "She has already told me about it.",
+    "spanish": "Ella ya me ha hablado de eso."
+  },
+  {
+    "english": "Have they called you back?",
+    "spanish": "¿Te han devuelto la llamada?"
+  },
+  {
+    "english": "Nobody told me that the meeting was canceled.",
+    "spanish": "Nadie me dijo que se había cancelado la reunión."
+  },
+  {
+    "english": "The problem was caused by a small mistake.",
+    "spanish": "El problema fue causado por un pequeño error."
+  },
+  {
+    "english": "This place was built more than a hundred years ago.",
+    "spanish": "Este lugar fue construido hace más de cien años."
+  },
+  {
+    "english": "The documents need to be signed today.",
+    "spanish": "Los documentos tienen que firmarse hoy."
+  },
+  {
+    "english": "The package will be delivered tomorrow.",
+    "spanish": "El paquete será entregado mañana."
+  },
+  {
+    "english": "I was told that the office was closed.",
+    "spanish": "Me dijeron que la oficina estaba cerrada."
+  },
+  {
+    "english": "They say that the food here is excellent.",
+    "spanish": "Dicen que la comida de aquí es excelente."
+  },
+  {
+    "english": "It is said that this is the oldest building in town.",
+    "spanish": "Se dice que este es el edificio más antiguo del pueblo."
+  },
+  {
+    "english": "People speak Spanish in many countries.",
+    "spanish": "Se habla español en muchos países."
+  },
+  {
+    "english": "This word is used in everyday conversation.",
+    "spanish": "Esta palabra se usa en la conversación diaria."
+  },
+  {
+    "english": "The door was left open all night.",
+    "spanish": "La puerta quedó abierta toda la noche."
+  },
+  {
+    "english": "My car needs to be repaired.",
+    "spanish": "Mi carro necesita reparación."
+  },
+  {
+    "english": "The house is being painted this week.",
+    "spanish": "La casa se está pintando esta semana."
+  },
+  {
+    "english": "I had my hair cut yesterday.",
+    "spanish": "Ayer me corté el pelo."
+  },
+  {
+    "english": "She made me laugh.",
+    "spanish": "Ella me hizo reír."
+  },
+  {
+    "english": "That song reminds me of my childhood.",
+    "spanish": "Esa canción me recuerda a mi infancia."
+  },
+  {
+    "english": "This tastes different from what I expected.",
+    "spanish": "Esto sabe diferente de lo que esperaba."
+  },
+  {
+    "english": "It smells like someone is cooking.",
+    "spanish": "Huele como si alguien estuviera cocinando."
+  },
+  {
+    "english": "I feel like going for a walk.",
+    "spanish": "Tengo ganas de salir a caminar."
+  },
+  {
+    "english": "I don't feel like cooking tonight.",
+    "spanish": "No tengo ganas de cocinar esta noche."
+  },
+  {
+    "english": "It is getting easier to understand people.",
+    "spanish": "Cada vez me resulta más fácil entender a la gente."
+  },
+  {
+    "english": "I'm having trouble opening this file.",
+    "spanish": "Tengo problemas para abrir este archivo."
+  },
+  {
+    "english": "She is good at explaining difficult things.",
+    "spanish": "Ella es buena para explicar cosas difíciles."
+  },
+  {
+    "english": "I'm interested in learning about local history.",
+    "spanish": "Me interesa aprender sobre la historia local."
+  },
+  {
+    "english": "He is afraid of flying.",
+    "spanish": "Él tiene miedo de volar."
+  },
+  {
+    "english": "I'm proud of what we have achieved.",
+    "spanish": "Estoy orgulloso de lo que hemos logrado."
+  },
+  {
+    "english": "I'm tired of having the same conversation.",
+    "spanish": "Estoy cansado de tener la misma conversación."
+  },
+  {
+    "english": "This is different from what we discussed.",
+    "spanish": "Esto es diferente de lo que hablamos."
+  },
+  {
+    "english": "The restaurant is known for its seafood.",
+    "spanish": "El restaurante es conocido por sus mariscos."
+  },
+  {
+    "english": "I have nothing against your idea.",
+    "spanish": "No tengo nada en contra de tu idea."
+  },
+  {
+    "english": "She is looking forward to her vacation.",
+    "spanish": "Ella espera con muchas ganas sus vacaciones."
+  },
+  {
+    "english": "We are responsible for our own decisions.",
+    "spanish": "Somos responsables de nuestras propias decisiones."
+  },
+  {
+    "english": "He is interested in working abroad.",
+    "spanish": "A él le interesa trabajar en el extranjero."
+  },
+  {
+    "english": "I would prefer to do it another way.",
+    "spanish": "Preferiría hacerlo de otra manera."
+  },
+  {
+    "english": "It is difficult to explain in a few words.",
+    "spanish": "Es difícil explicarlo en pocas palabras."
+  },
+  {
+    "english": "I need someone to help me move the furniture.",
+    "spanish": "Necesito a alguien que me ayude a mover los muebles."
+  },
+  {
+    "english": "There are several ways to solve this problem.",
+    "spanish": "Hay varias maneras de resolver este problema."
+  },
+  {
+    "english": "I don't have anything else to add.",
+    "spanish": "No tengo nada más que agregar."
+  },
+  {
+    "english": "That's something we should discuss later.",
+    "spanish": "Eso es algo que deberíamos hablar más tarde."
+  },
+  {
+    "english": "The person who called you is waiting outside.",
+    "spanish": "La persona que te llamó está esperando afuera."
+  },
+  {
+    "english": "I met a woman whose son studies with my daughter.",
+    "spanish": "Conocí a una mujer cuyo hijo estudia con mi hija."
+  },
+  {
+    "english": "This is the best coffee I've ever had.",
+    "spanish": "Este es el mejor café que he probado."
+  },
+  {
+    "english": "It's one of the most beautiful places I've seen.",
+    "spanish": "Es uno de los lugares más hermosos que he visto."
+  },
+  {
+    "english": "Nobody knows exactly what will happen.",
+    "spanish": "Nadie sabe exactamente qué va a pasar."
+  },
+  {
+    "english": "Whatever happens, we'll deal with it together.",
+    "spanish": "Pase lo que pase, lo resolveremos juntos."
+  },
+  {
+    "english": "No matter how hard it is, don't give up.",
+    "spanish": "Por difícil que sea, no te rindas."
+  },
+  {
+    "english": "I will go unless you need me here.",
+    "spanish": "Iré a menos que me necesites aquí."
+  },
+  {
+    "english": "As long as you are happy, I'm happy.",
+    "spanish": "Mientras seas feliz, yo estoy feliz."
+  },
+  {
+    "english": "I stayed home because I wasn't feeling well.",
+    "spanish": "Me quedé en casa porque no me sentía bien."
+  },
+  {
+    "english": "I left early so that I wouldn't miss the train.",
+    "spanish": "Salí temprano para no perder el tren."
+  },
+  {
+    "english": "We went out even though it was raining.",
+    "spanish": "Salimos aunque estaba lloviendo."
+  },
+  {
+    "english": "He speaks as if he knew everything.",
+    "spanish": "Habla como si lo supiera todo."
+  },
+  {
+    "english": "Before you decide, think about the consequences.",
+    "spanish": "Antes de decidir, piensa en las consecuencias."
+  },
+  {
+    "english": "After we finish eating, let's go for a walk.",
+    "spanish": "Después de que terminemos de comer, vamos a caminar."
+  },
+  {
+    "english": "While you were sleeping, I made breakfast.",
+    "spanish": "Mientras dormías, preparé el desayuno."
+  },
+  {
+    "english": "Since you're already here, come in.",
+    "spanish": "Ya que estás aquí, pasa."
+  },
+  {
+    "english": "I will do it whenever I have a chance.",
+    "spanish": "Lo haré siempre que tenga oportunidad."
+  },
+  {
+    "english": "We can start once everyone is ready.",
+    "spanish": "Podemos empezar una vez que todos estén listos."
+  },
+  {
+    "english": "I don't know whether to stay or leave.",
+    "spanish": "No sé si quedarme o irme."
+  },
+  {
+    "english": "Tell me if you need anything.",
+    "spanish": "Dime si necesitas algo."
+  },
+  {
+    "english": "I wonder what they are talking about.",
+    "spanish": "Me pregunto de qué están hablando."
+  },
+  {
+    "english": "Do you know where I can change money?",
+    "spanish": "¿Sabes dónde puedo cambiar dinero?"
+  },
+  {
+    "english": "Could you tell me how to get to the station?",
+    "spanish": "¿Me podría decir cómo llegar a la estación?"
+  },
+  {
+    "english": "I was wondering whether you were available.",
+    "spanish": "Quería saber si estabas disponible."
+  },
+  {
+    "english": "Would it be possible to move the meeting?",
+    "spanish": "¿Sería posible cambiar la hora de la reunión?"
+  },
+  {
+    "english": "There is no need to hurry.",
+    "spanish": "No hace falta apurarse."
+  },
+  {
+    "english": "It is better to be safe than sorry.",
+    "spanish": "Más vale prevenir que lamentar."
+  },
+  {
+    "english": "I have to admit that I was wrong.",
+    "spanish": "Tengo que admitir que me equivoqué."
+  },
+  {
+    "english": "You are free to do whatever you want.",
+    "spanish": "Eres libre de hacer lo que quieras."
+  },
+  {
+    "english": "I don't know what else to say.",
+    "spanish": "No sé qué más decir."
+  },
+  {
+    "english": "That reminds me of something I wanted to ask.",
+    "spanish": "Eso me recuerda algo que quería preguntar."
+  },
+  {
+    "english": "I was about to leave when you arrived.",
+    "spanish": "Estaba a punto de salir cuando llegaste."
+  },
+  {
+    "english": "We ended up staying longer than planned.",
+    "spanish": "Terminamos quedándonos más tiempo de lo previsto."
+  },
+  {
+    "english": "I ran into an old friend at the market.",
+    "spanish": "Me encontré con un viejo amigo en el mercado."
+  },
+  {
+    "english": "Please pass me the salt.",
+    "spanish": "Pásame la sal, por favor."
+  },
+  {
+    "english": "Could you give me a hand with this?",
+    "spanish": "¿Me echas una mano con esto?"
+  },
+  {
+    "english": "Let me take a look.",
+    "spanish": "Déjame echar un vistazo."
+  },
+  {
+    "english": "I'll take care of it.",
+    "spanish": "Yo me encargo."
+  },
+  {
+    "english": "Don't take it personally.",
+    "spanish": "No te lo tomes como algo personal."
+  },
+  {
+    "english": "Keep in mind that things can change.",
+    "spanish": "Ten en cuenta que las cosas pueden cambiar."
+  },
+  {
+    "english": "It depends on how much time we have.",
+    "spanish": "Depende de cuánto tiempo tengamos."
+  },
+  {
+    "english": "We are running out of time.",
+    "spanish": "Se nos está acabando el tiempo."
+  },
+  {
+    "english": "I have to get used to the new schedule.",
+    "spanish": "Tengo que acostumbrarme al nuevo horario."
+  },
+  {
+    "english": "She got used to living alone.",
+    "spanish": "Ella se acostumbró a vivir sola."
+  },
+  {
+    "english": "I can't get this song out of my head.",
+    "spanish": "No puedo sacarme esta canción de la cabeza."
+  },
+  {
+    "english": "He took the opportunity to ask for a raise.",
+    "spanish": "Él aprovechó la oportunidad para pedir un aumento."
+  },
+  {
+    "english": "I ended up buying the blue one.",
+    "spanish": "Al final compré el azul."
+  },
+  {
+    "english": "The meeting went better than expected.",
+    "spanish": "La reunión salió mejor de lo esperado."
+  },
+  {
+    "english": "Everything is ready except for the drinks.",
+    "spanish": "Todo está listo excepto las bebidas."
+  },
+  {
+    "english": "There were so many people that we couldn't get in.",
+    "spanish": "Había tanta gente que no pudimos entrar."
+  },
+  {
+    "english": "I have been meaning to talk to you.",
+    "spanish": "Hace tiempo que quiero hablar contigo."
+  },
+  {
+    "english": "It's not worth arguing about something so small.",
+    "spanish": "No vale la pena discutir por algo tan pequeño."
+  },
+  {
+    "english": "You can leave your things here for now.",
+    "spanish": "Puedes dejar tus cosas aquí por ahora."
+  },
+  {
+    "english": "I would appreciate it if you could help me.",
+    "spanish": "Te agradecería que pudieras ayudarme."
+  },
+  {
+    "english": "Would you mind waiting outside for a moment?",
+    "spanish": "¿Te importaría esperar afuera un momento?"
+  },
+  {
+    "english": "I hope you don't mind my asking.",
+    "spanish": "Espero que no te moleste que te pregunte."
+  },
+  {
+    "english": "I'm sorry to hear that.",
+    "spanish": "Lamento escuchar eso."
+  },
+  {
+    "english": "What a surprise to see you here!",
+    "spanish": "¡Qué sorpresa verte aquí!"
+  },
+  {
+    "english": "That was very kind of you.",
+    "spanish": "Fue muy amable de tu parte."
+  },
+  {
+    "english": "You shouldn't have gone to so much trouble.",
+    "spanish": "No debiste tomarte tantas molestias."
+  },
+  {
+    "english": "It's up to you.",
+    "spanish": "Tú decides."
+  },
+  {
+    "english": "It's none of my business.",
+    "spanish": "No es asunto mío."
+  },
+  {
+    "english": "That's beside the point.",
+    "spanish": "Eso no viene al caso."
+  },
+  {
+    "english": "I see what you mean.",
+    "spanish": "Entiendo lo que quieres decir."
+  },
+  {
+    "english": "Now it makes sense.",
+    "spanish": "Ahora tiene sentido."
+  },
+  {
+    "english": "That doesn't make any sense.",
+    "spanish": "Eso no tiene ningún sentido."
+  },
+  {
+    "english": "I can't afford to waste any more time.",
+    "spanish": "No puedo darme el lujo de perder más tiempo."
+  },
+  {
+    "english": "We are almost there.",
+    "spanish": "Ya casi llegamos."
+  },
+  {
+    "english": "I have no choice but to accept it.",
+    "spanish": "No me queda otra opción que aceptarlo."
+  },
+  {
+    "english": "I would do anything to help my family.",
+    "spanish": "Haría cualquier cosa para ayudar a mi familia."
+  },
+  {
+    "english": "The important thing is not to give up.",
+    "spanish": "Lo importante es no rendirse."
+  },
+  {
+    "english": "Let's make the most of the day.",
+    "spanish": "Aprovechemos el día al máximo."
+  },
+  {
+    "english": "I haven't made any plans for tonight.",
+    "spanish": "No he hecho planes para esta noche."
+  },
+  {
+    "english": "Do you want me to come with you?",
+    "spanish": "¿Quieres que vaya contigo?"
+  },
+  {
+    "english": "I would rather you told me the truth.",
+    "spanish": "Preferiría que me dijeras la verdad."
+  },
+  {
+    "english": "It's possible that he forgot.",
+    "spanish": "Es posible que se le haya olvidado."
+  },
+  {
+    "english": "I doubt that she is telling the whole truth.",
+    "spanish": "Dudo que esté diciendo toda la verdad."
+  },
+  {
+    "english": "I'm afraid we won't have enough time.",
+    "spanish": "Me temo que no tendremos suficiente tiempo."
+  },
+  {
+    "english": "I'm sure you'll do a great job.",
+    "spanish": "Estoy seguro de que harás un excelente trabajo."
+  },
+  {
+    "english": "It looks as though they are getting ready to leave.",
+    "spanish": "Parece que se están preparando para salir."
+  },
+  {
+    "english": "The more you listen, the more you understand.",
+    "spanish": "Cuanto más escuchas, más entiendes."
+  },
+  {
+    "english": "Neither of us wants to make the same mistake again.",
+    "spanish": "Ninguno de los dos quiere volver a cometer el mismo error."
+  },
+  {
+    "english": "Not only did he arrive late, but he also forgot the papers.",
+    "spanish": "No solo llegó tarde, sino que también olvidó los documentos."
+  },
+  {
+    "english": "I would like to introduce you to my friend.",
+    "spanish": "Me gustaría presentarte a mi amigo."
+  },
+  {
+    "english": "Let me know when you are ready.",
+    "spanish": "Avísame cuando estés listo."
+  },
+  {
+    "english": "Please don't hesitate to contact me.",
+    "spanish": "No dudes en ponerte en contacto conmigo."
+  },
+  {
+    "english": "We haven't seen each other since the party.",
+    "spanish": "No nos hemos visto desde la fiesta."
+  },
+  {
+    "english": "I haven't decided yet whether I'm going.",
+    "spanish": "Todavía no he decidido si voy a ir."
+  },
+  {
+    "english": "I wish you all the best.",
+    "spanish": "Te deseo lo mejor."
+  },
+  {
+    "english": "May everything go well for you.",
+    "spanish": "Que todo te salga bien."
+  },
+  {
+    "english": "Have a nice weekend.",
+    "spanish": "Que tengas un buen fin de semana."
+  },
+  {
+    "english": "Take care of yourself.",
+    "spanish": "Cuídate."
+  },
+  {
+    "english": "I usually call my mother before work.",
+    "spanish": "Normalmente llamar a mi mamá antes del trabajo."
+  },
+  {
+    "english": "I usually buy some food before work.",
+    "spanish": "Normalmente comprar comida antes del trabajo."
+  },
+  {
+    "english": "I usually clean the house before work.",
+    "spanish": "Normalmente limpiar la casa antes del trabajo."
+  },
+  {
+    "english": "I usually visit my friends before work.",
+    "spanish": "Normalmente visitar a mis amigos antes del trabajo."
+  },
+  {
+    "english": "I usually finish the work before work.",
+    "spanish": "Normalmente terminar el trabajo antes del trabajo."
+  },
+  {
+    "english": "I usually ask a question before work.",
+    "spanish": "Normalmente hacer una pregunta antes del trabajo."
+  },
+  {
+    "english": "I usually make dinner before work.",
+    "spanish": "Normalmente preparar la cena antes del trabajo."
+  },
+  {
+    "english": "I usually take a walk before work.",
+    "spanish": "Normalmente dar un paseo antes del trabajo."
+  },
+  {
+    "english": "I usually read the news before work.",
+    "spanish": "Normalmente leer las noticias antes del trabajo."
+  },
+  {
+    "english": "I usually learn something new before work.",
+    "spanish": "Normalmente aprender algo nuevo antes del trabajo."
+  },
+  {
+    "english": "I usually send the message before work.",
+    "spanish": "Normalmente enviar el mensaje antes del trabajo."
+  },
+  {
+    "english": "I usually pay the bill before work.",
+    "spanish": "Normalmente pagar la cuenta antes del trabajo."
+  },
+  {
+    "english": "I usually open the window before work.",
+    "spanish": "Normalmente abrir la ventana antes del trabajo."
+  },
+  {
+    "english": "I usually close the store before work.",
+    "spanish": "Normalmente cerrar la tienda antes del trabajo."
+  },
+  {
+    "english": "I usually check the address before work.",
+    "spanish": "Normalmente revisar la dirección antes del trabajo."
+  },
+  {
+    "english": "I usually find a solution before work.",
+    "spanish": "Normalmente encontrar una solución antes del trabajo."
+  },
+  {
+    "english": "I usually practice Spanish before work.",
+    "spanish": "Normalmente practicar español antes del trabajo."
+  },
+  {
+    "english": "I usually write an email before work.",
+    "spanish": "Normalmente escribir un correo antes del trabajo."
+  },
+  {
+    "english": "I usually take the bus before work.",
+    "spanish": "Normalmente tomar el autobús antes del trabajo."
+  },
+  {
+    "english": "I usually prepare breakfast before work.",
+    "spanish": "Normalmente preparar el desayuno antes del trabajo."
+  },
+  {
+    "english": "I have to call my mother after lunch.",
+    "spanish": "Tengo que llamar a mi mamá después del almuerzo."
+  },
+  {
+    "english": "I have to buy some food after lunch.",
+    "spanish": "Tengo que comprar comida después del almuerzo."
+  },
+  {
+    "english": "I have to clean the house after lunch.",
+    "spanish": "Tengo que limpiar la casa después del almuerzo."
+  },
+  {
+    "english": "I have to visit my friends after lunch.",
+    "spanish": "Tengo que visitar a mis amigos después del almuerzo."
+  },
+  {
+    "english": "I have to finish the work after lunch.",
+    "spanish": "Tengo que terminar el trabajo después del almuerzo."
+  },
+  {
+    "english": "I have to ask a question after lunch.",
+    "spanish": "Tengo que hacer una pregunta después del almuerzo."
+  },
+  {
+    "english": "I have to make dinner after lunch.",
+    "spanish": "Tengo que preparar la cena después del almuerzo."
+  },
+  {
+    "english": "I have to take a walk after lunch.",
+    "spanish": "Tengo que dar un paseo después del almuerzo."
+  },
+  {
+    "english": "I have to read the news after lunch.",
+    "spanish": "Tengo que leer las noticias después del almuerzo."
+  },
+  {
+    "english": "I have to learn something new after lunch.",
+    "spanish": "Tengo que aprender algo nuevo después del almuerzo."
+  },
+  {
+    "english": "I have to send the message after lunch.",
+    "spanish": "Tengo que enviar el mensaje después del almuerzo."
+  },
+  {
+    "english": "I have to pay the bill after lunch.",
+    "spanish": "Tengo que pagar la cuenta después del almuerzo."
+  },
+  {
+    "english": "I have to open the window after lunch.",
+    "spanish": "Tengo que abrir la ventana después del almuerzo."
+  },
+  {
+    "english": "I have to close the store after lunch.",
+    "spanish": "Tengo que cerrar la tienda después del almuerzo."
+  },
+  {
+    "english": "I have to check the address after lunch.",
+    "spanish": "Tengo que revisar la dirección después del almuerzo."
+  },
+  {
+    "english": "I have to find a solution after lunch.",
+    "spanish": "Tengo que encontrar una solución después del almuerzo."
+  },
+  {
+    "english": "I have to practice Spanish after lunch.",
+    "spanish": "Tengo que practicar español después del almuerzo."
+  },
+  {
+    "english": "I have to write an email after lunch.",
+    "spanish": "Tengo que escribir un correo después del almuerzo."
+  },
+  {
+    "english": "I have to take the bus after lunch.",
+    "spanish": "Tengo que tomar el autobús después del almuerzo."
+  },
+  {
+    "english": "I have to prepare breakfast after lunch.",
+    "spanish": "Tengo que preparar el desayuno después del almuerzo."
+  },
+  {
+    "english": "Could you call my mother for me, please?",
+    "spanish": "¿Podrías llamar a mi mamá por mí, por favor?"
+  },
+  {
+    "english": "Could you buy some food for me, please?",
+    "spanish": "¿Podrías comprar comida por mí, por favor?"
+  },
+  {
+    "english": "Could you clean the house for me, please?",
+    "spanish": "¿Podrías limpiar la casa por mí, por favor?"
+  },
+  {
+    "english": "Could you visit my friends for me, please?",
+    "spanish": "¿Podrías visitar a mis amigos por mí, por favor?"
+  },
+  {
+    "english": "Could you finish the work for me, please?",
+    "spanish": "¿Podrías terminar el trabajo por mí, por favor?"
+  },
+  {
+    "english": "Could you ask a question for me, please?",
+    "spanish": "¿Podrías hacer una pregunta por mí, por favor?"
+  },
+  {
+    "english": "Could you make dinner for me, please?",
+    "spanish": "¿Podrías preparar la cena por mí, por favor?"
+  },
+  {
+    "english": "Could you take a walk for me, please?",
+    "spanish": "¿Podrías dar un paseo por mí, por favor?"
+  },
+  {
+    "english": "Could you read the news for me, please?",
+    "spanish": "¿Podrías leer las noticias por mí, por favor?"
+  },
+  {
+    "english": "Could you learn something new for me, please?",
+    "spanish": "¿Podrías aprender algo nuevo por mí, por favor?"
+  },
+  {
+    "english": "Could you send the message for me, please?",
+    "spanish": "¿Podrías enviar el mensaje por mí, por favor?"
+  },
+  {
+    "english": "Could you pay the bill for me, please?",
+    "spanish": "¿Podrías pagar la cuenta por mí, por favor?"
+  },
+  {
+    "english": "Could you open the window for me, please?",
+    "spanish": "¿Podrías abrir la ventana por mí, por favor?"
+  },
+  {
+    "english": "Could you close the store for me, please?",
+    "spanish": "¿Podrías cerrar la tienda por mí, por favor?"
+  },
+  {
+    "english": "Could you check the address for me, please?",
+    "spanish": "¿Podrías revisar la dirección por mí, por favor?"
+  },
+  {
+    "english": "Could you find a solution for me, please?",
+    "spanish": "¿Podrías encontrar una solución por mí, por favor?"
+  },
+  {
+    "english": "Could you practice Spanish for me, please?",
+    "spanish": "¿Podrías practicar español por mí, por favor?"
+  },
+  {
+    "english": "Could you write an email for me, please?",
+    "spanish": "¿Podrías escribir un correo por mí, por favor?"
+  },
+  {
+    "english": "Could you take the bus for me, please?",
+    "spanish": "¿Podrías tomar el autobús por mí, por favor?"
+  },
+  {
+    "english": "Could you prepare breakfast for me, please?",
+    "spanish": "¿Podrías preparar el desayuno por mí, por favor?"
+  },
+  {
+    "english": "We are going to call my mother tomorrow.",
+    "spanish": "Vamos a llamar a mi mamá mañana."
+  },
+  {
+    "english": "We are going to buy some food tomorrow.",
+    "spanish": "Vamos a comprar comida mañana."
+  },
+  {
+    "english": "We are going to clean the house tomorrow.",
+    "spanish": "Vamos a limpiar la casa mañana."
+  },
+  {
+    "english": "We are going to visit my friends tomorrow.",
+    "spanish": "Vamos a visitar a mis amigos mañana."
+  },
+  {
+    "english": "We are going to finish the work tomorrow.",
+    "spanish": "Vamos a terminar el trabajo mañana."
+  },
+  {
+    "english": "We are going to ask a question tomorrow.",
+    "spanish": "Vamos a hacer una pregunta mañana."
+  },
+  {
+    "english": "We are going to make dinner tomorrow.",
+    "spanish": "Vamos a preparar la cena mañana."
+  },
+  {
+    "english": "We are going to take a walk tomorrow.",
+    "spanish": "Vamos a dar un paseo mañana."
+  },
+  {
+    "english": "We are going to read the news tomorrow.",
+    "spanish": "Vamos a leer las noticias mañana."
+  },
+  {
+    "english": "We are going to learn something new tomorrow.",
+    "spanish": "Vamos a aprender algo nuevo mañana."
+  },
+  {
+    "english": "We are going to send the message tomorrow.",
+    "spanish": "Vamos a enviar el mensaje mañana."
+  },
+  {
+    "english": "We are going to pay the bill tomorrow.",
+    "spanish": "Vamos a pagar la cuenta mañana."
+  },
+  {
+    "english": "We are going to open the window tomorrow.",
+    "spanish": "Vamos a abrir la ventana mañana."
+  },
+  {
+    "english": "We are going to close the store tomorrow.",
+    "spanish": "Vamos a cerrar la tienda mañana."
+  },
+  {
+    "english": "We are going to check the address tomorrow.",
+    "spanish": "Vamos a revisar la dirección mañana."
+  },
+  {
+    "english": "We are going to find a solution tomorrow.",
+    "spanish": "Vamos a encontrar una solución mañana."
+  },
+  {
+    "english": "We are going to practice Spanish tomorrow.",
+    "spanish": "Vamos a practicar español mañana."
+  },
+  {
+    "english": "We are going to write an email tomorrow.",
+    "spanish": "Vamos a escribir un correo mañana."
+  },
+  {
+    "english": "We are going to take the bus tomorrow.",
+    "spanish": "Vamos a tomar el autobús mañana."
+  },
+  {
+    "english": "We are going to prepare breakfast tomorrow.",
+    "spanish": "Vamos a preparar el desayuno mañana."
+  },
+  {
+    "english": "Yesterday I had to call my mother because of the problem.",
+    "spanish": "Ayer tuve que llamar a mi mamá por el problema."
+  },
+  {
+    "english": "Yesterday I had to buy some food because of the problem.",
+    "spanish": "Ayer tuve que comprar comida por el problema."
+  },
+  {
+    "english": "Yesterday I had to clean the house because of the problem.",
+    "spanish": "Ayer tuve que limpiar la casa por el problema."
+  },
+  {
+    "english": "Yesterday I had to visit my friends because of the problem.",
+    "spanish": "Ayer tuve que visitar a mis amigos por el problema."
+  },
+  {
+    "english": "Yesterday I had to finish the work because of the problem.",
+    "spanish": "Ayer tuve que terminar el trabajo por el problema."
+  },
+  {
+    "english": "Yesterday I had to ask a question because of the problem.",
+    "spanish": "Ayer tuve que hacer una pregunta por el problema."
+  },
+  {
+    "english": "Yesterday I had to make dinner because of the problem.",
+    "spanish": "Ayer tuve que preparar la cena por el problema."
+  },
+  {
+    "english": "Yesterday I had to take a walk because of the problem.",
+    "spanish": "Ayer tuve que dar un paseo por el problema."
+  },
+  {
+    "english": "Yesterday I had to read the news because of the problem.",
+    "spanish": "Ayer tuve que leer las noticias por el problema."
+  },
+  {
+    "english": "Yesterday I had to learn something new because of the problem.",
+    "spanish": "Ayer tuve que aprender algo nuevo por el problema."
+  },
+  {
+    "english": "Yesterday I had to send the message because of the problem.",
+    "spanish": "Ayer tuve que enviar el mensaje por el problema."
+  },
+  {
+    "english": "Yesterday I had to pay the bill because of the problem.",
+    "spanish": "Ayer tuve que pagar la cuenta por el problema."
+  },
+  {
+    "english": "Yesterday I had to open the window because of the problem.",
+    "spanish": "Ayer tuve que abrir la ventana por el problema."
+  },
+  {
+    "english": "Yesterday I had to close the store because of the problem.",
+    "spanish": "Ayer tuve que cerrar la tienda por el problema."
+  },
+  {
+    "english": "Yesterday I had to check the address because of the problem.",
+    "spanish": "Ayer tuve que revisar la dirección por el problema."
+  },
+  {
+    "english": "Yesterday I had to find a solution because of the problem.",
+    "spanish": "Ayer tuve que encontrar una solución por el problema."
+  },
+  {
+    "english": "Yesterday I had to practice Spanish because of the problem.",
+    "spanish": "Ayer tuve que practicar español por el problema."
+  },
+  {
+    "english": "Yesterday I had to write an email because of the problem.",
+    "spanish": "Ayer tuve que escribir un correo por el problema."
+  },
+  {
+    "english": "Yesterday I had to take the bus because of the problem.",
+    "spanish": "Ayer tuve que tomar el autobús por el problema."
+  },
+  {
+    "english": "Yesterday I had to prepare breakfast because of the problem.",
+    "spanish": "Ayer tuve que preparar el desayuno por el problema."
+  },
+  {
+    "english": "I would like to call my mother when I have more time.",
+    "spanish": "Me gustaría llamar a mi mamá cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to buy some food when I have more time.",
+    "spanish": "Me gustaría comprar comida cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to clean the house when I have more time.",
+    "spanish": "Me gustaría limpiar la casa cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to visit my friends when I have more time.",
+    "spanish": "Me gustaría visitar a mis amigos cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to finish the work when I have more time.",
+    "spanish": "Me gustaría terminar el trabajo cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to ask a question when I have more time.",
+    "spanish": "Me gustaría hacer una pregunta cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to make dinner when I have more time.",
+    "spanish": "Me gustaría preparar la cena cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to take a walk when I have more time.",
+    "spanish": "Me gustaría dar un paseo cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to read the news when I have more time.",
+    "spanish": "Me gustaría leer las noticias cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to learn something new when I have more time.",
+    "spanish": "Me gustaría aprender algo nuevo cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to send the message when I have more time.",
+    "spanish": "Me gustaría enviar el mensaje cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to pay the bill when I have more time.",
+    "spanish": "Me gustaría pagar la cuenta cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to open the window when I have more time.",
+    "spanish": "Me gustaría abrir la ventana cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to close the store when I have more time.",
+    "spanish": "Me gustaría cerrar la tienda cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to check the address when I have more time.",
+    "spanish": "Me gustaría revisar la dirección cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to find a solution when I have more time.",
+    "spanish": "Me gustaría encontrar una solución cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to practice Spanish when I have more time.",
+    "spanish": "Me gustaría practicar español cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to write an email when I have more time.",
+    "spanish": "Me gustaría escribir un correo cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to take the bus when I have more time.",
+    "spanish": "Me gustaría tomar el autobús cuando tenga más tiempo."
+  },
+  {
+    "english": "I would like to prepare breakfast when I have more time.",
+    "spanish": "Me gustaría preparar el desayuno cuando tenga más tiempo."
+  },
+  {
+    "english": "I'm on my way.",
+    "spanish": "Ya voy."
+  },
+  {
+    "english": "I'm almost ready.",
+    "spanish": "Ya casi estoy listo."
+  },
+  {
+    "english": "Wait for me here.",
+    "spanish": "Espérame aquí."
+  },
+  {
+    "english": "I'll be right back.",
+    "spanish": "Regreso enseguida."
+  },
+  {
+    "english": "That sounds good.",
+    "spanish": "Eso suena bien."
+  },
+  {
+    "english": "That sounds difficult.",
+    "spanish": "Eso suena difícil."
+  },
+  {
+    "english": "I don't mind.",
+    "spanish": "No me molesta."
+  },
+  {
+    "english": "Neither do I.",
+    "spanish": "A mí tampoco."
+  },
+  {
+    "english": "Me neither.",
+    "spanish": "Yo tampoco."
+  },
+  {
+    "english": "Me too.",
+    "spanish": "Yo también."
+  },
+  {
+    "english": "Not yet.",
+    "spanish": "Todavía no."
+  },
+  {
+    "english": "Maybe later.",
+    "spanish": "Tal vez más tarde."
+  },
+  {
+    "english": "It doesn't matter.",
+    "spanish": "No importa."
+  },
+  {
+    "english": "Be right there.",
+    "spanish": "Ya voy para allá."
+  },
+  {
+    "english": "That's enough.",
+    "spanish": "Es suficiente."
+  },
+  {
+    "english": "One moment, please.",
+    "spanish": "Un momento, por favor."
+  },
+  {
+    "english": "No problem at all.",
+    "spanish": "No hay ningún problema."
+  },
+  {
+    "english": "Of course not.",
+    "spanish": "Claro que no."
+  },
+  {
+    "english": "Of course.",
+    "spanish": "Por supuesto."
+  },
+  {
+    "english": "I hope so.",
+    "spanish": "Eso espero."
+  },
+  {
+    "english": "I don't think so.",
+    "spanish": "No lo creo."
+  },
+  {
+    "english": "I guess so.",
+    "spanish": "Supongo que sí."
+  },
+  {
+    "english": "What a shame!",
+    "spanish": "¡Qué lástima!"
+  },
+  {
+    "english": "What a mess!",
+    "spanish": "¡Qué desastre!"
+  },
+  {
+    "english": "Good luck!",
+    "spanish": "¡Buena suerte!"
+  },
+  {
+    "english": "Be careful!",
+    "spanish": "¡Ten cuidado!"
+  },
+  {
+    "english": "Watch out!",
+    "spanish": "¡Cuidado!"
+  },
+  {
+    "english": "Come in.",
+    "spanish": "Pasa."
+  },
+  {
+    "english": "Make yourself comfortable.",
+    "spanish": "Ponte cómodo."
+  },
+  {
+    "english": "Let's go.",
+    "spanish": "Vamos."
+  },
+  {
+    "english": "Let's do it.",
+    "spanish": "Hagámoslo."
+  },
+  {
+    "english": "Here you go.",
+    "spanish": "Aquí tienes."
+  },
+  {
+    "english": "There you are.",
+    "spanish": "Ahí estás."
+  },
+  {
+    "english": "I see.",
+    "spanish": "Ya veo."
+  },
+  {
+    "english": "I get it now.",
+    "spanish": "Ahora lo entiendo."
+  },
+  {
+    "english": "I have to run.",
+    "spanish": "Tengo que irme."
+  },
+  {
+    "english": "I'm just kidding.",
+    "spanish": "Solo estoy bromeando."
+  },
+  {
+    "english": "Are you serious?",
+    "spanish": "¿Hablas en serio?"
+  },
+  {
+    "english": "You never know.",
+    "spanish": "Nunca se sabe."
+  },
+  {
+    "english": "That's too bad.",
+    "spanish": "Qué mal."
+  },
+  {
+    "english": "It could be worse.",
+    "spanish": "Podría ser peor."
+  },
+  {
+    "english": "It was my fault.",
+    "spanish": "Fue mi culpa."
+  },
+  {
+    "english": "Don't mention it.",
+    "spanish": "No hay de qué."
+  },
+  {
+    "english": "After you.",
+    "spanish": "Después de ti."
+  },
+  {
+    "english": "This way, please.",
+    "spanish": "Por aquí, por favor."
+  },
+  {
+    "english": "The same as always.",
+    "spanish": "Lo mismo de siempre."
+  },
+  {
+    "english": "As soon as possible.",
+    "spanish": "Lo antes posible."
+  },
+  {
+    "english": "Little by little.",
+    "spanish": "Poco a poco."
+  },
+  {
+    "english": "From time to time.",
+    "spanish": "De vez en cuando."
+  },
+  {
+    "english": "At least we tried.",
+    "spanish": "Al menos lo intentamos."
+  },
+  {
+    "english": "For now, that's all.",
+    "spanish": "Por ahora, eso es todo."
+  },
+  {
+    "english": "I'll think about it.",
+    "spanish": "Lo voy a pensar."
+  },
+  {
+    "english": "I hope you're right.",
+    "spanish": "Espero que tengas razón."
+  },
+  {
+    "english": "That's a good question.",
+    "spanish": "Es una buena pregunta."
+  },
+  {
+    "english": "I hadn't thought of that.",
+    "spanish": "No había pensado en eso."
+  },
+  {
+    "english": "It depends.",
+    "spanish": "Depende."
+  },
+  {
+    "english": "I'm not in a hurry.",
+    "spanish": "No tengo prisa."
+  },
+  {
+    "english": "I'm running late.",
+    "spanish": "Voy retrasado."
+  },
+  {
+    "english": "I'm in a hurry.",
+    "spanish": "Tengo prisa."
+  },
+  {
+    "english": "I feel at home here.",
+    "spanish": "Aquí me siento como en casa."
+  },
+  {
+    "english": "Could you turn the music down a little?",
+    "spanish": "¿Podrías bajar un poco la música?"
+  },
+  {
+    "english": "I left the house without my umbrella.",
+    "spanish": "Salí de casa sin mi paraguas."
+  },
+  {
+    "english": "The weather changed suddenly.",
+    "spanish": "El clima cambió de repente."
+  },
+  {
+    "english": "We need to leave before the stores close.",
+    "spanish": "Tenemos que salir antes de que cierren las tiendas."
+  },
+  {
+    "english": "I will wait here until you come back.",
+    "spanish": "Esperaré aquí hasta que regreses."
+  },
+  {
+    "english": "She asked me to call her later.",
+    "spanish": "Ella me pidió que la llamara más tarde."
+  },
+  {
+    "english": "I told him that I couldn't go.",
+    "spanish": "Le dije que no podía ir."
+  },
+  {
+    "english": "They invited us to spend the holidays with them.",
+    "spanish": "Nos invitaron a pasar las vacaciones con ellos."
+  },
+  {
+    "english": "I don't know anyone in this neighborhood.",
+    "spanish": "No conozco a nadie en este barrio."
+  },
+  {
+    "english": "There are too many things to do today.",
+    "spanish": "Hay demasiadas cosas que hacer hoy."
+  },
+  {
+    "english": "I need a little more information before deciding.",
+    "spanish": "Necesito un poco más de información antes de decidir."
+  },
+  {
+    "english": "Could you explain the difference between these two words?",
+    "spanish": "¿Podrías explicar la diferencia entre estas dos palabras?"
+  },
+  {
+    "english": "I keep making the same mistake.",
+    "spanish": "Sigo cometiendo el mismo error."
+  },
+  {
+    "english": "She has been studying Spanish for six months.",
+    "spanish": "Ella lleva seis meses estudiando español."
+  },
+  {
+    "english": "We have to get up early tomorrow.",
+    "spanish": "Tenemos que levantarnos temprano mañana."
+  },
+  {
+    "english": "I would like to stay, but I have to work.",
+    "spanish": "Me gustaría quedarme, pero tengo que trabajar."
+  },
+  {
+    "english": "If you need anything, just ask.",
+    "spanish": "Si necesitas algo, solo tienes que pedirlo."
+  },
+  {
+    "english": "Don't worry about what other people think.",
+    "spanish": "No te preocupes por lo que piensen los demás."
+  },
+  {
+    "english": "I wish it were easier to find a good apartment.",
+    "spanish": "Ojalá fuera más fácil encontrar un buen departamento."
+  },
+  {
+    "english": "It's important to listen carefully.",
+    "spanish": "Es importante escuchar con atención."
+  },
+  {
+    "english": "The meeting was shorter than I expected.",
+    "spanish": "La reunión fue más corta de lo que esperaba."
+  },
+  {
+    "english": "I haven't had time to look at it.",
+    "spanish": "No he tenido tiempo de revisarlo."
+  },
+  {
+    "english": "We should ask someone who knows the area.",
+    "spanish": "Deberíamos preguntarle a alguien que conozca la zona."
+  },
+  {
+    "english": "I don't want to bother you.",
+    "spanish": "No quiero molestarte."
+  },
+  {
+    "english": "She offered to help us with the move.",
+    "spanish": "Ella se ofreció a ayudarnos con la mudanza."
+  },
+  {
+    "english": "He seems to be in a hurry.",
+    "spanish": "Parece que tiene prisa."
+  },
+  {
+    "english": "The children have already gone to bed.",
+    "spanish": "Los niños ya se acostaron."
+  },
+  {
+    "english": "I will call you when I know something.",
+    "spanish": "Te llamaré cuando sepa algo."
+  },
+  {
+    "english": "I don't know how long we will have to wait.",
+    "spanish": "No sé cuánto tiempo tendremos que esperar."
+  },
+  {
+    "english": "We can talk about it over coffee.",
+    "spanish": "Podemos hablar de eso tomando un café."
+  },
+  {
+    "english": "I usually check my phone before I leave.",
+    "spanish": "Normalmente reviso mi teléfono antes de salir."
+  },
+  {
+    "english": "I usually check the keys before I leave.",
+    "spanish": "Normalmente reviso las llaves antes de salir."
+  },
+  {
+    "english": "I usually check the documents before I leave.",
+    "spanish": "Normalmente reviso los documentos antes de salir."
+  },
+  {
+    "english": "I usually check the groceries before I leave.",
+    "spanish": "Normalmente reviso las compras antes de salir."
+  },
+  {
+    "english": "I usually check my glasses before I leave.",
+    "spanish": "Normalmente reviso mis lentes antes de salir."
+  },
+  {
+    "english": "I usually check the tickets before I leave.",
+    "spanish": "Normalmente reviso los boletos antes de salir."
+  },
+  {
+    "english": "I usually check the address before I leave.",
+    "spanish": "Normalmente reviso la dirección antes de salir."
+  },
+  {
+    "english": "I usually check the medicine before I leave.",
+    "spanish": "Normalmente reviso el medicamento antes de salir."
+  },
+  {
+    "english": "I usually check the book before I leave.",
+    "spanish": "Normalmente reviso el libro antes de salir."
+  },
+  {
+    "english": "I usually check the newspaper before I leave.",
+    "spanish": "Normalmente reviso el periódico antes de salir."
+  },
+  {
+    "english": "I usually check the charger before I leave.",
+    "spanish": "Normalmente reviso el cargador antes de salir."
+  },
+  {
+    "english": "I usually check the water before I leave.",
+    "spanish": "Normalmente reviso el agua antes de salir."
+  },
+  {
+    "english": "I usually check the package before I leave.",
+    "spanish": "Normalmente reviso el paquete antes de salir."
+  },
+  {
+    "english": "I usually check the umbrella before I leave.",
+    "spanish": "Normalmente reviso el paraguas antes de salir."
+  },
+  {
+    "english": "I usually check the map before I leave.",
+    "spanish": "Normalmente reviso el mapa antes de salir."
+  },
+  {
+    "english": "I left my phone in the car.",
+    "spanish": "Dejé mi teléfono en el carro."
+  },
+  {
+    "english": "I left the keys in the car.",
+    "spanish": "Dejé las llaves en el carro."
+  },
+  {
+    "english": "I left the documents in the car.",
+    "spanish": "Dejé los documentos en el carro."
+  },
+  {
+    "english": "I left the groceries in the car.",
+    "spanish": "Dejé las compras en el carro."
+  },
+  {
+    "english": "I left my glasses in the car.",
+    "spanish": "Dejé mis lentes en el carro."
+  },
+  {
+    "english": "I left the tickets in the car.",
+    "spanish": "Dejé los boletos en el carro."
+  },
+  {
+    "english": "I left the address in the car.",
+    "spanish": "Dejé la dirección en el carro."
+  },
+  {
+    "english": "I left the medicine in the car.",
+    "spanish": "Dejé el medicamento en el carro."
+  },
+  {
+    "english": "I left the book in the car.",
+    "spanish": "Dejé el libro en el carro."
+  },
+  {
+    "english": "I left the newspaper in the car.",
+    "spanish": "Dejé el periódico en el carro."
+  },
+  {
+    "english": "I left the charger in the car.",
+    "spanish": "Dejé el cargador en el carro."
+  },
+  {
+    "english": "I left the water in the car.",
+    "spanish": "Dejé el agua en el carro."
+  },
+  {
+    "english": "I left the package in the car.",
+    "spanish": "Dejé el paquete en el carro."
+  },
+  {
+    "english": "I left the umbrella in the car.",
+    "spanish": "Dejé el paraguas en el carro."
+  },
+  {
+    "english": "I left the map in the car.",
+    "spanish": "Dejé el mapa en el carro."
+  },
+  {
+    "english": "Please put my phone on the table.",
+    "spanish": "Por favor, pon mi teléfono sobre la mesa."
+  },
+  {
+    "english": "Please put the keys on the table.",
+    "spanish": "Por favor, pon las llaves sobre la mesa."
+  },
+  {
+    "english": "Please put the documents on the table.",
+    "spanish": "Por favor, pon los documentos sobre la mesa."
+  },
+  {
+    "english": "Please put the groceries on the table.",
+    "spanish": "Por favor, pon las compras sobre la mesa."
+  },
+  {
+    "english": "Please put my glasses on the table.",
+    "spanish": "Por favor, pon mis lentes sobre la mesa."
+  },
+  {
+    "english": "Please put the tickets on the table.",
+    "spanish": "Por favor, pon los boletos sobre la mesa."
+  },
+  {
+    "english": "Please put the address on the table.",
+    "spanish": "Por favor, pon la dirección sobre la mesa."
+  },
+  {
+    "english": "Please put the medicine on the table.",
+    "spanish": "Por favor, pon el medicamento sobre la mesa."
+  },
+  {
+    "english": "Please put the book on the table.",
+    "spanish": "Por favor, pon el libro sobre la mesa."
+  },
+  {
+    "english": "Please put the newspaper on the table.",
+    "spanish": "Por favor, pon el periódico sobre la mesa."
+  },
+  {
+    "english": "Please put the charger on the table.",
+    "spanish": "Por favor, pon el cargador sobre la mesa."
+  },
+  {
+    "english": "Please put the water on the table.",
+    "spanish": "Por favor, pon el agua sobre la mesa."
+  },
+  {
+    "english": "Please put the package on the table.",
+    "spanish": "Por favor, pon el paquete sobre la mesa."
+  },
+  {
+    "english": "Please put the umbrella on the table.",
+    "spanish": "Por favor, pon el paraguas sobre la mesa."
+  },
+  {
+    "english": "Please put the map on the table.",
+    "spanish": "Por favor, pon el mapa sobre la mesa."
+  },
+  {
+    "english": "I need to buy my phone today.",
+    "spanish": "Necesito comprar mi teléfono hoy."
+  },
+  {
+    "english": "I need to buy the keys today.",
+    "spanish": "Necesito comprar las llaves hoy."
+  },
+  {
+    "english": "I need to buy the documents today.",
+    "spanish": "Necesito comprar los documentos hoy."
+  },
+  {
+    "english": "I need to buy the groceries today.",
+    "spanish": "Necesito comprar las compras hoy."
+  },
+  {
+    "english": "I need to buy my glasses today.",
+    "spanish": "Necesito comprar mis lentes hoy."
+  },
+  {
+    "english": "I need to buy the tickets today.",
+    "spanish": "Necesito comprar los boletos hoy."
+  },
+  {
+    "english": "I need to buy the address today.",
+    "spanish": "Necesito comprar la dirección hoy."
+  },
+  {
+    "english": "I need to buy the medicine today.",
+    "spanish": "Necesito comprar el medicamento hoy."
+  },
+  {
+    "english": "I need to buy the book today.",
+    "spanish": "Necesito comprar el libro hoy."
+  },
+  {
+    "english": "I need to buy the newspaper today.",
+    "spanish": "Necesito comprar el periódico hoy."
+  },
+  {
+    "english": "I need to buy the charger today.",
+    "spanish": "Necesito comprar el cargador hoy."
+  },
+  {
+    "english": "I need to buy the water today.",
+    "spanish": "Necesito comprar el agua hoy."
+  },
+  {
+    "english": "I need to buy the package today.",
+    "spanish": "Necesito comprar el paquete hoy."
+  },
+  {
+    "english": "I need to buy the umbrella today.",
+    "spanish": "Necesito comprar el paraguas hoy."
+  },
+  {
+    "english": "I need to buy the map today.",
+    "spanish": "Necesito comprar el mapa hoy."
+  },
+  {
+    "english": "I put my phone on the desk.",
+    "spanish": "Puse mi teléfono sobre el escritorio."
+  },
+  {
+    "english": "She left her bag under the chair.",
+    "spanish": "Ella dejó su bolsa debajo de la silla."
+  },
+  {
+    "english": "We are waiting outside the restaurant.",
+    "spanish": "Estamos esperando afuera del restaurante."
+  },
+  {
+    "english": "He works near the city center.",
+    "spanish": "Él trabaja cerca del centro de la ciudad."
+  },
+  {
+    "english": "The children are running around the house.",
+    "spanish": "Los niños están corriendo por la casa."
+  },
+  {
+    "english": "I need to talk to you about something.",
+    "spanish": "Necesito hablar contigo sobre algo."
+  },
+  {
+    "english": "They are coming back from the beach.",
+    "spanish": "Ellos están regresando de la playa."
+  },
+  {
+    "english": "I have to pick up my sister at the station.",
+    "spanish": "Tengo que recoger a mi hermana en la estación."
+  },
+  {
+    "english": "We stopped at a small store on the way.",
+    "spanish": "Paramos en una tienda pequeña durante el camino."
+  },
+  {
+    "english": "She looked at me without saying anything.",
+    "spanish": "Ella me miró sin decir nada."
+  },
+  {
+    "english": "He asked for help, but nobody heard him.",
+    "spanish": "Pidió ayuda, pero nadie lo escuchó."
+  },
+  {
+    "english": "I learned that expression from a friend.",
+    "spanish": "Aprendí esa expresión de un amigo."
+  },
+  {
+    "english": "We talked until it was time to go.",
+    "spanish": "Hablamos hasta que llegó la hora de irnos."
+  },
+  {
+    "english": "The dog is sleeping next to the sofa.",
+    "spanish": "El perro está durmiendo junto al sofá."
+  },
+  {
+    "english": "Put the clean towels in the bathroom.",
+    "spanish": "Pon las toallas limpias en el baño."
+  },
+  {
+    "english": "I left the documents inside the drawer.",
+    "spanish": "Dejé los documentos dentro del cajón."
+  },
+  {
+    "english": "The children are sitting in front of the television.",
+    "spanish": "Los niños están sentados frente al televisor."
+  },
+  {
+    "english": "There is a small garden behind the house.",
+    "spanish": "Hay un jardín pequeño detrás de la casa."
+  },
+  {
+    "english": "The bus stop is right around the corner.",
+    "spanish": "La parada de autobús está a la vuelta de la esquina."
+  },
+  {
+    "english": "We walked from the hotel to the beach.",
+    "spanish": "Caminamos desde el hotel hasta la playa."
+  },
+  {
+    "english": "I haven't spoken to her since Monday.",
+    "spanish": "No he hablado con ella desde el lunes."
+  },
+  {
+    "english": "He has worked here for more than ten years.",
+    "spanish": "Él ha trabajado aquí durante más de diez años."
+  },
+  {
+    "english": "We will stay at home during the storm.",
+    "spanish": "Nos quedaremos en casa durante la tormenta."
+  },
+  {
+    "english": "She usually goes to work by bicycle.",
+    "spanish": "Ella normalmente va al trabajo en bicicleta."
+  },
+  {
+    "english": "I came here with my family.",
+    "spanish": "Vine aquí con mi familia."
+  },
+  {
+    "english": "They went to the market without us.",
+    "spanish": "Fueron al mercado sin nosotros."
+  },
+  {
+    "english": "I need to speak with the manager.",
+    "spanish": "Necesito hablar con el gerente."
+  },
+  {
+    "english": "This gift is for you.",
+    "spanish": "Este regalo es para ti."
+  },
+  {
+    "english": "That bag belongs to my cousin.",
+    "spanish": "Esa bolsa es de mi primo."
+  },
+  {
+    "english": "The meeting starts in a few minutes.",
+    "spanish": "La reunión empieza en unos minutos."
+  },
+  {
+    "english": "I'll be there in about twenty minutes.",
+    "spanish": "Estaré allí en unos veinte minutos."
+  },
+  {
+    "english": "We have been here since early morning.",
+    "spanish": "Estamos aquí desde temprano por la mañana."
+  },
+  {
+    "english": "I usually work until five in the afternoon.",
+    "spanish": "Normalmente trabajo hasta las cinco de la tarde."
+  },
+  {
+    "english": "She came back before dinner.",
+    "spanish": "Ella regresó antes de la cena."
+  },
+  {
+    "english": "Let's meet after the movie.",
+    "spanish": "Encontrémonos después de la película."
+  },
+  {
+    "english": "He walked across the street to talk to us.",
+    "spanish": "Él cruzó la calle para hablar con nosotros."
+  },
+  {
+    "english": "The pharmacy is next to the supermarket.",
+    "spanish": "La farmacia está al lado del supermercado."
+  },
+  {
+    "english": "There is a bank near the bus station.",
+    "spanish": "Hay un banco cerca de la terminal de autobuses."
+  },
+  {
+    "english": "I left my coat at your house.",
+    "spanish": "Dejé mi abrigo en tu casa."
+  },
+  {
+    "english": "We drove through the mountains all day.",
+    "spanish": "Manejamos por las montañas todo el día."
+  },
+  {
+    "english": "She looked for her glasses everywhere.",
+    "spanish": "Ella buscó sus lentes por todas partes."
+  },
+  {
+    "english": "I will think about your suggestion.",
+    "spanish": "Voy a pensar en tu sugerencia."
+  },
+  {
+    "english": "He apologized to me for being late.",
+    "spanish": "Él me pidió disculpas por llegar tarde."
+  },
+  {
+    "english": "I asked her to wait for a moment.",
+    "spanish": "Le pedí que esperara un momento."
+  },
+  {
+    "english": "They invited us to their wedding.",
+    "spanish": "Nos invitaron a su boda."
+  },
+  {
+    "english": "I sent the photos to my parents.",
+    "spanish": "Les envié las fotos a mis padres."
+  },
+  {
+    "english": "Can you explain this to me?",
+    "spanish": "¿Me puedes explicar esto?"
+  },
+  {
+    "english": "I bought a present for my nephew.",
+    "spanish": "Compré un regalo para mi sobrino."
+  },
+  {
+    "english": "She made breakfast for everyone.",
+    "spanish": "Ella preparó el desayuno para todos."
+  },
+  {
+    "english": "He opened the door for the guests.",
+    "spanish": "Él abrió la puerta para los invitados."
+  },
+  {
+    "english": "I saved a seat for you.",
+    "spanish": "Te guardé un lugar."
+  },
+  {
+    "english": "We need to look after the house while they are away.",
+    "spanish": "Tenemos que cuidar la casa mientras ellos están fuera."
+  },
+  {
+    "english": "I'll take care of the reservations.",
+    "spanish": "Yo me encargo de las reservaciones."
+  },
+  {
+    "english": "She is afraid of making a mistake.",
+    "spanish": "Ella tiene miedo de cometer un error."
+  },
+  {
+    "english": "I'm happy with the way things are going.",
+    "spanish": "Estoy contento con cómo van las cosas."
+  },
+  {
+    "english": "He is worried about his exam.",
+    "spanish": "Él está preocupado por su examen."
+  },
+  {
+    "english": "Are you interested in taking a class?",
+    "spanish": "¿Te interesa tomar una clase?"
+  },
+  {
+    "english": "I'm responsible for organizing the event.",
+    "spanish": "Soy responsable de organizar el evento."
+  },
+  {
+    "english": "She is tired of waiting for the bus.",
+    "spanish": "Ella está cansada de esperar el autobús."
+  },
+  {
+    "english": "We are excited about our new apartment.",
+    "spanish": "Estamos emocionados por nuestro nuevo departamento."
+  },
+  {
+    "english": "I'm sorry for the confusion.",
+    "spanish": "Perdón por la confusión."
+  },
+  {
+    "english": "Thank you for coming all this way.",
+    "spanish": "Gracias por venir desde tan lejos."
+  },
+  {
+    "english": "He is famous for his sense of humor.",
+    "spanish": "Él es famoso por su sentido del humor."
+  },
+  {
+    "english": "This area is full of small restaurants.",
+    "spanish": "Esta zona está llena de restaurantes pequeños."
+  },
+  {
+    "english": "The streets are crowded because of the festival.",
+    "spanish": "Las calles están llenas de gente por el festival."
+  },
+  {
+    "english": "I need to get some air.",
+    "spanish": "Necesito tomar un poco de aire."
+  },
+  {
+    "english": "Let's get together sometime next week.",
+    "spanish": "Reunámonos algún día de la próxima semana."
+  },
+  {
+    "english": "I don't want to miss the beginning.",
+    "spanish": "No quiero perderme el comienzo."
+  },
+  {
+    "english": "She managed to finish everything on time.",
+    "spanish": "Ella logró terminar todo a tiempo."
+  },
+  {
+    "english": "We decided to wait a little longer.",
+    "spanish": "Decidimos esperar un poco más."
+  },
+  {
+    "english": "He refused to answer the question.",
+    "spanish": "Él se negó a responder la pregunta."
+  },
+  {
+    "english": "I promised to help them.",
+    "spanish": "Prometí ayudarlos."
+  },
+  {
+    "english": "They offered to drive us home.",
+    "spanish": "Se ofrecieron a llevarnos a casa."
+  },
+  {
+    "english": "I forgot to tell you the good news.",
+    "spanish": "Se me olvidó contarte las buenas noticias."
+  },
+  {
+    "english": "Remember to bring your identification.",
+    "spanish": "Acuérdate de traer tu identificación."
+  },
+  {
+    "english": "I stopped to get some water.",
+    "spanish": "Me detuve para comprar agua."
+  },
+  {
+    "english": "She kept talking even after the meeting ended.",
+    "spanish": "Ella siguió hablando incluso después de que terminó la reunión."
+  },
+  {
+    "english": "We finished eating and paid the bill.",
+    "spanish": "Terminamos de comer y pagamos la cuenta."
+  },
+  {
+    "english": "He started learning Spanish last year.",
+    "spanish": "Él empezó a aprender español el año pasado."
+  },
+  {
+    "english": "I hope to visit Peru one day.",
+    "spanish": "Espero visitar Perú algún día."
+  },
+  {
+    "english": "They plan to travel around South America.",
+    "spanish": "Planean viajar por Sudamérica."
+  },
+  {
+    "english": "I prefer staying in small hotels.",
+    "spanish": "Prefiero hospedarme en hoteles pequeños."
+  },
+  {
+    "english": "She suggested going out for dinner.",
+    "spanish": "Ella sugirió salir a cenar."
+  },
+  {
+    "english": "I enjoy spending time with my friends.",
+    "spanish": "Disfruto pasar tiempo con mis amigos."
+  },
+  {
+    "english": "He avoids talking about politics.",
+    "spanish": "Él evita hablar de política."
+  },
+  {
+    "english": "We need to decide what to do next.",
+    "spanish": "Tenemos que decidir qué hacer después."
+  },
+  {
+    "english": "I don't know what to wear tonight.",
+    "spanish": "No sé qué ponerme esta noche."
+  },
+  {
+    "english": "Tell me where you want to go.",
+    "spanish": "Dime adónde quieres ir."
+  },
+  {
+    "english": "Show me how you did it.",
+    "spanish": "Muéstrame cómo lo hiciste."
+  },
+  {
+    "english": "I understand why you are upset.",
+    "spanish": "Entiendo por qué estás molesto."
+  },
+  {
+    "english": "Nobody knows when she will return.",
+    "spanish": "Nadie sabe cuándo regresará."
+  },
+  {
+    "english": "I wonder who left this here.",
+    "spanish": "Me pregunto quién dejó esto aquí."
+  },
+  {
+    "english": "Do you remember which street it was?",
+    "spanish": "¿Recuerdas qué calle era?"
+  },
+  {
+    "english": "I don't know whether he is coming.",
+    "spanish": "No sé si él va a venir."
+  },
+  {
+    "english": "She asked me if I needed anything.",
+    "spanish": "Ella me preguntó si necesitaba algo."
+  },
+  {
+    "english": "He said that he would call later.",
+    "spanish": "Él dijo que llamaría más tarde."
+  },
+  {
+    "english": "I thought you had already eaten.",
+    "spanish": "Pensé que ya habías comido."
+  },
+  {
+    "english": "We didn't realize how late it was.",
+    "spanish": "No nos dimos cuenta de lo tarde que era."
+  },
+  {
+    "english": "I was happy that you could come.",
+    "spanish": "Me alegró que pudieras venir."
+  },
+  {
+    "english": "It surprised me that nobody complained.",
+    "spanish": "Me sorprendió que nadie se quejara."
+  },
+  {
+    "english": "I hope they find what they are looking for.",
+    "spanish": "Espero que encuentren lo que están buscando."
+  },
+  {
+    "english": "It's possible that we will arrive late.",
+    "spanish": "Es posible que lleguemos tarde."
+  },
+  {
+    "english": "I don't believe that he is telling the truth.",
+    "spanish": "No creo que esté diciendo la verdad."
+  },
+  {
+    "english": "She wants us to stay for dinner.",
+    "spanish": "Ella quiere que nos quedemos a cenar."
+  },
+  {
+    "english": "My parents prefer that I call before visiting.",
+    "spanish": "Mis padres prefieren que llame antes de visitarlos."
+  },
+  {
+    "english": "It's important that everyone understand the rules.",
+    "spanish": "Es importante que todos entiendan las reglas."
+  },
+  {
+    "english": "I suggest that we leave early.",
+    "spanish": "Sugiero que salgamos temprano."
+  },
+  {
+    "english": "I wish you were here with us.",
+    "spanish": "Ojalá estuvieras aquí con nosotros."
+  },
+  {
+    "english": "If I had more time, I would learn another language.",
+    "spanish": "Si tuviera más tiempo, aprendería otro idioma."
+  },
+  {
+    "english": "If we leave now, we will arrive before dark.",
+    "spanish": "Si salimos ahora, llegaremos antes de que oscurezca."
+  },
+  {
+    "english": "If you had asked me, I would have helped you.",
+    "spanish": "Si me lo hubieras pedido, te habría ayudado."
+  },
+  {
+    "english": "If it weren't so expensive, I would buy it.",
+    "spanish": "Si no fuera tan caro, lo compraría."
+  },
+  {
+    "english": "Unless something changes, we'll meet at six.",
+    "spanish": "A menos que algo cambie, nos veremos a las seis."
+  },
+  {
+    "english": "Even if it's difficult, I want to try.",
+    "spanish": "Aunque sea difícil, quiero intentarlo."
+  },
+  {
+    "english": "As soon as she arrives, we'll begin.",
+    "spanish": "En cuanto llegue, empezaremos."
+  },
+  {
+    "english": "When you have a moment, call me.",
+    "spanish": "Cuando tengas un momento, llámame."
+  },
+  {
+    "english": "Before leaving, make sure the windows are closed.",
+    "spanish": "Antes de irte, asegúrate de que las ventanas estén cerradas."
+  },
+  {
+    "english": "After finishing work, I went straight home.",
+    "spanish": "Después de terminar el trabajo, fui directamente a casa."
+  },
+  {
+    "english": "While I was waiting, I read a magazine.",
+    "spanish": "Mientras esperaba, leí una revista."
+  },
+  {
+    "english": "Since we have time, let's have another coffee.",
+    "spanish": "Como tenemos tiempo, tomemos otro café."
+  },
+  {
+    "english": "Although I was nervous, I gave the presentation.",
+    "spanish": "Aunque estaba nervioso, hice la presentación."
+  },
+  {
+    "english": "He speaks slowly so that everyone can understand.",
+    "spanish": "Él habla despacio para que todos puedan entender."
+  },
+  {
+    "english": "I brought an umbrella in case it rains.",
+    "spanish": "Traje un paraguas por si llueve."
+  },
+  {
+    "english": "We can go wherever you want.",
+    "spanish": "Podemos ir adonde quieras."
+  },
+  {
+    "english": "You can borrow my car as long as you drive carefully.",
+    "spanish": "Puedes usar mi carro siempre que manejes con cuidado."
+  },
+  {
+    "english": "No matter what happens, call me.",
+    "spanish": "Pase lo que pase, llámame."
+  },
+  {
+    "english": "The more I think about it, the less I like the idea.",
+    "spanish": "Cuanto más lo pienso, menos me gusta la idea."
+  },
+  {
+    "english": "This is much easier than I thought.",
+    "spanish": "Esto es mucho más fácil de lo que pensaba."
+  },
+  {
+    "english": "She is as tall as her brother.",
+    "spanish": "Ella es tan alta como su hermano."
+  },
+  {
+    "english": "He is the youngest person in the office.",
+    "spanish": "Él es la persona más joven de la oficina."
+  },
+  {
+    "english": "Today is one of the busiest days of the year.",
+    "spanish": "Hoy es uno de los días más ocupados del año."
+  },
+  {
+    "english": "There are fewer people here than yesterday.",
+    "spanish": "Hay menos gente aquí que ayer."
+  },
+  {
+    "english": "I have as much work as you do.",
+    "spanish": "Tengo tanto trabajo como tú."
+  },
+  {
+    "english": "We don't have enough chairs for everyone.",
+    "spanish": "No tenemos suficientes sillas para todos."
+  },
+  {
+    "english": "There is too much sugar in this coffee.",
+    "spanish": "Hay demasiada azúcar en este café."
+  },
+  {
+    "english": "I need a little help with this exercise.",
+    "spanish": "Necesito un poco de ayuda con este ejercicio."
+  },
+  {
+    "english": "Most people prefer to pay by card.",
+    "spanish": "La mayoría de la gente prefiere pagar con tarjeta."
+  },
+  {
+    "english": "Some of my friends live abroad.",
+    "spanish": "Algunos de mis amigos viven en el extranjero."
+  },
+  {
+    "english": "Neither answer is completely correct.",
+    "spanish": "Ninguna de las dos respuestas es completamente correcta."
+  },
+  {
+    "english": "Both options are good.",
+    "spanish": "Las dos opciones son buenas."
+  },
+  {
+    "english": "Each person needs to bring an identification card.",
+    "spanish": "Cada persona tiene que traer una identificación."
+  },
+  {
+    "english": "Everything is going according to plan.",
+    "spanish": "Todo va según lo planeado."
+  },
+  {
+    "english": "Something is wrong with the computer.",
+    "spanish": "Algo anda mal con la computadora."
+  },
+  {
+    "english": "Someone left their phone on the table.",
+    "spanish": "Alguien dejó su teléfono sobre la mesa."
+  },
+  {
+    "english": "Nobody was waiting for us.",
+    "spanish": "Nadie nos estaba esperando."
+  },
+  {
+    "english": "I have nowhere to put these boxes.",
+    "spanish": "No tengo dónde poner estas cajas."
+  },
+  {
+    "english": "There is nothing better than a quiet morning.",
+    "spanish": "No hay nada mejor que una mañana tranquila."
+  },
+  {
+    "english": "I need to find out what time it starts.",
+    "spanish": "Necesito averiguar a qué hora empieza."
+  },
+  {
+    "english": "Let's find out how much it costs.",
+    "spanish": "Averigüemos cuánto cuesta."
+  },
+  {
+    "english": "I will explain everything from the beginning.",
+    "spanish": "Voy a explicar todo desde el principio."
+  },
+  {
+    "english": "We should start with the most important part.",
+    "spanish": "Deberíamos empezar por la parte más importante."
+  },
+  {
+    "english": "Please read the question carefully.",
+    "spanish": "Por favor, lee la pregunta con atención."
+  },
+  {
+    "english": "I didn't understand the last sentence.",
+    "spanish": "No entendí la última oración."
+  },
+  {
+    "english": "Could you give me an example?",
+    "spanish": "¿Me podrías dar un ejemplo?"
+  },
+  {
+    "english": "That word has several different meanings.",
+    "spanish": "Esa palabra tiene varios significados diferentes."
+  },
+  {
+    "english": "I need to improve my pronunciation.",
+    "spanish": "Necesito mejorar mi pronunciación."
+  },
+  {
+    "english": "I can understand the main idea, but not every detail.",
+    "spanish": "Puedo entender la idea principal, pero no todos los detalles."
+  },
+  {
+    "english": "I try to review new words every evening.",
+    "spanish": "Trato de repasar las palabras nuevas todas las noches."
+  }
+]

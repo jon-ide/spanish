@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English → Spanish Practice</title>
+<style>
+  :root {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --primary: #007aff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --border: #d2d2d7;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 16px;
+    line-height: 1.4;
+  }
+  h1 { font-size: 1.5rem; margin-bottom: 8px; }
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  label { display: block; font-weight: 500; margin: 8px 0 4px; }
+  input, textarea, select, button {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  textarea { min-height: 60px; resize: vertical; }
+  button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+  button:hover { opacity: 0.9; }
+  button.secondary { background: #e5e5ea; color: var(--text); }
+  button.danger { background: #ff3b30; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .row > * { flex: 1; min-width: 120px; }
+  .sentence-item {
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+  }
+  .sentence-item:last-child { border-bottom: none; }
+  .num { font-weight: bold; color: var(--primary); margin-right: 8px; }
+  .controls { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+  .status { font-size: 0.9rem; color: var(--muted); margin: 8px 0; min-height: 1.2em; }
+  .playing { background: #e8f4ff; }
+  @media (min-width: 600px) {
+    body { max-width: 800px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+<h1>English → Spanish (Latin American) Practice</h1>
+<p class="status" id="status">Ready. Data is stored locally in this browser.</p>
+
+<div class="card">
+  <h2>Add Sentence</h2>
+  <label for="englishInput">English sentence</label>
+  <textarea id="englishInput" placeholder="Type or paste an English sentence..."></textarea>
+  <div class="row">
+    <button id="translateBtn">Translate on-device</button>
+    <button id="addBtn" class="secondary">Add as-is (edit later)</button>
+  </div>
+  <label for="spanishPreview">Spanish translation (editable)</label>
+  <textarea id="spanishPreview" placeholder="Translation will appear here..."></textarea>
+  <button id="saveBtn">Save Sentence</button>
+</div>
+
+<div class="card">
+  <h2>Practice Settings</h2>
+  <div class="row">
+    <div>
+      <label for="pauseEn">Pause after English (seconds)</label>
+      <input type="number" id="pauseEn" value="3" min="0" max="30" step="0.5">
+    </div>
+    <div>
+      <label for="pauseEs">Pause after Spanish (seconds)</label>
+      <input type="number" id="pauseEs" value="3" min="0" max="30" step="0.5">
+    </div>
+    <div>
+      <label for="rate">Spanish speech speed (1 = normal)</label>
+      <input type="number" id="rate" value="1" min="0.5" max="1.5" step="0.05">
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <label for="enVoice">English voice</label>
+      <select id="enVoice"><option value="">Loading voices...</option></select>
+    </div>
+    <div>
+      <label for="esVoice">Spanish voice</label>
+      <select id="esVoice"><option value="">Loading voices...</option></select>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <label for="rangeStart">Start sentence #</label>
+      <input type="number" id="rangeStart" value="1" min="1">
+    </div>
+    <div>
+      <label for="rangeEnd">End sentence #</label>
+      <input type="number" id="rangeEnd" value="999" min="1">
+    </div>
+  </div>
+  <div class="row">
+    <button id="playAllBtn">Play All (loop)</button>
+    <button id="playRangeBtn">Play Range (loop)</button>
+    <button id="resumeBtn" class="secondary">Resume Play</button>
+    <button id="stopBtn" class="danger">Stop</button>
+  </div>
+  <div class="row" style="margin-top: 12px;">
+    <div style="flex: 1;">
+      <label>Currently playing (English)</label>
+      <div id="currentEn" style="border: 1px solid var(--border); border-radius: 6px; padding: 10px; min-height: 3.2em; background: var(--bg); white-space: pre-wrap;">—</div>
+    </div>
+    <div style="flex: 1;">
+      <label>Currently playing (Spanish)</label>
+      <div id="currentEs" style="border: 1px solid var(--border); border-radius: 6px; padding: 10px; min-height: 3.2em; background: var(--bg); white-space: pre-wrap;">—</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Sentences (<span id="count">0</span>)</h2>
+  <div class="controls">
+    <button id="exportBtn" class="secondary">Export JSON</button>
+    <button id="importBtn" class="secondary">Import JSON</button>
+    <input type="file" id="importFile" accept=".json" style="display:none">
+    <button id="clearBtn" class="danger secondary">Clear All</button>
+  </div>
+  <div id="list"></div>
+</div>
+
+<script type="module">
+import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2';
+
+// Allow remote models
+env.allowLocalModels = false;
+
+let sentences = JSON.parse(localStorage.getItem('sentences') || '[]');
+let translator = null;
+let isPlaying = false;
+let stopRequested = false;
+let currentIndex = -1;
+let lastPlayedIndex = parseInt(localStorage.getItem('lastPlayedIndex') || '-1', 10);
+
+const statusEl = document.getElementById('status');
+const listEl = document.getElementById('list');
+const countEl = document.getElementById('count');
+const englishInput = document.getElementById('englishInput');
+const spanishPreview = document.getElementById('spanishPreview');
+
+function setStatus(msg) {
+  if (statusEl) statusEl.textContent = msg;
+}
+
+function saveLastPlayed(idx) {
+  lastPlayedIndex = idx;
+  localStorage.setItem('lastPlayedIndex', String(idx));
+}
+
+function updateCurrentDisplay() {
+  const enEl = document.getElementById('currentEn');
+  const esEl = document.getElementById('currentEs');
+  if (currentIndex >= 0 && currentIndex < sentences.length) {
+    const s = sentences[currentIndex];
+    enEl.textContent = s.english || '—';
+    esEl.textContent = s.spanish || '—';
+  } else {
+    enEl.textContent = '—';
+    esEl.textContent = '—';
+  }
+}
+
+function save() {
+  localStorage.setItem('sentences', JSON.stringify(sentences));
+  render();
+}
+
+function render() {
+  countEl.textContent = sentences.length;
+  listEl.innerHTML = '';
+  sentences.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'sentence-item' + (i === currentIndex ? ' playing' : '');
+    div.innerHTML = `
+      <div><span class="num">${i + 1}.</span> <strong>EN:</strong> ${escapeHtml(s.english)}</div>
+      <div><strong>ES:</strong> <textarea data-idx="${i}" class="es-edit">${escapeHtml(s.spanish)}</textarea></div>
+      <div class="controls">
+        <button class="play-one secondary" data-idx="${i}">Play this</button>
+        <button class="delete secondary danger" data-idx="${i}">Delete</button>
+      </div>
+    `;
+    listEl.appendChild(div);
+  });
+
+  // Wire edit listeners
+  listEl.querySelectorAll('.es-edit').forEach(ta => {
+    ta.addEventListener('change', (e) => {
+      const idx = parseInt(e.target.dataset.idx);
+      sentences[idx].spanish = e.target.value;
+      save();
+    });
+  });
+  listEl.querySelectorAll('.play-one').forEach(btn => {
+    btn.addEventListener('click', () => playOne(parseInt(btn.dataset.idx)));
+  });
+  listEl.querySelectorAll('.delete').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sentences.splice(parseInt(btn.dataset.idx), 1);
+      save();
+    });
+  });
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+async function initTranslator() {
+  if (translator) return translator;
+  setStatus('Loading on-device translation model (first time ~240 MB, then cached)...');
+  try {
+    translator = await pipeline('translation', 'Xenova/nllb-200-distilled-600M', {
+      progress_callback: (p) => {
+        if (p.status === 'downloading') {
+          const pct = Math.round((p.loaded / p.total) * 100);
+          setStatus(`Downloading model: ${pct}%`);
+        }
+      }
+    });
+    setStatus('Translation model ready (on-device).');
+    return translator;
+  } catch (err) {
+    setStatus('Could not load on-device model: ' + err.message + '. You can still type/paste translations.');
+    console.error(err);
+    return null;
+  }
+}
+
+async function doTranslate() {
+  const text = englishInput.value.trim();
+  if (!text) return;
+  const t = await initTranslator();
+  if (!t) return;
+  setStatus('Translating...');
+  try {
+    const result = await t(text, { src_lang: 'eng_Latn', tgt_lang: 'spa_Latn' });
+    spanishPreview.value = result[0].translation_text;
+    setStatus('Translation done (Latin American Spanish model). Edit if needed.');
+  } catch (err) {
+    setStatus('Translation error: ' + err.message);
+  }
+}
+
+function addSentence() {
+  const en = englishInput.value.trim();
+  const es = spanishPreview.value.trim();
+  if (!en) return;
+  sentences.push({ english: en, spanish: es || '(no translation yet)' });
+  englishInput.value = '';
+  spanishPreview.value = '';
+  save();
+  setStatus('Sentence saved.');
+}
+
+// Speech helpers
+let voicesLoaded = false;
+
+function populateVoiceSelects() {
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) return;
+
+  const enSelect = document.getElementById('enVoice');
+  const esSelect = document.getElementById('esVoice');
+
+  // Remember current selections before clearing
+  const prevEn = enSelect.value;
+  const prevEs = esSelect.value;
+
+  enSelect.innerHTML = '';
+  esSelect.innerHTML = '';
+
+  const enVoices = voices.filter(v => v.lang.toLowerCase().startsWith('en'));
+  const esVoices = voices.filter(v => v.lang.toLowerCase().startsWith('es'));
+
+  function isEnhanced(v) {
+    const n = v.name.toLowerCase();
+    return n.includes('enhanced') || n.includes('premium') || n.includes('mejorada') || n.includes('premium');
+  }
+
+  function isLowQuality(v) {
+    const n = v.name.toLowerCase();
+    const bad = ['eloquence', 'bad news', 'bahh', 'bells', 'boing', 'bubbles', 'cellos', 'deranged', 
+                 'good news', 'hysterical', 'pipe organ', 'trinoids', 'whisper', 'zarvox', 'junior',
+                 'princess', 'ralph', 'fred', 'kathy', 'agnes', 'albert', 'bruce'];
+    return bad.some(b => n.includes(b));
+  }
+
+  function filterPreferred(list) {
+    const enhanced = list.filter(isEnhanced);
+    if (enhanced.length > 0) return enhanced;
+    // Fall back to excluding known low-quality/novelty voices
+    const decent = list.filter(v => !isLowQuality(v));
+    return decent.length > 0 ? decent : list;
+  }
+
+  function addOptions(select, list, preferredLangs, storageKey) {
+    const filtered = filterPreferred(list);
+    if (!filtered.length) {
+      const opt = document.createElement('option');
+      opt.textContent = 'No voices found';
+      select.appendChild(opt);
+      return;
+    }
+    // Prefer certain locales
+    filtered.sort((a, b) => {
+      const aScore = preferredLangs.includes(a.lang) ? 0 : 1;
+      const bScore = preferredLangs.includes(b.lang) ? 0 : 1;
+      return aScore - bScore || a.name.localeCompare(b.name);
+    });
+    filtered.forEach(v => {
+      const opt = document.createElement('option');
+      opt.value = v.name;
+      opt.textContent = `${v.name} (${v.lang})`;
+      select.appendChild(opt);
+    });
+
+    // Restore previous or saved selection
+    const saved = localStorage.getItem(storageKey);
+    const currentPrev = select.id === 'enVoice' ? prevEn : prevEs;
+    const toSelect = currentPrev || saved;
+    if (toSelect && [...select.options].some(o => o.value === toSelect)) {
+      select.value = toSelect;
+    }
+  }
+
+  addOptions(enSelect, enVoices, ['en-US', 'en-GB'], 'enVoicePref');
+  addOptions(esSelect, esVoices, ['es-MX', 'es-US', 'es-419', 'es-ES'], 'esVoicePref');
+
+  // Persist on change
+  enSelect.onchange = () => localStorage.setItem('enVoicePref', enSelect.value);
+  esSelect.onchange = () => localStorage.setItem('esVoicePref', esSelect.value);
+
+  voicesLoaded = true;
+  const enCount = enSelect.options.length;
+  const esCount = esSelect.options.length;
+  setStatus(`Voices loaded: ${enCount} English, ${esCount} Spanish (preferred non-novelty when possible).`);
+}
+
+function getSelectedVoice(selectId) {
+  const name = document.getElementById(selectId).value;
+  if (!name) return null;
+  return window.speechSynthesis.getVoices().find(v => v.name === name) || null;
+}
+
+function speak(text, lang, rate, voiceSelectId) {
+  return new Promise((resolve) => {
+    if (!text) { resolve(); return; }
+
+    // Force Chrome out of any stuck state
+    if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+      window.speechSynthesis.cancel();
+    }
+    window.speechSynthesis.resume();
+
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = lang;
+    utter.rate = parseFloat(rate) || 1;
+    const voice = getSelectedVoice(voiceSelectId);
+    if (voice) utter.voice = voice;
+
+    let settled = false;
+    const done = () => {
+      if (settled) return;
+      settled = true;
+      resolve();
+    };
+
+    utter.onend = done;
+    utter.onerror = (e) => {
+      console.warn('Speech error', e);
+      done();
+    };
+
+    // Safety net
+    setTimeout(done, Math.max(5000, text.length * 80 / (utter.rate || 1)));
+
+    // Small delay after any cancel/resume so Chrome accepts the new utterance
+    setTimeout(() => {
+      window.speechSynthesis.speak(utter);
+    }, 50);
+  });
+}
+
+async function playSequence(startIdx, endIdx) {
+  if (isPlaying) {
+    stop();
+    await new Promise(r => setTimeout(r, 200));
+  }
+  isPlaying = true;
+  stopRequested = false;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.resume();
+  await new Promise(r => setTimeout(r, 100));
+
+  const pauseEnMs = parseFloat(document.getElementById('pauseEn').value) * 1000 || 0;
+  const pauseEsMs = parseFloat(document.getElementById('pauseEs').value) * 1000 || 0;
+  const spanishRate = document.getElementById('rate').value;
+  const end = Math.min(endIdx, sentences.length - 1);
+
+  while (!stopRequested) {
+    for (let i = startIdx; i <= end && !stopRequested; i++) {
+      currentIndex = i;
+      render();
+      updateCurrentDisplay();
+      saveLastPlayed(i);
+      const s = sentences[i];
+      setStatus(`Playing ${i + 1}/${sentences.length}...`);
+      await speak(s.english, 'en-US', 1, 'enVoice');
+      if (stopRequested) break;
+      await new Promise(r => setTimeout(r, pauseEnMs));
+      if (stopRequested) break;
+      await speak(s.spanish, 'es-MX', spanishRate, 'esVoice');
+      if (stopRequested) break;
+      await new Promise(r => setTimeout(r, pauseEsMs));
+    }
+    if (stopRequested) break;
+  }
+  isPlaying = false;
+  currentIndex = -1;
+  render();
+  updateCurrentDisplay();
+  setStatus(stopRequested ? 'Stopped.' : 'Finished.');
+}
+
+async function playOne(idx) {
+  if (isPlaying) stop();
+  await new Promise(r => setTimeout(r, 200));
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.resume();
+  await new Promise(r => setTimeout(r, 100));
+
+  const spanishRate = document.getElementById('rate').value;
+  const pauseEnMs = parseFloat(document.getElementById('pauseEn').value) * 1000 || 0;
+  const pauseEsMs = parseFloat(document.getElementById('pauseEs').value) * 1000 || 0;
+  currentIndex = idx;
+  render();
+  updateCurrentDisplay();
+  saveLastPlayed(idx);
+  const s = sentences[idx];
+  setStatus(`Playing sentence ${idx + 1}...`);
+  await speak(s.english, 'en-US', 1, 'enVoice');
+  await new Promise(r => setTimeout(r, pauseEnMs));
+  await speak(s.spanish, 'es-MX', spanishRate, 'esVoice');
+  await new Promise(r => setTimeout(r, pauseEsMs));
+  currentIndex = -1;
+  render();
+  updateCurrentDisplay();
+  setStatus('Ready.');
+}
+
+function stop() {
+  stopRequested = true;
+  window.speechSynthesis.cancel();
+  isPlaying = false;
+  currentIndex = -1;
+  render();
+  updateCurrentDisplay();
+  setStatus('Stopped.');
+}
+
+// Event listeners
+document.getElementById('translateBtn').addEventListener('click', doTranslate);
+document.getElementById('addBtn').addEventListener('click', () => {
+  spanishPreview.value = spanishPreview.value || '';
+  addSentence();
+});
+document.getElementById('saveBtn').addEventListener('click', addSentence);
+
+document.getElementById('playAllBtn').addEventListener('click', () => {
+  if (!sentences.length) return;
+  playSequence(0, sentences.length - 1);
+});
+document.getElementById('playRangeBtn').addEventListener('click', () => {
+  const start = Math.max(0, parseInt(document.getElementById('rangeStart').value) - 1);
+  const end = parseInt(document.getElementById('rangeEnd').value) - 1;
+  playSequence(start, end);
+});
+document.getElementById('resumeBtn').addEventListener('click', () => {
+  if (!sentences.length) return;
+  const nextIdx = Math.min(Math.max(0, lastPlayedIndex + 1), sentences.length - 1);
+  playSequence(nextIdx, sentences.length - 1);
+});
+document.getElementById('stopBtn').addEventListener('click', stop);
+
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(sentences, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'sentences.json';
+  a.click();
+});
+
+document.getElementById('importBtn').addEventListener('click', () => document.getElementById('importFile').click());
+document.getElementById('importFile').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+      if (Array.isArray(data)) {
+        sentences = data;
+        save();
+        setStatus('Imported ' + data.length + ' sentences.');
+      }
+    } catch {
+      setStatus('Invalid JSON file.');
+    }
+  };
+  reader.readAsText(file);
+});
+
+document.getElementById('clearBtn').addEventListener('click', () => {
+  if (confirm('Clear all sentences?')) {
+    sentences = [];
+    save();
+  }
+});
+
+// Voices load asynchronously on some browsers
+function loadVoicesWhenReady() {
+  populateVoiceSelects();
+  if (window.speechSynthesis.onvoiceschanged !== undefined) {
+    window.speechSynthesis.onvoiceschanged = populateVoiceSelects;
+  }
+}
+// Try immediately and also after a short delay (Safari sometimes needs this)
+loadVoicesWhenReady();
+setTimeout(loadVoicesWhenReady, 500);
+
+// Restore persistent settings
+function restoreSettings() {
+  const pauseEn = localStorage.getItem('pauseEn');
+  const pauseEs = localStorage.getItem('pauseEs');
+  const rate = localStorage.getItem('rate');
+  if (pauseEn !== null) document.getElementById('pauseEn').value = pauseEn;
+  if (pauseEs !== null) document.getElementById('pauseEs').value = pauseEs;
+  if (rate !== null) document.getElementById('rate').value = rate;
+}
+
+function persistSettings() {
+  localStorage.setItem('pauseEn', document.getElementById('pauseEn').value);
+  localStorage.setItem('pauseEs', document.getElementById('pauseEs').value);
+  localStorage.setItem('rate', document.getElementById('rate').value);
+}
+
+// Wire persistence for settings
+['pauseEn', 'pauseEs', 'rate'].forEach(id => {
+  document.getElementById(id).addEventListener('change', persistSettings);
+  document.getElementById(id).addEventListener('input', persistSettings);
+});
+
+restoreSettings();
+
+// Initial render
+render();
+setStatus('Ready. Translations use a free on-device model (NLLB-200). First load downloads ~240 MB.');
+</script>
+</body>
+</html>
