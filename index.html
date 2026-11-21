@@ -450,10 +450,13 @@ function speak(text, lang, rate, voiceSelectId) {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-    if (!isIOS && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) {
-      window.speechSynthesis.cancel();
+    // Do not cancel here on desktop — a recent cancel() makes Chrome fire
+    // a 'canceled' error on the next utterance and drop the audio.
+    if (isIOS) {
+      window.speechSynthesis.resume();
+    } else {
+      window.speechSynthesis.resume();
     }
-    window.speechSynthesis.resume();
 
     const voice = getSelectedVoice(voiceSelectId);
     const baseRate = parseFloat(rate) || 1;
@@ -472,7 +475,10 @@ function speak(text, lang, rate, voiceSelectId) {
       };
       utter.onend = finish;
       utter.onerror = (e) => {
-        console.warn('Speech error', e);
+        // 'canceled' is often a side-effect of a previous cancel(); log it but still finish
+        if (e && e.error !== 'canceled') {
+          console.warn('Speech error', e);
+        }
         finish();
       };
       setTimeout(finish, Math.max(8000, text.length * 100 / baseRate));
@@ -514,16 +520,17 @@ async function playSequence(startIdx, endIdx) {
   if (isPlaying) {
     stopRequested = true;
     window.speechSynthesis.cancel();
-    await new Promise(r => setTimeout(r, 150));
+    await new Promise(r => setTimeout(r, 200));
   }
   // If something else took over while we waited, abort
   if (myGeneration !== playbackGeneration) return;
 
   isPlaying = true;
   stopRequested = false;
+  // One clean cancel, then a short settle so Chrome doesn't cancel the first real utterance
   window.speechSynthesis.cancel();
   window.speechSynthesis.resume();
-  await new Promise(r => setTimeout(r, 100));
+  await new Promise(r => setTimeout(r, 250));
 
   const pauseEnMs = parseFloat(document.getElementById('pauseEn').value) * 1000 || 0;
   const pauseEsMs = parseFloat(document.getElementById('pauseEs').value) * 1000 || 0;
