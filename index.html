@@ -395,52 +395,42 @@ function speak(text, lang, rate, voiceSelectId) {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-    // On non-iOS, clear any stuck state. On iOS avoid aggressive cancel (causes clipping).
+    // On iOS, avoid cancel() as much as possible — it often leaves the engine stuck.
+    // On other browsers, clear stuck state.
     if (!isIOS && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) {
       window.speechSynthesis.cancel();
     }
+    // Always resume in case the engine is paused
     window.speechSynthesis.resume();
 
     const voice = getSelectedVoice(voiceSelectId);
     const baseRate = parseFloat(rate) || 1;
 
-    const doSpeak = (utterText, onFinish) => {
-      const utter = new SpeechSynthesisUtterance(utterText);
-      utter.lang = lang;
-      utter.rate = baseRate;
-      if (voice) utter.voice = voice;
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = lang;
+    utter.rate = baseRate;
+    if (voice) utter.voice = voice;
 
-      let settled = false;
-      const finish = () => {
-        if (settled) return;
-        settled = true;
-        onFinish();
-      };
-      utter.onend = finish;
-      utter.onerror = finish;
-      window.speechSynthesis.speak(utter);
-      // Safety
-      setTimeout(finish, Math.max(6000, utterText.length * 90 / baseRate));
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      resolve();
+    };
+    utter.onend = finish;
+    utter.onerror = (e) => {
+      console.warn('Speech error', e);
+      finish();
     };
 
-    // On iOS, prime the speech engine with a silent/near-silent warmup so the real
-    // utterance starts cleanly without an audible "someone starting to speak" sound
-    if (isIOS) {
-      const warmup = new SpeechSynthesisUtterance('\u200b'); // zero-width space
-      warmup.lang = lang;
-      warmup.rate = 1;
-      warmup.volume = 0; // completely silent
-      if (voice) warmup.voice = voice;
-      window.speechSynthesis.speak(warmup);
-      // Same settle time that eliminated the clipping
-      setTimeout(() => {
-        doSpeak(text, resolve);
-      }, 180);
-    } else {
-      setTimeout(() => {
-        doSpeak(text, resolve);
-      }, 40);
-    }
+    // Safety timeout
+    setTimeout(finish, Math.max(8000, text.length * 100 / baseRate));
+
+    // Small delay helps iOS accept the utterance after resume
+    const delay = isIOS ? 100 : 30;
+    setTimeout(() => {
+      window.speechSynthesis.speak(utter);
+    }, delay);
   });
 }
 
