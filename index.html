@@ -389,13 +389,14 @@ function getSelectedVoice(selectId) {
 }
 
 let speechUnlocked = false;
+let chromePrimed = false;
 
 function unlockSpeech() {
   if (speechUnlocked) return;
   try {
     const u = new SpeechSynthesisUtterance(' ');
-    u.volume = 0.01;
-    u.rate = 2;
+    u.volume = 0;
+    u.rate = 10;
     window.speechSynthesis.speak(u);
     speechUnlocked = true;
   } catch (e) {}
@@ -416,27 +417,52 @@ function speak(text, lang, rate, voiceSelectId) {
     const voice = getSelectedVoice(voiceSelectId);
     const baseRate = parseFloat(rate) || 1;
 
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = lang;
-    utter.rate = baseRate;
-    if (voice) utter.voice = voice;
+    const doRealSpeak = () => {
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = lang;
+      utter.rate = baseRate;
+      if (voice) utter.voice = voice;
 
-    let settled = false;
-    const finish = () => {
-      if (settled) return;
-      settled = true;
-      resolve();
+      let settled = false;
+      const finish = () => {
+        if (settled) return;
+        settled = true;
+        resolve();
+      };
+      utter.onend = finish;
+      utter.onerror = (e) => {
+        console.warn('Speech error', e);
+        finish();
+      };
+      setTimeout(finish, Math.max(8000, text.length * 100 / baseRate));
+      window.speechSynthesis.speak(utter);
     };
-    utter.onend = finish;
-    utter.onerror = (e) => {
-      console.warn('Speech error', e);
-      finish();
-    };
 
-    setTimeout(finish, Math.max(8000, text.length * 100 / baseRate));
+    // Chrome often drops the very first utterance after a restart.
+    // Prime once with a silent utterance, then speak the real text.
+    if (!isIOS && !chromePrimed) {
+      chromePrimed = true;
+      const prime = new SpeechSynthesisUtterance('\u200b');
+      prime.volume = 0;
+      prime.rate = 10;
+      window.speechSynthesis.speak(prime);
+      setTimeout(doRealSpeak, 80);
+      return;
+    }
 
-    // Speak immediately — setTimeout can break the user-gesture chain on iOS
-    window.speechSynthesis.speak(utter);
+    // On iOS, a very short silent prime reduces the start-of-sentence hiccup
+    // without the audible "someone starting to speak" sound of earlier versions.
+    if (isIOS) {
+      const prime = new SpeechSynthesisUtterance('\u200b');
+      prime.volume = 0;
+      prime.rate = 10;
+      if (voice) prime.voice = voice;
+      window.speechSynthesis.speak(prime);
+      setTimeout(doRealSpeak, 60);
+      return;
+    }
+
+    doRealSpeak();
   });
 }
 
