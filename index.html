@@ -126,7 +126,6 @@
     <button id="playRangeBtn">Play Range (loop)</button>
     <button id="resumeBtn" class="secondary">Resume Play</button>
     <button id="replayPrevBtn" class="secondary">Replay Previous</button>
-    <button id="testSpeechBtn" class="secondary">Test Speech</button>
     <button id="stopBtn" class="danger">Stop</button>
   </div>
   <div class="row" style="margin-top: 12px;">
@@ -644,29 +643,6 @@ document.getElementById('resumeBtn').addEventListener('click', () => {
   playSequence(nextIdx, sentences.length - 1);
 });
 document.getElementById('stopBtn').addEventListener('click', stop);
-document.getElementById('testSpeechBtn').addEventListener('click', () => {
-  unlockSpeech();
-  const voices = window.speechSynthesis.getVoices();
-  const esVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('es'));
-  const esNames = esVoices.map(v => v.name + ' (' + v.lang + ')').join(', ') || 'none';
-
-  const utter = new SpeechSynthesisUtterance('Testing speech. Hello.');
-  utter.lang = 'en-US';
-  utter.rate = 1;
-  utter.volume = 1;
-  window.speechSynthesis.speak(utter);
-
-  setStatus('Test sent. Total voices: ' + voices.length + ', Spanish: ' + esVoices.length + ' [' + esNames + ']');
-
-  setTimeout(() => {
-    const speaking = window.speechSynthesis.speaking;
-    const pending = window.speechSynthesis.pending;
-    const result = (speaking || pending)
-      ? 'Engine accepted utterance (speaking=' + speaking + ').'
-      : 'Engine did NOT start speaking. Check silent switch, volume, and try closing/reopening Safari.';
-    setStatus(result + ' Spanish voices: ' + esNames);
-  }, 500);
-});
 document.getElementById('replayPrevBtn').addEventListener('click', replayPrevious);
 
 document.getElementById('exportBtn').addEventListener('click', () => {
