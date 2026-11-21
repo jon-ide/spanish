@@ -82,6 +82,8 @@
   </div>
   <label for="spanishPreview">Spanish translation (editable)</label>
   <textarea id="spanishPreview" placeholder="Translation will appear here..."></textarea>
+  <label for="noteInput">Note (optional)</label>
+  <textarea id="noteInput" placeholder="Optional note for this sentence..." style="min-height: 60px;"></textarea>
   <button id="saveBtn">Save Sentence</button>
 </div>
 
@@ -136,6 +138,10 @@
     <div style="flex: 1;">
       <label>Currently playing (Spanish)</label>
       <div id="currentEs" style="border: 1px solid var(--border); border-radius: 6px; padding: 10px; min-height: 3.2em; background: var(--bg); white-space: pre-wrap;">—</div>
+    </div>
+    <div id="noteWindowWrap" style="flex: 1; display: none;">
+      <label>Note</label>
+      <div id="currentNote" style="border: 1px solid var(--border); border-radius: 6px; padding: 10px; min-height: 3.2em; background: #fff8e6; white-space: pre-wrap; font-style: italic;"></div>
     </div>
   </div>
 </div>
@@ -193,14 +199,24 @@ function saveLastPlayed(idx) {
 function updateCurrentDisplay() {
   const enEl = document.getElementById('currentEn');
   const esEl = document.getElementById('currentEs');
+  const noteWrap = document.getElementById('noteWindowWrap');
+  const noteEl = document.getElementById('currentNote');
   if (currentIndex >= 0 && currentIndex < sentences.length) {
     const s = sentences[currentIndex];
     const num = currentIndex + 1;
     enEl.innerHTML = '<strong>#' + num + '</strong><br>' + (s.english || '—');
     esEl.textContent = s.spanish || '—';
+    const note = (s.note || '').trim();
+    if (note) {
+      noteEl.textContent = note;
+      noteWrap.style.display = 'block';
+    } else {
+      noteWrap.style.display = 'none';
+    }
   } else {
     enEl.textContent = '—';
     esEl.textContent = '—';
+    noteWrap.style.display = 'none';
   }
 }
 
@@ -215,9 +231,13 @@ function render() {
   sentences.forEach((s, i) => {
     const div = document.createElement('div');
     div.className = 'sentence-item' + (i === currentIndex ? ' playing' : '');
+    const noteHtml = (s.note && s.note.trim())
+      ? `<div style="margin-top: 6px; padding: 8px; background: #fff8e6; border-radius: 4px; font-style: italic;"><strong>Note:</strong> ${escapeHtml(s.note)}</div>`
+      : '';
     div.innerHTML = `
       <div><span class="num">${i + 1}.</span> <strong>EN:</strong> ${escapeHtml(s.english)}</div>
       <div><strong>ES:</strong> <textarea data-idx="${i}" class="es-edit">${escapeHtml(s.spanish)}</textarea></div>
+      ${noteHtml}
       <div class="controls">
         <button class="play-one secondary" data-idx="${i}">Play this</button>
         <button class="delete secondary danger" data-idx="${i}">Delete</button>
@@ -290,10 +310,14 @@ async function doTranslate() {
 function addSentence() {
   const en = englishInput.value.trim();
   const es = spanishPreview.value.trim();
+  const note = (document.getElementById('noteInput').value || '').trim();
   if (!en) return;
-  sentences.push({ english: en, spanish: es || '(no translation yet)' });
+  const item = { english: en, spanish: es || '(no translation yet)' };
+  if (note) item.note = note;
+  sentences.push(item);
   englishInput.value = '';
   spanishPreview.value = '';
+  document.getElementById('noteInput').value = '';
   save();
   setStatus('Sentence saved.');
 }
