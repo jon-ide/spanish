@@ -171,6 +171,8 @@ let currentIndex = -1;
 let lastPlayedIndex = parseInt(localStorage.getItem('lastPlayedIndex') || '-1', 10);
 let activeRangeStart = 0;
 let activeRangeEnd = 0;
+let originalRangeStart = 0;
+let originalRangeEnd = 0;
 let playbackGeneration = 0; // increments to abort previous sequences
 let importedFilename = localStorage.getItem('importedFilename') || '';
 
@@ -541,6 +543,7 @@ async function playSequence(startIdx, endIdx) {
   const end = safeEnd;
   activeRangeStart = safeStart;
   activeRangeEnd = end;
+  // originalRangeStart/End are set by the play buttons and left unchanged by Replay Previous
 
   while (!stopRequested && myGeneration === playbackGeneration) {
     for (let i = safeStart; i <= end && !stopRequested && myGeneration === playbackGeneration; i++) {
@@ -613,16 +616,17 @@ function replayPrevious() {
     setStatus('Nothing is currently playing.');
     return;
   }
+  // Always step to the previous sentence in the original list/range
   let prev = currentIndex - 1;
-  if (prev < activeRangeStart) {
-    prev = activeRangeEnd; // wrap to last in the current range/all
+  if (prev < originalRangeStart) {
+    prev = originalRangeEnd; // wrap to last in the original range/all
   }
-  const rangeEnd = activeRangeEnd;
+  const rangeEnd = originalRangeEnd;
   // Invalidate current sequence immediately
   playbackGeneration++;
   stopRequested = true;
   window.speechSynthesis.cancel();
-  // Start the new sequence (it will take the new generation)
+  // Restart from the previous sentence, keeping the original range end
   setTimeout(() => {
     playSequence(prev, rangeEnd);
   }, 100);
@@ -639,6 +643,8 @@ document.getElementById('saveBtn').addEventListener('click', addSentence);
 document.getElementById('playAllBtn').addEventListener('click', () => {
   unlockSpeech();
   if (!sentences.length) return;
+  originalRangeStart = 0;
+  originalRangeEnd = sentences.length - 1;
   playSequence(0, sentences.length - 1);
 });
 document.getElementById('playRangeBtn').addEventListener('click', () => {
@@ -659,12 +665,16 @@ document.getElementById('playRangeBtn').addEventListener('click', () => {
     setStatus('Start sentence #' + (start + 1) + ' is beyond the ' + sentences.length + ' loaded sentences.');
     return;
   }
+  originalRangeStart = Math.max(0, start);
+  originalRangeEnd = Math.min(end, sentences.length - 1);
   playSequence(start, end);
 });
 document.getElementById('resumeBtn').addEventListener('click', () => {
   unlockSpeech();
   if (!sentences.length) return;
   const nextIdx = Math.min(Math.max(0, lastPlayedIndex + 1), sentences.length - 1);
+  originalRangeStart = 0;
+  originalRangeEnd = sentences.length - 1;
   playSequence(nextIdx, sentences.length - 1);
 });
 document.getElementById('stopBtn').addEventListener('click', stop);
