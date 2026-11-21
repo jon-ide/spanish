@@ -425,17 +425,16 @@ function unlockSpeech() {
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-  // Only on iOS: play a silent HTML5 audio to try to put the session in playback mode
-  if (isIOS) {
-    try {
-      const audio = new Audio(SILENT_WAV);
-      audio.volume = 0.01;
-      const p = audio.play();
-      if (p && p.catch) p.catch(() => {});
-    } catch (e) {}
-  }
+  // Only do extra unlocking on iOS. On desktop Chrome it can interfere.
+  if (!isIOS) return;
 
-  // Silent speech unlock (used on all platforms, but harmless)
+  try {
+    const audio = new Audio(SILENT_WAV);
+    audio.volume = 0.01;
+    const p = audio.play();
+    if (p && p.catch) p.catch(() => {});
+  } catch (e) {}
+
   try {
     const u = new SpeechSynthesisUtterance(' ');
     u.volume = 0;
@@ -480,21 +479,8 @@ function speak(text, lang, rate, voiceSelectId) {
       window.speechSynthesis.speak(utter);
     };
 
-    // Chrome often drops the very first utterance after a restart.
-    // Prime once, then speak the real text. Skip if already primed.
-    if (!isIOS && !chromePrimed) {
-      chromePrimed = true;
-      // Do not cancel here; just speak a silent prime then the real one
-      const prime = new SpeechSynthesisUtterance(' ');
-      prime.volume = 0;
-      prime.rate = 10;
-      window.speechSynthesis.speak(prime);
-      setTimeout(doRealSpeak, 120);
-      return;
-    }
-
-    // On iOS, a very short silent prime reduces the start-of-sentence hiccup
-    // without the audible "someone starting to speak" sound of earlier versions.
+    // On iOS keep a short silent prime to reduce start clipping.
+    // On desktop just speak immediately — extra primes were interfering.
     if (isIOS) {
       const prime = new SpeechSynthesisUtterance('\u200b');
       prime.volume = 0;
