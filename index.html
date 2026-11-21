@@ -450,87 +450,64 @@ function speak(text, lang, rate, voiceSelectId) {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-    window.speechSynthesis.resume();
-
     const voice = getSelectedVoice(voiceSelectId);
     const baseRate = parseFloat(rate) || 1;
 
-    const finishOnce = (() => {
+    const finish = (() => {
       let done = false;
       return () => { if (!done) { done = true; resolve(); } };
     })();
 
-    const speakReal = () => {
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.lang = lang;
-      utter.rate = baseRate;
-      utter.volume = 1;
-      if (voice) utter.voice = voice;
-
-      const safetyMs = Math.min(12000, Math.max(2500, text.length * 70 / baseRate));
-      const safety = setTimeout(finishOnce, safetyMs);
-
-      utter.onend = () => { clearTimeout(safety); finishOnce(); };
-      utter.onerror = (e) => {
-        clearTimeout(safety);
-        if (e && e.error !== 'canceled') console.warn('Speech error', e);
-        finishOnce();
-      };
-
-      // Chrome keep-alive
-      let iv = null;
-      if (!isIOS) {
-        iv = setInterval(() => {
-          if (!window.speechSynthesis.speaking && !window.speechSynthesis.pending) {
-            clearInterval(iv);
-          } else {
-            window.speechSynthesis.resume();
-          }
-        }, 150);
-        utter.onend = () => { clearInterval(iv); clearTimeout(safety); finishOnce(); };
-      }
-
-      window.speechSynthesis.speak(utter);
-
-      // Diagnostic: report whether the engine accepted it
-      if (!isIOS) {
-        setTimeout(() => {
-          const speaking = window.speechSynthesis.speaking;
-          const pending = window.speechSynthesis.pending;
-          if (!speaking && !pending) {
-            setStatus('Speech engine did not start (speaking=false). Try a different voice or reload the page.');
-          }
-        }, 400);
-      }
-    };
-
     if (isIOS) {
-      // short silent prime on iOS
+      window.speechSynthesis.resume();
       const prime = new SpeechSynthesisUtterance('\u200b');
       prime.volume = 0;
       prime.rate = 10;
       if (voice) prime.voice = voice;
       window.speechSynthesis.speak(prime);
-      setTimeout(speakReal, 50);
-    } else {
-      // Desktop Chrome: speak a tiny short warmup first, then the real text.
-      let realStarted = false;
-      const startReal = () => {
-        if (realStarted) return;
-        realStarted = true;
-        speakReal();
-      };
-      const warm = new SpeechSynthesisUtterance('.');
-      warm.volume = 0.1;
-      warm.rate = 1.5;
-      warm.lang = lang;
-      if (voice) warm.voice = voice;
-      warm.onend = () => setTimeout(startReal, 20);
-      warm.onerror = () => setTimeout(startReal, 20);
-      window.speechSynthesis.speak(warm);
-      // Fallback if warmup is ignored
-      setTimeout(startReal, 250);
+      setTimeout(() => {
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = lang;
+        u.rate = baseRate;
+        if (voice) u.voice = voice;
+        u.onend = finish;
+        u.onerror = finish;
+        setTimeout(finish, Math.max(4000, text.length * 80));
+        window.speechSynthesis.speak(u);
+      }, 50);
+      return;
     }
+
+    // ---- Desktop (Chrome) path: simplest possible ----
+    window.speechSynthesis.resume();
+
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    u.rate = baseRate;
+    u.volume = 1;
+    // Only set voice if we actually found one; a stale voice object can silence Chrome
+    if (voice) u.voice = voice;
+
+    const safety = setTimeout(finish, Math.min(6000, Math.max(2000, text.length * 50)));
+    u.onend = () => { clearTimeout(safety); finish(); };
+    u.onerror = (e) => {
+      clearTimeout(safety);
+      if (e && e.error !== 'canceled') console.warn('Speech error', e);
+      finish();
+    };
+
+    window.speechSynthesis.speak(u);
+
+    // Diagnostic
+    setTimeout(() => {
+      const sp = window.speechSynthesis.speaking;
+      const pe = window.speechSynthesis.pending;
+      if (!sp && !pe) {
+        setStatus('Engine silent after speak() — speaking=false, pending=false. Voice: ' + (voice ? voice.name : 'default'));
+      } else {
+        setStatus('Engine active (speaking=' + sp + ', pending=' + pe + '). Voice: ' + (voice ? voice.name : 'default'));
+      }
+    }, 300);
   });
 }
 
