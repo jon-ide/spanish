@@ -126,6 +126,7 @@
     <button id="playRangeBtn">Play Range (loop)</button>
     <button id="resumeBtn" class="secondary">Resume Play</button>
     <button id="replayPrevBtn" class="secondary">Replay Previous</button>
+    <button id="testSpeechBtn" class="secondary">Test Speech</button>
     <button id="stopBtn" class="danger">Stop</button>
   </div>
   <div class="row" style="margin-top: 12px;">
@@ -332,11 +333,9 @@ function populateVoiceSelects() {
   }
 
   function filterPreferred(list) {
-    const enhanced = list.filter(isEnhanced);
-    if (enhanced.length > 0) return enhanced;
-    // Fall back to excluding known low-quality/novelty voices
-    const decent = list.filter(v => !isLowQuality(v));
-    return decent.length > 0 ? decent : list;
+    // On iOS Safari, enhanced voices often never appear in getVoices().
+    // Show everything the browser actually exposes so the user can see what's available.
+    return list;
   }
 
   function addOptions(select, list, preferredLangs, storageKey) {
@@ -379,13 +378,27 @@ function populateVoiceSelects() {
   voicesLoaded = true;
   const enCount = enSelect.options.length;
   const esCount = esSelect.options.length;
-  setStatus(`Voices loaded: ${enCount} English, ${esCount} Spanish (preferred non-novelty when possible).`);
+  const total = voices.length;
+  setStatus(`Voices exposed by browser: ${total} total (${enCount} English, ${esCount} Spanish). Enhanced voices may not appear on iOS Safari.`);
 }
 
 function getSelectedVoice(selectId) {
   const name = document.getElementById(selectId).value;
   if (!name) return null;
   return window.speechSynthesis.getVoices().find(v => v.name === name) || null;
+}
+
+let speechUnlocked = false;
+
+function unlockSpeech() {
+  if (speechUnlocked) return;
+  try {
+    const u = new SpeechSynthesisUtterance(' ');
+    u.volume = 0.01;
+    u.rate = 2;
+    window.speechSynthesis.speak(u);
+    speechUnlocked = true;
+  } catch (e) {}
 }
 
 function speak(text, lang, rate, voiceSelectId) {
@@ -395,12 +408,9 @@ function speak(text, lang, rate, voiceSelectId) {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-    // On iOS, avoid cancel() as much as possible — it often leaves the engine stuck.
-    // On other browsers, clear stuck state.
     if (!isIOS && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) {
       window.speechSynthesis.cancel();
     }
-    // Always resume in case the engine is paused
     window.speechSynthesis.resume();
 
     const voice = getSelectedVoice(voiceSelectId);
@@ -423,14 +433,10 @@ function speak(text, lang, rate, voiceSelectId) {
       finish();
     };
 
-    // Safety timeout
     setTimeout(finish, Math.max(8000, text.length * 100 / baseRate));
 
-    // Small delay helps iOS accept the utterance after resume
-    const delay = isIOS ? 100 : 30;
-    setTimeout(() => {
-      window.speechSynthesis.speak(utter);
-    }, delay);
+    // Speak immediately — setTimeout can break the user-gesture chain on iOS
+    window.speechSynthesis.speak(utter);
   });
 }
 
@@ -566,10 +572,12 @@ document.getElementById('addBtn').addEventListener('click', () => {
 document.getElementById('saveBtn').addEventListener('click', addSentence);
 
 document.getElementById('playAllBtn').addEventListener('click', () => {
+  unlockSpeech();
   if (!sentences.length) return;
   playSequence(0, sentences.length - 1);
 });
 document.getElementById('playRangeBtn').addEventListener('click', () => {
+  unlockSpeech();
   if (!sentences.length) {
     setStatus('No sentences loaded.');
     return;
@@ -589,11 +597,19 @@ document.getElementById('playRangeBtn').addEventListener('click', () => {
   playSequence(start, end);
 });
 document.getElementById('resumeBtn').addEventListener('click', () => {
+  unlockSpeech();
   if (!sentences.length) return;
   const nextIdx = Math.min(Math.max(0, lastPlayedIndex + 1), sentences.length - 1);
   playSequence(nextIdx, sentences.length - 1);
 });
 document.getElementById('stopBtn').addEventListener('click', stop);
+document.getElementById('testSpeechBtn').addEventListener('click', () => {
+  unlockSpeech();
+  const utter = new SpeechSynthesisUtterance('Testing speech. Hello.');
+  utter.lang = 'en-US';
+  window.speechSynthesis.speak(utter);
+  setStatus('Test speech sent. If you hear nothing, check the silent switch and that Safari is not muted.');
+});
 document.getElementById('replayPrevBtn').addEventListener('click', replayPrevious);
 
 document.getElementById('exportBtn').addEventListener('click', () => {
