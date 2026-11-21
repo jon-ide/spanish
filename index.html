@@ -391,14 +391,29 @@ function getSelectedVoice(selectId) {
 let speechUnlocked = false;
 let chromePrimed = false;
 
+// Tiny silent WAV (base64) used to switch iOS audio session to media/playback
+// so speechSynthesis is more likely to ignore the silent switch
+const SILENT_WAV = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
+
 function unlockSpeech() {
   if (speechUnlocked) return;
+  speechUnlocked = true;
+
+  // 1. Play a silent HTML5 audio element — this often puts the iOS audio
+  //    session into the "playback" category, which ignores the silent switch.
+  try {
+    const audio = new Audio(SILENT_WAV);
+    audio.volume = 0.01;
+    const p = audio.play();
+    if (p && p.catch) p.catch(() => {});
+  } catch (e) {}
+
+  // 2. Also do a silent speech utterance (original unlock)
   try {
     const u = new SpeechSynthesisUtterance(' ');
     u.volume = 0;
     u.rate = 10;
     window.speechSynthesis.speak(u);
-    speechUnlocked = true;
   } catch (e) {}
 }
 
