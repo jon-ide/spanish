@@ -125,6 +125,7 @@
     <button id="playAllBtn">Play All (loop)</button>
     <button id="playRangeBtn">Play Range (loop)</button>
     <button id="resumeBtn" class="secondary">Resume Play</button>
+    <button id="replayPrevBtn" class="secondary">Replay Previous</button>
     <button id="stopBtn" class="danger">Stop</button>
   </div>
   <div class="row" style="margin-top: 12px;">
@@ -162,6 +163,8 @@ let isPlaying = false;
 let stopRequested = false;
 let currentIndex = -1;
 let lastPlayedIndex = parseInt(localStorage.getItem('lastPlayedIndex') || '-1', 10);
+let activeRangeStart = 0;
+let activeRangeEnd = 0;
 let importedFilename = localStorage.getItem('importedFilename') || '';
 
 const statusEl = document.getElementById('status');
@@ -466,6 +469,8 @@ async function playSequence(startIdx, endIdx) {
   const pauseEsMs = parseFloat(document.getElementById('pauseEs').value) * 1000 || 0;
   const spanishRate = document.getElementById('rate').value;
   const end = safeEnd;
+  activeRangeStart = safeStart;
+  activeRangeEnd = end;
 
   while (!stopRequested) {
     for (let i = safeStart; i <= end && !stopRequested; i++) {
@@ -530,6 +535,22 @@ function stop() {
   setStatus('Stopped.');
 }
 
+function replayPrevious() {
+  if (!isPlaying || currentIndex < 0 || !sentences.length) {
+    setStatus('Nothing is currently playing.');
+    return;
+  }
+  let prev = currentIndex - 1;
+  if (prev < activeRangeStart) {
+    prev = activeRangeEnd; // wrap to last in the current range/all
+  }
+  // Immediately stop current playback and restart from the previous sentence
+  stop();
+  setTimeout(() => {
+    playSequence(prev, activeRangeEnd);
+  }, 250);
+}
+
 // Event listeners
 document.getElementById('translateBtn').addEventListener('click', doTranslate);
 document.getElementById('addBtn').addEventListener('click', () => {
@@ -567,6 +588,7 @@ document.getElementById('resumeBtn').addEventListener('click', () => {
   playSequence(nextIdx, sentences.length - 1);
 });
 document.getElementById('stopBtn').addEventListener('click', stop);
+document.getElementById('replayPrevBtn').addEventListener('click', replayPrevious);
 
 document.getElementById('exportBtn').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify(sentences, null, 2)], { type: 'application/json' });
