@@ -69,6 +69,7 @@
 </head>
 <body>
 <h1>English → Spanish (Latin American) Practice</h1>
+<p id="filenameDisplay" style="font-size: 0.95rem; color: var(--muted); margin: 4px 0 8px; font-weight: 500;"></p>
 <p class="status" id="status">Ready. Data is stored locally in this browser.</p>
 
 <div class="card">
@@ -161,6 +162,7 @@ let isPlaying = false;
 let stopRequested = false;
 let currentIndex = -1;
 let lastPlayedIndex = parseInt(localStorage.getItem('lastPlayedIndex') || '-1', 10);
+let importedFilename = localStorage.getItem('importedFilename') || '';
 
 const statusEl = document.getElementById('status');
 const listEl = document.getElementById('list');
@@ -170,6 +172,13 @@ const spanishPreview = document.getElementById('spanishPreview');
 
 function setStatus(msg) {
   if (statusEl) statusEl.textContent = msg;
+}
+
+function updateFilenameDisplay() {
+  const el = document.getElementById('filenameDisplay');
+  if (el) {
+    el.textContent = importedFilename ? 'File: ' + importedFilename : '';
+  }
 }
 
 function saveLastPlayed(idx) {
@@ -432,6 +441,17 @@ function speak(text, lang, rate, voiceSelectId) {
 }
 
 async function playSequence(startIdx, endIdx) {
+  if (!sentences.length) {
+    setStatus('No sentences loaded.');
+    return;
+  }
+  const safeStart = Math.max(0, Math.min(startIdx, sentences.length - 1));
+  const safeEnd = Math.max(0, Math.min(endIdx, sentences.length - 1));
+  if (safeStart > safeEnd) {
+    setStatus('Invalid range: start is after end (or outside loaded sentences).');
+    return;
+  }
+
   if (isPlaying) {
     stop();
     await new Promise(r => setTimeout(r, 200));
@@ -445,10 +465,10 @@ async function playSequence(startIdx, endIdx) {
   const pauseEnMs = parseFloat(document.getElementById('pauseEn').value) * 1000 || 0;
   const pauseEsMs = parseFloat(document.getElementById('pauseEs').value) * 1000 || 0;
   const spanishRate = document.getElementById('rate').value;
-  const end = Math.min(endIdx, sentences.length - 1);
+  const end = safeEnd;
 
   while (!stopRequested) {
-    for (let i = startIdx; i <= end && !stopRequested; i++) {
+    for (let i = safeStart; i <= end && !stopRequested; i++) {
       currentIndex = i;
       render();
       updateCurrentDisplay();
@@ -523,8 +543,22 @@ document.getElementById('playAllBtn').addEventListener('click', () => {
   playSequence(0, sentences.length - 1);
 });
 document.getElementById('playRangeBtn').addEventListener('click', () => {
-  const start = Math.max(0, parseInt(document.getElementById('rangeStart').value) - 1);
-  const end = parseInt(document.getElementById('rangeEnd').value) - 1;
+  if (!sentences.length) {
+    setStatus('No sentences loaded.');
+    return;
+  }
+  let start = parseInt(document.getElementById('rangeStart').value, 10);
+  let end = parseInt(document.getElementById('rangeEnd').value, 10);
+  if (isNaN(start) || isNaN(end) || start < 1 || end < 1) {
+    setStatus('Please enter valid start and end sentence numbers.');
+    return;
+  }
+  start = start - 1;
+  end = end - 1;
+  if (start >= sentences.length) {
+    setStatus('Start sentence #' + (start + 1) + ' is beyond the ' + sentences.length + ' loaded sentences.');
+    return;
+  }
   playSequence(start, end);
 });
 document.getElementById('resumeBtn').addEventListener('click', () => {
@@ -552,8 +586,11 @@ document.getElementById('importFile').addEventListener('change', (e) => {
       const data = JSON.parse(reader.result);
       if (Array.isArray(data)) {
         sentences = data;
+        importedFilename = file.name || 'imported.json';
+        localStorage.setItem('importedFilename', importedFilename);
         save();
-        setStatus('Imported ' + data.length + ' sentences.');
+        updateFilenameDisplay();
+        setStatus('Imported ' + data.length + ' sentences from ' + importedFilename + '.');
       }
     } catch {
       setStatus('Invalid JSON file.');
@@ -565,7 +602,10 @@ document.getElementById('importFile').addEventListener('change', (e) => {
 document.getElementById('clearBtn').addEventListener('click', () => {
   if (confirm('Clear all sentences?')) {
     sentences = [];
+    importedFilename = '';
+    localStorage.removeItem('importedFilename');
     save();
+    updateFilenameDisplay();
   }
 });
 
@@ -603,6 +643,7 @@ function persistSettings() {
 });
 
 restoreSettings();
+updateFilenameDisplay();
 
 // Initial render
 render();
