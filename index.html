@@ -455,63 +455,82 @@ function speak(text, lang, rate, voiceSelectId) {
     const voice = getSelectedVoice(voiceSelectId);
     const baseRate = parseFloat(rate) || 1;
 
-    const doRealSpeak = () => {
+    const finishOnce = (() => {
+      let done = false;
+      return () => { if (!done) { done = true; resolve(); } };
+    })();
+
+    const speakReal = () => {
       const utter = new SpeechSynthesisUtterance(text);
       utter.lang = lang;
       utter.rate = baseRate;
       utter.volume = 1;
       if (voice) utter.voice = voice;
 
-      let settled = false;
-      const finish = () => {
-        if (settled) return;
-        settled = true;
-        resolve();
-      };
-      utter.onend = finish;
+      const safetyMs = Math.min(12000, Math.max(2500, text.length * 70 / baseRate));
+      const safety = setTimeout(finishOnce, safetyMs);
+
+      utter.onend = () => { clearTimeout(safety); finishOnce(); };
       utter.onerror = (e) => {
-        if (e && e.error !== 'canceled') {
-          console.warn('Speech error', e);
-        }
-        finish();
+        clearTimeout(safety);
+        if (e && e.error !== 'canceled') console.warn('Speech error', e);
+        finishOnce();
       };
 
-      // Chrome bug: speechSynthesis can silently pause. Keep poking resume().
-      let resumeTimer = null;
+      // Chrome keep-alive
+      let iv = null;
       if (!isIOS) {
-        resumeTimer = setInterval(() => {
-          if (window.speechSynthesis.speaking) {
+        iv = setInterval(() => {
+          if (!window.speechSynthesis.speaking && !window.speechSynthesis.pending) {
+            clearInterval(iv);
+          } else {
             window.speechSynthesis.resume();
           }
-        }, 200);
+        }, 150);
+        utter.onend = () => { clearInterval(iv); clearTimeout(safety); finishOnce(); };
       }
 
-      const safetyMs = Math.min(15000, Math.max(3000, text.length * 80 / baseRate));
-      const safety = setTimeout(() => {
-        if (resumeTimer) clearInterval(resumeTimer);
-        finish();
-      }, safetyMs);
-
-      utter.onend = () => {
-        if (resumeTimer) clearInterval(resumeTimer);
-        clearTimeout(safety);
-        finish();
-      };
-
       window.speechSynthesis.speak(utter);
+
+      // Diagnostic: report whether the engine accepted it
+      if (!isIOS) {
+        setTimeout(() => {
+          const speaking = window.speechSynthesis.speaking;
+          const pending = window.speechSynthesis.pending;
+          if (!speaking && !pending) {
+            setStatus('Speech engine did not start (speaking=false). Try a different voice or reload the page.');
+          }
+        }, 400);
+      }
     };
 
     if (isIOS) {
+      // short silent prime on iOS
       const prime = new SpeechSynthesisUtterance('\u200b');
       prime.volume = 0;
       prime.rate = 10;
       if (voice) prime.voice = voice;
       window.speechSynthesis.speak(prime);
-      setTimeout(doRealSpeak, 60);
-      return;
+      setTimeout(speakReal, 50);
+    } else {
+      // Desktop Chrome: speak a tiny short warmup first, then the real text.
+      let realStarted = false;
+      const startReal = () => {
+        if (realStarted) return;
+        realStarted = true;
+        speakReal();
+      };
+      const warm = new SpeechSynthesisUtterance('.');
+      warm.volume = 0.1;
+      warm.rate = 1.5;
+      warm.lang = lang;
+      if (voice) warm.voice = voice;
+      warm.onend = () => setTimeout(startReal, 20);
+      warm.onerror = () => setTimeout(startReal, 20);
+      window.speechSynthesis.speak(warm);
+      // Fallback if warmup is ignored
+      setTimeout(startReal, 250);
     }
-
-    doRealSpeak();
   });
 }
 
