@@ -1,0 +1,802 @@
+[
+  {
+    "english": "I started to study Spanish last year.",
+    "spanish": "Empecé a estudiar español el año pasado."
+  },
+  {
+    "english": "She began to cry when she heard the news.",
+    "spanish": "Se puso a llorar cuando escuchó la noticia."
+  },
+  {
+    "english": "We learned to drive when we were eighteen.",
+    "spanish": "Aprendimos a manejar cuando teníamos dieciocho años."
+  },
+  {
+    "english": "My mom taught me to cook.",
+    "spanish": "Mi mamá me enseñó a cocinar."
+  },
+  {
+    "english": "Can you help me move this table?",
+    "spanish": "¿Me ayudas a mover esta mesa?"
+  },
+  {
+    "english": "I'm going to call her tomorrow.",
+    "spanish": "Voy a llamarla mañana."
+  },
+  {
+    "english": "Try again, please.",
+    "spanish": "Vuelve a intentarlo, por favor."
+  },
+  {
+    "english": "I got used to getting up early.",
+    "spanish": "Me acostumbré a levantarme temprano."
+  },
+  {
+    "english": "I don't dare to ask him.",
+    "spanish": "No me atrevo a preguntarle."
+  },
+  {
+    "english": "She refused to sign the contract.",
+    "spanish": "Se negó a firmar el contrato."
+  },
+  {
+    "english": "They forced him to resign.",
+    "spanish": "Lo obligaron a renunciar."
+  },
+  {
+    "english": "She invited me to dinner on Saturday.",
+    "spanish": "Me invitó a cenar el sábado."
+  },
+  {
+    "english": "He managed to finish the project on time.",
+    "spanish": "Logró terminar el proyecto a tiempo."
+  },
+  {
+    "english": "I dedicate myself to teaching.",
+    "spanish": "Me dedico a enseñar."
+  },
+  {
+    "english": "She stopped smoking two years ago.",
+    "spanish": "Dejó de fumar hace dos años."
+  },
+  {
+    "english": "I have just arrived home.",
+    "spanish": "Acabo de llegar a casa."
+  },
+  {
+    "english": "We finished reading the report.",
+    "spanish": "Terminamos de leer el informe."
+  },
+  {
+    "english": "He tried to convince us.",
+    "spanish": "Trató de convencernos."
+  },
+  {
+    "english": "Remember to lock the door.",
+    "spanish": "Acuérdate de cerrar la puerta con llave."
+  },
+  {
+    "english": "I forgot to buy milk.",
+    "spanish": "Me olvidé de comprar leche."
+  },
+  {
+    "english": "I'm tired of waiting for him.",
+    "spanish": "Estoy cansado de esperarlo."
+  },
+  {
+    "english": "I'll take care of booking the tickets.",
+    "spanish": "Me encargo de reservar los boletos."
+  },
+  {
+    "english": "I regret having said that.",
+    "spanish": "Me arrepiento de haber dicho eso."
+  },
+  {
+    "english": "He insisted on paying the bill.",
+    "spanish": "Insistió en pagar la cuenta."
+  },
+  {
+    "english": "I'm thinking about changing jobs.",
+    "spanish": "Estoy pensando en cambiar de trabajo."
+  },
+  {
+    "english": "It took her three hours to arrive.",
+    "spanish": "Tardó tres horas en llegar."
+  },
+  {
+    "english": "The solution consists of working together.",
+    "spanish": "La solución consiste en trabajar juntos."
+  },
+  {
+    "english": "Don't hesitate to call me.",
+    "spanish": "No dudes en llamarme."
+  },
+  {
+    "english": "She persists in doing everything alone.",
+    "spanish": "Se empeña en hacer todo sola."
+  },
+  {
+    "english": "I dream of traveling around Latin America.",
+    "spanish": "Sueño con viajar por Latinoamérica."
+  },
+  {
+    "english": "You can count on me.",
+    "spanish": "Puedes contar conmigo."
+  },
+  {
+    "english": "He threatened to leave the company.",
+    "spanish": "Amenazó con dejar la empresa."
+  },
+  {
+    "english": "She settled for a lower salary.",
+    "spanish": "Se conformó con un salario más bajo."
+  },
+  {
+    "english": "I'm worried about missing the flight.",
+    "spanish": "Me preocupo por perder el vuelo."
+  },
+  {
+    "english": "We opted for taking the bus.",
+    "spanish": "Optamos por tomar el bus."
+  },
+  {
+    "english": "They fought to keep their jobs.",
+    "spanish": "Lucharon por mantener sus empleos."
+  },
+  {
+    "english": "Start by reading the first chapter.",
+    "spanish": "Empieza por leer el primer capítulo."
+  },
+  {
+    "english": "I began to feel better after taking the medicine.",
+    "spanish": "Empecé a sentirme mejor después de tomar la medicina."
+  },
+  {
+    "english": "He put himself to work immediately.",
+    "spanish": "Se puso a trabajar de inmediato."
+  },
+  {
+    "english": "We're learning to speak more slowly.",
+    "spanish": "Estamos aprendiendo a hablar más despacio."
+  },
+  {
+    "english": "Can you teach me to use this app?",
+    "spanish": "¿Me puedes enseñar a usar esta aplicación?"
+  },
+  {
+    "english": "Help me carry these boxes, please.",
+    "spanish": "Ayúdame a cargar estas cajas, por favor."
+  },
+  {
+    "english": "They're going to visit us next month.",
+    "spanish": "Van a visitarnos el próximo mes."
+  },
+  {
+    "english": "I have to do it again.",
+    "spanish": "Tengo que volver a hacerlo."
+  },
+  {
+    "english": "You need to get used to the climate.",
+    "spanish": "Tienes que acostumbrarte al clima."
+  },
+  {
+    "english": "I didn't dare to interrupt him.",
+    "spanish": "No me atreví a interrumpirlo."
+  },
+  {
+    "english": "They refused to accept the offer.",
+    "spanish": "Se negaron a aceptar la oferta."
+  },
+  {
+    "english": "The teacher forced us to rewrite the essay.",
+    "spanish": "El profesor nos obligó a reescribir el ensayo."
+  },
+  {
+    "english": "He invited us to his wedding.",
+    "spanish": "Nos invitó a su boda."
+  },
+  {
+    "english": "She managed to get the scholarship.",
+    "spanish": "Logró conseguir la beca."
+  },
+  {
+    "english": "He dedicates himself to music.",
+    "spanish": "Se dedica a la música."
+  },
+  {
+    "english": "I stopped eating sugar last month.",
+    "spanish": "Dejé de comer azúcar el mes pasado."
+  },
+  {
+    "english": "We've just finished the meeting.",
+    "spanish": "Acabamos de terminar la reunión."
+  },
+  {
+    "english": "She finished writing the email.",
+    "spanish": "Terminó de escribir el correo."
+  },
+  {
+    "english": "We tried to call you several times.",
+    "spanish": "Tratamos de llamarte varias veces."
+  },
+  {
+    "english": "Don't forget to turn off the lights.",
+    "spanish": "No te olvides de apagar las luces."
+  },
+  {
+    "english": "I always remember to back up my files.",
+    "spanish": "Siempre me acuerdo de respaldar mis archivos."
+  },
+  {
+    "english": "He's tired of the same routine.",
+    "spanish": "Está cansado de la misma rutina."
+  },
+  {
+    "english": "Who's going to take care of the dog?",
+    "spanish": "¿Quién se va a encargar del perro?"
+  },
+  {
+    "english": "She regrets not having studied more.",
+    "spanish": "Se arrepiente de no haber estudiado más."
+  },
+  {
+    "english": "They insist on doing it their way.",
+    "spanish": "Insisten en hacerlo a su manera."
+  },
+  {
+    "english": "I'm thinking about buying a new car.",
+    "spanish": "Estoy pensando en comprar un carro nuevo."
+  },
+  {
+    "english": "It took us a long time to understand.",
+    "spanish": "Tardamos mucho en entender."
+  },
+  {
+    "english": "Success consists of practice and patience.",
+    "spanish": "El éxito consiste en la práctica y la paciencia."
+  },
+  {
+    "english": "Don't hesitate to ask questions.",
+    "spanish": "No duden en hacer preguntas."
+  },
+  {
+    "english": "He persists in arriving late.",
+    "spanish": "Se empeña en llegar tarde."
+  },
+  {
+    "english": "I dream of having my own business.",
+    "spanish": "Sueño con tener mi propio negocio."
+  },
+  {
+    "english": "You can always count on our support.",
+    "spanish": "Siempre pueden contar con nuestro apoyo."
+  },
+  {
+    "english": "She threatened to tell the boss.",
+    "spanish": "Amenazó con contárselo al jefe."
+  },
+  {
+    "english": "We settled for a smaller apartment.",
+    "spanish": "Nos conformamos con un departamento más pequeño."
+  },
+  {
+    "english": "I'm worried about the test results.",
+    "spanish": "Me preocupo por los resultados del examen."
+  },
+  {
+    "english": "They opted for staying home.",
+    "spanish": "Optaron por quedarse en casa."
+  },
+  {
+    "english": "We fought hard to win the game.",
+    "spanish": "Luchamos mucho por ganar el partido."
+  },
+  {
+    "english": "Start by organizing your desk.",
+    "spanish": "Empieza por organizar tu escritorio."
+  },
+  {
+    "english": "The baby started to walk last week.",
+    "spanish": "El bebé empezó a caminar la semana pasada."
+  },
+  {
+    "english": "He suddenly began to laugh.",
+    "spanish": "De repente se puso a reír."
+  },
+  {
+    "english": "I'm learning to play the guitar.",
+    "spanish": "Estoy aprendiendo a tocar la guitarra."
+  },
+  {
+    "english": "My brother taught me to swim.",
+    "spanish": "Mi hermano me enseñó a nadar."
+  },
+  {
+    "english": "Let me help you carry that.",
+    "spanish": "Déjame ayudarte a cargar eso."
+  },
+  {
+    "english": "We're going to eat out tonight.",
+    "spanish": "Vamos a comer afuera esta noche."
+  },
+  {
+    "english": "I have to rewrite it again.",
+    "spanish": "Tengo que volver a escribirlo."
+  },
+  {
+    "english": "You have to get used to the noise.",
+    "spanish": "Tienes que acostumbrarte al ruido."
+  },
+  {
+    "english": "She didn't dare to say no.",
+    "spanish": "No se atrevió a decir que no."
+  },
+  {
+    "english": "I refuse to accept that answer.",
+    "spanish": "Me niego a aceptar esa respuesta."
+  },
+  {
+    "english": "They forced me to work overtime.",
+    "spanish": "Me obligaron a trabajar horas extras."
+  },
+  {
+    "english": "He invited me to the concert.",
+    "spanish": "Me invitó al concierto."
+  },
+  {
+    "english": "She managed to pass the exam.",
+    "spanish": "Logró aprobar el examen."
+  },
+  {
+    "english": "I dedicate two hours a day to studying.",
+    "spanish": "Dedico dos horas al día a estudiar."
+  },
+  {
+    "english": "He stopped drinking coffee.",
+    "spanish": "Dejó de tomar café."
+  },
+  {
+    "english": "I've just sent the email.",
+    "spanish": "Acabo de enviar el correo."
+  },
+  {
+    "english": "We finished cleaning the house.",
+    "spanish": "Terminamos de limpiar la casa."
+  },
+  {
+    "english": "She tried to open the door.",
+    "spanish": "Trató de abrir la puerta."
+  },
+  {
+    "english": "Remember to charge your phone.",
+    "spanish": "Acuérdate de cargar tu celular."
+  },
+  {
+    "english": "I forgot to bring my wallet.",
+    "spanish": "Me olvidé de traer mi billetera."
+  },
+  {
+    "english": "We're tired of this situation.",
+    "spanish": "Estamos cansados de esta situación."
+  },
+  {
+    "english": "I'll take care of the kids tonight.",
+    "spanish": "Me encargo de los niños esta noche."
+  },
+  {
+    "english": "He regrets not having gone.",
+    "spanish": "Se arrepiente de no haber ido."
+  },
+  {
+    "english": "She insists on paying for everything.",
+    "spanish": "Insiste en pagar todo."
+  },
+  {
+    "english": "I'm thinking about moving to another city.",
+    "spanish": "Estoy pensando en mudarme a otra ciudad."
+  },
+  {
+    "english": "It took me a while to realize.",
+    "spanish": "Tardé un rato en darme cuenta."
+  },
+  {
+    "english": "The job consists of answering emails.",
+    "spanish": "El trabajo consiste en responder correos."
+  },
+  {
+    "english": "Don't hesitate to contact us.",
+    "spanish": "No dudes en contactarnos."
+  },
+  {
+    "english": "He persists in denying it.",
+    "spanish": "Se empeña en negarlo."
+  },
+  {
+    "english": "I dream of living near the beach.",
+    "spanish": "Sueño con vivir cerca de la playa."
+  },
+  {
+    "english": "You can count on our help.",
+    "spanish": "Pueden contar con nuestra ayuda."
+  },
+  {
+    "english": "They threatened to cancel the contract.",
+    "spanish": "Amenazaron con cancelar el contrato."
+  },
+  {
+    "english": "We settled for a cheaper hotel.",
+    "spanish": "Nos conformamos con un hotel más barato."
+  },
+  {
+    "english": "I'm worried about the weather tomorrow.",
+    "spanish": "Me preocupo por el clima de mañana."
+  },
+  {
+    "english": "She opted for studying online.",
+    "spanish": "Optó por estudiar en línea."
+  },
+  {
+    "english": "They fought to protect the forest.",
+    "spanish": "Lucharon por proteger el bosque."
+  },
+  {
+    "english": "Start by making a list.",
+    "spanish": "Empieza por hacer una lista."
+  },
+  {
+    "english": "The children started to play in the park.",
+    "spanish": "Los niños empezaron a jugar en el parque."
+  },
+  {
+    "english": "She began to speak Spanish fluently.",
+    "spanish": "Empezó a hablar español con fluidez."
+  },
+  {
+    "english": "We're learning to cook Mexican food.",
+    "spanish": "Estamos aprendiendo a cocinar comida mexicana."
+  },
+  {
+    "english": "Can you teach me to dance salsa?",
+    "spanish": "¿Me puedes enseñar a bailar salsa?"
+  },
+  {
+    "english": "Help me find my keys.",
+    "spanish": "Ayúdame a encontrar mis llaves."
+  },
+  {
+    "english": "I'm going to visit my parents this weekend.",
+    "spanish": "Voy a visitar a mis padres este fin de semana."
+  },
+  {
+    "english": "We have to do the exercise again.",
+    "spanish": "Tenemos que volver a hacer el ejercicio."
+  },
+  {
+    "english": "You need to get used to driving here.",
+    "spanish": "Tienes que acostumbrarte a manejar aquí."
+  },
+  {
+    "english": "I didn't dare to ask for a raise.",
+    "spanish": "No me atreví a pedir un aumento."
+  },
+  {
+    "english": "She refuses to talk about it.",
+    "spanish": "Se niega a hablar del tema."
+  },
+  {
+    "english": "They forced us to wait outside.",
+    "spanish": "Nos obligaron a esperar afuera."
+  },
+  {
+    "english": "He invited me to his birthday party.",
+    "spanish": "Me invitó a su fiesta de cumpleaños."
+  },
+  {
+    "english": "We managed to solve the problem.",
+    "spanish": "Logramos resolver el problema."
+  },
+  {
+    "english": "She dedicates her free time to reading.",
+    "spanish": "Dedica su tiempo libre a leer."
+  },
+  {
+    "english": "I stopped using social media for a month.",
+    "spanish": "Dejé de usar las redes sociales por un mes."
+  },
+  {
+    "english": "We've just bought a new computer.",
+    "spanish": "Acabamos de comprar una computadora nueva."
+  },
+  {
+    "english": "He finished preparing the presentation.",
+    "spanish": "Terminó de preparar la presentación."
+  },
+  {
+    "english": "I tried to explain it clearly.",
+    "spanish": "Traté de explicarlo claramente."
+  },
+  {
+    "english": "Remember to water the plants.",
+    "spanish": "Acuérdate de regar las plantas."
+  },
+  {
+    "english": "She forgot to set the alarm.",
+    "spanish": "Se olvidó de poner la alarma."
+  },
+  {
+    "english": "I'm tired of explaining the same thing.",
+    "spanish": "Estoy cansado de explicar lo mismo."
+  },
+  {
+    "english": "Who will take care of the reservations?",
+    "spanish": "¿Quién se va a encargar de las reservaciones?"
+  },
+  {
+    "english": "He regrets not having listened.",
+    "spanish": "Se arrepiente de no haber escuchado."
+  },
+  {
+    "english": "They insist on inviting us.",
+    "spanish": "Insisten en invitarnos."
+  },
+  {
+    "english": "I'm thinking about learning Portuguese.",
+    "spanish": "Estoy pensando en aprender portugués."
+  },
+  {
+    "english": "It took them days to reply.",
+    "spanish": "Tardaron días en responder."
+  },
+  {
+    "english": "The course consists of ten modules.",
+    "spanish": "El curso consiste en diez módulos."
+  },
+  {
+    "english": "Don't hesitate to tell me the truth.",
+    "spanish": "No dudes en decirme la verdad."
+  },
+  {
+    "english": "She persists in arriving early.",
+    "spanish": "Se empeña en llegar temprano."
+  },
+  {
+    "english": "I dream of opening my own café.",
+    "spanish": "Sueño con abrir mi propio café."
+  },
+  {
+    "english": "You can count on finding a solution.",
+    "spanish": "Pueden contar con encontrar una solución."
+  },
+  {
+    "english": "He threatened to call the police.",
+    "spanish": "Amenazó con llamar a la policía."
+  },
+  {
+    "english": "We settled for a simple dinner.",
+    "spanish": "Nos conformamos con una cena sencilla."
+  },
+  {
+    "english": "I'm worried about missing the deadline.",
+    "spanish": "Me preocupo por perder la fecha límite."
+  },
+  {
+    "english": "They opted for renting instead of buying.",
+    "spanish": "Optaron por rentar en lugar de comprar."
+  },
+  {
+    "english": "We fought to get better conditions.",
+    "spanish": "Luchamos por conseguir mejores condiciones."
+  },
+  {
+    "english": "Start by reviewing your notes.",
+    "spanish": "Empieza por revisar tus apuntes."
+  },
+  {
+    "english": "The rain started to fall heavily.",
+    "spanish": "Empezó a llover fuerte."
+  },
+  {
+    "english": "He began to feel nervous.",
+    "spanish": "Empezó a sentirse nervioso."
+  },
+  {
+    "english": "We're learning to manage our time better.",
+    "spanish": "Estamos aprendiendo a manejar mejor nuestro tiempo."
+  },
+  {
+    "english": "My friend taught me to use Excel.",
+    "spanish": "Mi amigo me enseñó a usar Excel."
+  },
+  {
+    "english": "Help me translate this document.",
+    "spanish": "Ayúdame a traducir este documento."
+  },
+  {
+    "english": "They're going to renovate the kitchen.",
+    "spanish": "Van a renovar la cocina."
+  },
+  {
+    "english": "I have to call him again.",
+    "spanish": "Tengo que volver a llamarlo."
+  },
+  {
+    "english": "You have to get used to the schedule.",
+    "spanish": "Tienes que acostumbrarte al horario."
+  },
+  {
+    "english": "She didn't dare to confront him.",
+    "spanish": "No se atrevió a confrontarlo."
+  },
+  {
+    "english": "I refuse to work on weekends.",
+    "spanish": "Me niego a trabajar los fines de semana."
+  },
+  {
+    "english": "They forced the company to change its policy.",
+    "spanish": "Obligaron a la empresa a cambiar su política."
+  },
+  {
+    "english": "She invited us to stay at her house.",
+    "spanish": "Nos invitó a quedarnos en su casa."
+  },
+  {
+    "english": "He managed to convince the client.",
+    "spanish": "Logró convencer al cliente."
+  },
+  {
+    "english": "I dedicate my mornings to studying.",
+    "spanish": "Dedico mis mañanas a estudiar."
+  },
+  {
+    "english": "She stopped watching television.",
+    "spanish": "Dejó de ver televisión."
+  },
+  {
+    "english": "I've just received the package.",
+    "spanish": "Acabo de recibir el paquete."
+  },
+  {
+    "english": "We finished discussing the topic.",
+    "spanish": "Terminamos de discutir el tema."
+  },
+  {
+    "english": "He tried to fix the computer.",
+    "spanish": "Trató de arreglar la computadora."
+  },
+  {
+    "english": "Remember to save your work.",
+    "spanish": "Acuérdate de guardar tu trabajo."
+  },
+  {
+    "english": "I forgot to reply to the message.",
+    "spanish": "Me olvidé de responder el mensaje."
+  },
+  {
+    "english": "They're tired of the delays.",
+    "spanish": "Están cansados de los retrasos."
+  },
+  {
+    "english": "I'll take care of picking up the kids.",
+    "spanish": "Me encargo de recoger a los niños."
+  },
+  {
+    "english": "She regrets not having traveled more.",
+    "spanish": "Se arrepiente de no haber viajado más."
+  },
+  {
+    "english": "He insists on helping us.",
+    "spanish": "Insiste en ayudarnos."
+  },
+  {
+    "english": "I'm thinking about taking a vacation.",
+    "spanish": "Estoy pensando en tomar vacaciones."
+  },
+  {
+    "english": "It took a long time to load.",
+    "spanish": "Tardó mucho en cargar."
+  },
+  {
+    "english": "The process consists of three steps.",
+    "spanish": "El proceso consiste en tres pasos."
+  },
+  {
+    "english": "Don't hesitate to share your opinion.",
+    "spanish": "No dudes en compartir tu opinión."
+  },
+  {
+    "english": "They persist in ignoring the problem.",
+    "spanish": "Se empeñan en ignorar el problema."
+  },
+  {
+    "english": "I dream of visiting Machu Picchu.",
+    "spanish": "Sueño con visitar Machu Picchu."
+  },
+  {
+    "english": "You can count on a quick response.",
+    "spanish": "Pueden contar con una respuesta rápida."
+  },
+  {
+    "english": "She threatened to leave the group.",
+    "spanish": "Amenazó con dejar el grupo."
+  },
+  {
+    "english": "We settled for what we had.",
+    "spanish": "Nos conformamos con lo que teníamos."
+  },
+  {
+    "english": "I'm worried about the traffic.",
+    "spanish": "Me preocupo por el tráfico."
+  },
+  {
+    "english": "He opted for a simpler solution.",
+    "spanish": "Optó por una solución más simple."
+  },
+  {
+    "english": "They fought to improve the system.",
+    "spanish": "Lucharon por mejorar el sistema."
+  },
+  {
+    "english": "Start by checking your email.",
+    "spanish": "Empieza por revisar tu correo."
+  },
+  {
+    "english": "The students began to ask questions.",
+    "spanish": "Los estudiantes empezaron a hacer preguntas."
+  },
+  {
+    "english": "She put herself to organizing the files.",
+    "spanish": "Se puso a organizar los archivos."
+  },
+  {
+    "english": "I'm learning to be more patient.",
+    "spanish": "Estoy aprendiendo a ser más paciente."
+  },
+  {
+    "english": "Can you help me understand this?",
+    "spanish": "¿Me ayudas a entender esto?"
+  },
+  {
+    "english": "We're going to try a new restaurant.",
+    "spanish": "Vamos a probar un restaurante nuevo."
+  },
+  {
+    "english": "I have to start over again.",
+    "spanish": "Tengo que volver a empezar."
+  },
+  {
+    "english": "You need to get used to public transportation.",
+    "spanish": "Tienes que acostumbrarte al transporte público."
+  },
+  {
+    "english": "He didn't dare to admit his mistake.",
+    "spanish": "No se atrevió a admitir su error."
+  },
+  {
+    "english": "I refuse to give up.",
+    "spanish": "Me niego a rendirme."
+  },
+  {
+    "english": "They forced the decision to be postponed.",
+    "spanish": "Obligaron a posponer la decisión."
+  },
+  {
+    "english": "She invited me to join the team.",
+    "spanish": "Me invitó a unirme al equipo."
+  },
+  {
+    "english": "We managed to finish before the deadline.",
+    "spanish": "Logramos terminar antes de la fecha límite."
+  },
+  {
+    "english": "He dedicates weekends to his family.",
+    "spanish": "Dedica los fines de semana a su familia."
+  },
+  {
+    "english": "I stopped checking my phone constantly.",
+    "spanish": "Dejé de revisar mi celular constantemente."
+  },
+  {
+    "english": "We've just arrived at the hotel.",
+    "spanish": "Acabamos de llegar al hotel."
+  }
+]

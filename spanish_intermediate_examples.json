@@ -1,0 +1,974 @@
+[
+  {
+    "english": "I study Spanish to be able to talk with my neighbors.",
+    "spanish": "Estudio español para poder hablar con mis vecinos."
+  },
+  {
+    "english": "We need a bigger box so that all the books fit.",
+    "spanish": "Necesitamos una caja más grande para que quepan todos los libros."
+  },
+  {
+    "english": "Could you pay the bill for me, please?",
+    "spanish": "¿Me podrías pagar la cuenta, por favor?"
+  },
+  {
+    "english": "We're going to the coast for the weekend.",
+    "spanish": "Vamos a la costa para el fin de semana."
+  },
+  {
+    "english": "I get up in the morning.",
+    "spanish": "Me levanto por la mañana."
+  },
+  {
+    "english": "He paid the bill in my place.",
+    "spanish": "Pagó la cuenta por mí."
+  },
+  {
+    "english": "This gift is for you.",
+    "spanish": "Este regalo es para ti."
+  },
+  {
+    "english": "I did it because of you.",
+    "spanish": "Lo hice por ti."
+  },
+  {
+    "english": "I study so that my parents are proud.",
+    "spanish": "Estudio para que mis padres estén orgullosos."
+  },
+  {
+    "english": "Take an umbrella in case it rains.",
+    "spanish": "Lleva un paraguas por si llueve."
+  },
+  {
+    "english": "I want you to come to the party.",
+    "spanish": "Quiero que vengas a la fiesta."
+  },
+  {
+    "english": "I hope everything goes well.",
+    "spanish": "Espero que todo salga bien."
+  },
+  {
+    "english": "It's important that you arrive early.",
+    "spanish": "Es importante que llegues temprano."
+  },
+  {
+    "english": "I doubt that it's true.",
+    "spanish": "Dudo que sea verdad."
+  },
+  {
+    "english": "I don't think he's going to come.",
+    "spanish": "No creo que vaya a venir."
+  },
+  {
+    "english": "I'm glad that you're here.",
+    "spanish": "Me alegra que estés aquí."
+  },
+  {
+    "english": "Call me when you arrive.",
+    "spanish": "Llámame cuando llegues."
+  },
+  {
+    "english": "Stay until I finish.",
+    "spanish": "Quédate hasta que termine."
+  },
+  {
+    "english": "I'm looking for a house that has a garden.",
+    "spanish": "Busco una casa que tenga jardín."
+  },
+  {
+    "english": "She started to cry.",
+    "spanish": "Se puso a llorar."
+  },
+  {
+    "english": "I stopped smoking last year.",
+    "spanish": "Dejé de fumar el año pasado."
+  },
+  {
+    "english": "I have just arrived.",
+    "spanish": "Acabo de llegar."
+  },
+  {
+    "english": "He tried to convince me.",
+    "spanish": "Trató de convencerme."
+  },
+  {
+    "english": "Remember to close the door.",
+    "spanish": "Acuérdate de cerrar la puerta."
+  },
+  {
+    "english": "He insisted on paying the bill.",
+    "spanish": "Insistió en pagar la cuenta."
+  },
+  {
+    "english": "It took him two hours to arrive.",
+    "spanish": "Tardó dos horas en llegar."
+  },
+  {
+    "english": "I dream of traveling to Japan.",
+    "spanish": "Sueño con viajar a Japón."
+  },
+  {
+    "english": "You can count on me.",
+    "spanish": "Puedes contar conmigo."
+  },
+  {
+    "english": "Madrid is one of the most beautiful capitals in Europe.",
+    "spanish": "Madrid es una de las capitales más bellas de Europa."
+  },
+  {
+    "english": "This car is more expensive than that one.",
+    "spanish": "Este carro es más caro que aquel."
+  },
+  {
+    "english": "She is as tall as her brother.",
+    "spanish": "Ella es tan alta como su hermano."
+  },
+  {
+    "english": "He is the best student in the class.",
+    "spanish": "Él es el mejor estudiante de la clase."
+  },
+  {
+    "english": "I thank you with all my heart.",
+    "spanish": "Te agradezco de todo corazón."
+  },
+  {
+    "english": "I formally thank you with all my heart.",
+    "spanish": "Le agradezco de todo corazón."
+  },
+  {
+    "english": "We're going to the beach tomorrow morning.",
+    "spanish": "Vamos a la playa mañana por la mañana."
+  },
+  {
+    "english": "The meeting was supposed to be just as short tomorrow.",
+    "spanish": "La reunión iba a ser igual de corta mañana."
+  },
+  {
+    "english": "I study in order to pass the exam.",
+    "spanish": "Estudio para aprobar el examen."
+  },
+  {
+    "english": "She works hard so that her children can study.",
+    "spanish": "Trabaja duro para que sus hijos puedan estudiar."
+  },
+  {
+    "english": "We traveled by car.",
+    "spanish": "Viajamos por carro."
+  },
+  {
+    "english": "This is for tomorrow.",
+    "spanish": "Esto es para mañana."
+  },
+  {
+    "english": "In my opinion, it's too expensive.",
+    "spanish": "Para mí, es demasiado caro."
+  },
+  {
+    "english": "For someone so young, he speaks very well.",
+    "spanish": "Para ser tan joven, habla muy bien."
+  },
+  {
+    "english": "I walked through the park.",
+    "spanish": "Caminé por el parque."
+  },
+  {
+    "english": "The book was written by her.",
+    "spanish": "El libro fue escrito por ella."
+  },
+  {
+    "english": "Sixty kilometers per hour.",
+    "spanish": "Sesenta kilómetros por hora."
+  },
+  {
+    "english": "Finally!",
+    "spanish": "¡Por fin!"
+  },
+  {
+    "english": "Of course.",
+    "spanish": "Por supuesto."
+  },
+  {
+    "english": "At least try.",
+    "spanish": "Por lo menos inténtalo."
+  },
+  {
+    "english": "By the way, how are you?",
+    "spanish": "Por cierto, ¿cómo estás?"
+  },
+  {
+    "english": "Not at all.",
+    "spanish": "Para nada."
+  },
+  {
+    "english": "Forever.",
+    "spanish": "Para siempre."
+  },
+  {
+    "english": "To top it all off.",
+    "spanish": "Para colmo."
+  },
+  {
+    "english": "For a change.",
+    "spanish": "Para variar."
+  },
+  {
+    "english": "I recommend that you rest.",
+    "spanish": "Te recomiendo que descanses."
+  },
+  {
+    "english": "It's necessary that you study more.",
+    "spanish": "Es necesario que estudies más."
+  },
+  {
+    "english": "It's possible that it will rain.",
+    "spanish": "Es posible que llueva."
+  },
+  {
+    "english": "I'm afraid that they will find out.",
+    "spanish": "Tengo miedo de que se enteren."
+  },
+  {
+    "english": "Before they leave, say goodbye.",
+    "spanish": "Antes de que se vayan, despídete."
+  },
+  {
+    "english": "As soon as you finish, call me.",
+    "spanish": "En cuanto termines, llámame."
+  },
+  {
+    "english": "There is no one who knows the answer.",
+    "spanish": "No hay nadie que sepa la respuesta."
+  },
+  {
+    "english": "I learned to drive last year.",
+    "spanish": "Aprendí a manejar el año pasado."
+  },
+  {
+    "english": "My dad taught me how to cook.",
+    "spanish": "Mi papá me enseñó a cocinar."
+  },
+  {
+    "english": "Can you help me move this table?",
+    "spanish": "¿Me ayudas a mover esta mesa?"
+  },
+  {
+    "english": "I'm going to leave now.",
+    "spanish": "Voy a salir ahora."
+  },
+  {
+    "english": "Try again.",
+    "spanish": "Vuelve a intentarlo."
+  },
+  {
+    "english": "I got used to getting up early.",
+    "spanish": "Me acostumbré a levantarme temprano."
+  },
+  {
+    "english": "I don't dare to jump.",
+    "spanish": "No me atrevo a saltar."
+  },
+  {
+    "english": "She refused to sign the document.",
+    "spanish": "Se negó a firmar el documento."
+  },
+  {
+    "english": "They forced me to stay silent.",
+    "spanish": "Me obligaron a callarme."
+  },
+  {
+    "english": "She invited me to dinner.",
+    "spanish": "Me invitó a cenar."
+  },
+  {
+    "english": "He managed to become president.",
+    "spanish": "Llegó a ser presidente."
+  },
+  {
+    "english": "I devote myself to writing.",
+    "spanish": "Me dedico a escribir."
+  },
+  {
+    "english": "I finished reading the book.",
+    "spanish": "Terminé de leer el libro."
+  },
+  {
+    "english": "I forgot to lock the door.",
+    "spanish": "Me olvidé de cerrar la puerta con llave."
+  },
+  {
+    "english": "I'm tired of waiting.",
+    "spanish": "Estoy cansado de esperar."
+  },
+  {
+    "english": "I'll take care of booking the hotel.",
+    "spanish": "Me encargo de reservar el hotel."
+  },
+  {
+    "english": "I regret having said that.",
+    "spanish": "Me arrepiento de haber dicho eso."
+  },
+  {
+    "english": "I'm thinking about changing jobs.",
+    "spanish": "Estoy pensando en cambiar de trabajo."
+  },
+  {
+    "english": "The problem consists of finding a balance.",
+    "spanish": "El problema consiste en encontrar un equilibrio."
+  },
+  {
+    "english": "Don't hesitate to call me.",
+    "spanish": "No dudes en llamarme."
+  },
+  {
+    "english": "He threatened to leave.",
+    "spanish": "Amenazó con irse."
+  },
+  {
+    "english": "She settled for waiting.",
+    "spanish": "Se conformó con esperar."
+  },
+  {
+    "english": "I'm worried about arriving late.",
+    "spanish": "Me preocupo por llegar tarde."
+  },
+  {
+    "english": "She chose to stay home.",
+    "spanish": "Optó por quedarse en casa."
+  },
+  {
+    "english": "They fought to get the scholarship.",
+    "spanish": "Lucharon por conseguir la beca."
+  },
+  {
+    "english": "Start by reading this chapter.",
+    "spanish": "Empieza por leer este capítulo."
+  },
+  {
+    "english": "This is the most interesting movie I've ever seen.",
+    "spanish": "Esta es la película más interesante que he visto."
+  },
+  {
+    "english": "She is less organized than her sister.",
+    "spanish": "Ella es menos organizada que su hermana."
+  },
+  {
+    "english": "These two cats are equally cute.",
+    "spanish": "Estos dos gatos son igual de lindos."
+  },
+  {
+    "english": "It's the cheapest option.",
+    "spanish": "Es la opción más barata."
+  },
+  {
+    "english": "I need a bigger apartment for the weekend.",
+    "spanish": "Necesito un departamento más grande para el fin de semana."
+  },
+  {
+    "english": "We walked through the city center.",
+    "spanish": "Caminamos por el centro de la ciudad."
+  },
+  {
+    "english": "The package was sent by mail.",
+    "spanish": "El paquete fue enviado por correo."
+  },
+  {
+    "english": "I bought it for twenty dollars.",
+    "spanish": "Lo compré por veinte dólares."
+  },
+  {
+    "english": "In case you need it.",
+    "spanish": "Por si lo necesitas."
+  },
+  {
+    "english": "That's why I left early.",
+    "spanish": "Por eso me fui temprano."
+  },
+  {
+    "english": "Please help me.",
+    "spanish": "Por favor, ayúdame."
+  },
+  {
+    "english": "For now, that's enough.",
+    "spanish": "Por ahora, es suficiente."
+  },
+  {
+    "english": "By chance I found it.",
+    "spanish": "Por casualidad lo encontré."
+  },
+  {
+    "english": "Generally, I prefer coffee.",
+    "spanish": "Por lo general, prefiero el café."
+  },
+  {
+    "english": "For example, this one.",
+    "spanish": "Por ejemplo, este."
+  },
+  {
+    "english": "You're welcome.",
+    "spanish": "Por nada."
+  },
+  {
+    "english": "I'm about to leave.",
+    "spanish": "Estoy por irme."
+  },
+  {
+    "english": "The cake is ready to eat.",
+    "spanish": "El pastel está para comerse."
+  },
+  {
+    "english": "I'm not in the mood for jokes.",
+    "spanish": "Hoy no estoy para bromas."
+  },
+  {
+    "english": "He is very kind toward everyone.",
+    "spanish": "Es muy amable para con todos."
+  },
+  {
+    "english": "I hope you have a good trip.",
+    "spanish": "Espero que tengas un buen viaje."
+  },
+  {
+    "english": "It's better that you don't go.",
+    "spanish": "Es mejor que no vayas."
+  },
+  {
+    "english": "I suggest that you take the bus.",
+    "spanish": "Te sugiero que tomes el bus."
+  },
+  {
+    "english": "We ask that you be patient.",
+    "spanish": "Pedimos que sean pacientes."
+  },
+  {
+    "english": "Unless it rains, we'll go.",
+    "spanish": "A menos que llueva, iremos."
+  },
+  {
+    "english": "Provided that you finish on time.",
+    "spanish": "Con tal de que termines a tiempo."
+  },
+  {
+    "english": "In case something happens, call me.",
+    "spanish": "En caso de que pase algo, llámame."
+  },
+  {
+    "english": "Even if it's expensive, I'll buy it.",
+    "spanish": "Aunque sea caro, lo compraré."
+  },
+  {
+    "english": "No matter how much you study, practice is important.",
+    "spanish": "Por mucho que estudies, la práctica es importante."
+  },
+  {
+    "english": "I want a computer that is fast.",
+    "spanish": "Quiero una computadora que sea rápida."
+  },
+  {
+    "english": "There's no app that does that.",
+    "spanish": "No hay ninguna aplicación que haga eso."
+  },
+  {
+    "english": "She began to study at the university.",
+    "spanish": "Empezó a estudiar en la universidad."
+  },
+  {
+    "english": "He came to see me yesterday.",
+    "spanish": "Vino a verme ayer."
+  },
+  {
+    "english": "They forced him to resign.",
+    "spanish": "Lo obligaron a renunciar."
+  },
+  {
+    "english": "I limit myself to listening.",
+    "spanish": "Me limito a escuchar."
+  },
+  {
+    "english": "She decided to start a business.",
+    "spanish": "Decidió empezar un negocio."
+  },
+  {
+    "english": "We just finished dinner.",
+    "spanish": "Acabamos de terminar la cena."
+  },
+  {
+    "english": "Stop complaining.",
+    "spanish": "Deja de quejarte."
+  },
+  {
+    "english": "Try to understand.",
+    "spanish": "Trata de entender."
+  },
+  {
+    "english": "Don't forget to turn off the light.",
+    "spanish": "No te olvides de apagar la luz."
+  },
+  {
+    "english": "I'm ashamed of having lied.",
+    "spanish": "Me avergüenzo de haber mentido."
+  },
+  {
+    "english": "He boasts about knowing everything.",
+    "spanish": "Presume de saberlo todo."
+  },
+  {
+    "english": "She persists in doing it her way.",
+    "spanish": "Se empeña en hacerlo a su manera."
+  },
+  {
+    "english": "I hesitate to accept the offer.",
+    "spanish": "Dudo en aceptar la oferta."
+  },
+  {
+    "english": "They agreed to participate.",
+    "spanish": "Convinieron en participar."
+  },
+  {
+    "english": "I count on seeing you soon.",
+    "spanish": "Cuento con verte pronto."
+  },
+  {
+    "english": "She dreams of living by the beach.",
+    "spanish": "Sueña con vivir cerca de la playa."
+  },
+  {
+    "english": "He threatened to tell everyone.",
+    "spanish": "Amenazó con contárselo a todos."
+  },
+  {
+    "english": "We opted for taking the plane.",
+    "spanish": "Optamos por tomar el avión."
+  },
+  {
+    "english": "I'm worried about the results.",
+    "spanish": "Me preocupo por los resultados."
+  },
+  {
+    "english": "This is one of the best restaurants in the city.",
+    "spanish": "Este es uno de los mejores restaurantes de la ciudad."
+  },
+  {
+    "english": "My car is as fast as yours.",
+    "spanish": "Mi carro es tan rápido como el tuyo."
+  },
+  {
+    "english": "She is the most intelligent in the group.",
+    "spanish": "Ella es la más inteligente del grupo."
+  },
+  {
+    "english": "They are the least expensive on the menu.",
+    "spanish": "Son los menos caros del menú."
+  },
+  {
+    "english": "I need it for tomorrow morning.",
+    "spanish": "Lo necesito para mañana por la mañana."
+  },
+  {
+    "english": "We stayed there for two days.",
+    "spanish": "Nos quedamos allí por dos días."
+  },
+  {
+    "english": "The ticket costs ten dollars.",
+    "spanish": "El boleto cuesta diez dólares."
+  },
+  {
+    "english": "In my opinion, we should leave.",
+    "spanish": "Para mí, deberíamos irnos."
+  },
+  {
+    "english": "For a beginner, he speaks very well.",
+    "spanish": "Para ser principiante, habla muy bien."
+  },
+  {
+    "english": "We passed through several cities.",
+    "spanish": "Pasamos por varias ciudades."
+  },
+  {
+    "english": "It was decided by the majority.",
+    "spanish": "Fue decidido por la mayoría."
+  },
+  {
+    "english": "Just in case.",
+    "spanish": "Por si acaso."
+  },
+  {
+    "english": "That's why I'm calling you.",
+    "spanish": "Por eso te estoy llamando."
+  },
+  {
+    "english": "At least call me.",
+    "spanish": "Por lo menos llámame."
+  },
+  {
+    "english": "By the way, I saw your brother.",
+    "spanish": "Por cierto, vi a tu hermano."
+  },
+  {
+    "english": "Completely wrong.",
+    "spanish": "Por completo equivocado."
+  },
+  {
+    "english": "For example, in Mexico.",
+    "spanish": "Por ejemplo, en México."
+  },
+  {
+    "english": "Not for anything.",
+    "spanish": "Para nada."
+  },
+  {
+    "english": "Forever and ever.",
+    "spanish": "Para siempre."
+  },
+  {
+    "english": "To make matters worse.",
+    "spanish": "Para colmo."
+  },
+  {
+    "english": "For a change, it didn't rain.",
+    "spanish": "Para variar, no llovió."
+  },
+  {
+    "english": "I ask you to be careful.",
+    "spanish": "Te pido que tengas cuidado."
+  },
+  {
+    "english": "It's rare that he arrives late.",
+    "spanish": "Es raro que llegue tarde."
+  },
+  {
+    "english": "It may be that she is right.",
+    "spanish": "Puede que tenga razón."
+  },
+  {
+    "english": "I'm sorry that you're sick.",
+    "spanish": "Siento que estés enfermo."
+  },
+  {
+    "english": "Before you leave, give me the keys.",
+    "spanish": "Antes de que te vayas, dame las llaves."
+  },
+  {
+    "english": "As soon as I know, I'll tell you.",
+    "spanish": "En cuanto lo sepa, te lo diré."
+  },
+  {
+    "english": "I need someone who speaks English.",
+    "spanish": "Necesito a alguien que hable inglés."
+  },
+  {
+    "english": "There's nothing that interests me.",
+    "spanish": "No hay nada que me interese."
+  },
+  {
+    "english": "He began to work at the company.",
+    "spanish": "Empezó a trabajar en la empresa."
+  },
+  {
+    "english": "Come see me tomorrow.",
+    "spanish": "Ven a verme mañana."
+  },
+  {
+    "english": "They invited us to the wedding.",
+    "spanish": "Nos invitaron a la boda."
+  },
+  {
+    "english": "I refuse to accept that.",
+    "spanish": "Me niego a aceptar eso."
+  },
+  {
+    "english": "She got used to the cold.",
+    "spanish": "Se acostumbró al frío."
+  },
+  {
+    "english": "I just saw him.",
+    "spanish": "Acabo de verlo."
+  },
+  {
+    "english": "Stop talking so loud.",
+    "spanish": "Deja de hablar tan alto."
+  },
+  {
+    "english": "Try to be on time.",
+    "spanish": "Trata de llegar a tiempo."
+  },
+  {
+    "english": "Remember to bring the documents.",
+    "spanish": "Acuérdate de traer los documentos."
+  },
+  {
+    "english": "I forgot to buy milk.",
+    "spanish": "Me olvidé de comprar leche."
+  },
+  {
+    "english": "He's tired of the same routine.",
+    "spanish": "Está cansado de la misma rutina."
+  },
+  {
+    "english": "I'll take care of everything.",
+    "spanish": "Me encargo de todo."
+  },
+  {
+    "english": "I regret not having studied more.",
+    "spanish": "Me arrepiento de no haber estudiado más."
+  },
+  {
+    "english": "I'm thinking about moving.",
+    "spanish": "Estoy pensando en mudarme."
+  },
+  {
+    "english": "It consists of three parts.",
+    "spanish": "Consiste en tres partes."
+  },
+  {
+    "english": "He insists on doing it alone.",
+    "spanish": "Insiste en hacerlo solo."
+  },
+  {
+    "english": "It took me a long time to understand.",
+    "spanish": "Tardé mucho en entender."
+  },
+  {
+    "english": "Don't hesitate to ask.",
+    "spanish": "No dudes en preguntar."
+  },
+  {
+    "english": "I dream of having my own house.",
+    "spanish": "Sueño con tener mi propia casa."
+  },
+  {
+    "english": "You can count on our help.",
+    "spanish": "Pueden contar con nuestra ayuda."
+  },
+  {
+    "english": "She threatened to quit.",
+    "spanish": "Amenazó con renunciar."
+  },
+  {
+    "english": "We opted for the cheaper option.",
+    "spanish": "Optamos por la opción más barata."
+  },
+  {
+    "english": "I'm worried about the weather.",
+    "spanish": "Me preocupo por el clima."
+  },
+  {
+    "english": "This is the longest book I've read.",
+    "spanish": "Este es el libro más largo que he leído."
+  },
+  {
+    "english": "He is taller than his father.",
+    "spanish": "Él es más alto que su padre."
+  },
+  {
+    "english": "The two options are equally good.",
+    "spanish": "Las dos opciones son igual de buenas."
+  },
+  {
+    "english": "She is the youngest in the family.",
+    "spanish": "Ella es la menor de la familia."
+  },
+  {
+    "english": "We reserved the hotel for next month.",
+    "spanish": "Reservamos el hotel para el próximo mes."
+  },
+  {
+    "english": "I drove through the tunnel.",
+    "spanish": "Manejé por el túnel."
+  },
+  {
+    "english": "The decision was made by the committee.",
+    "spanish": "La decisión fue tomada por el comité."
+  },
+  {
+    "english": "I paid fifty pesos for it.",
+    "spanish": "Pagué cincuenta pesos por eso."
+  },
+  {
+    "english": "In case of emergency, call this number.",
+    "spanish": "En caso de emergencia, llama a este número."
+  },
+  {
+    "english": "That's why we left early.",
+    "spanish": "Por eso nos fuimos temprano."
+  },
+  {
+    "english": "Please sit down.",
+    "spanish": "Por favor, siéntense."
+  },
+  {
+    "english": "For now, let's wait.",
+    "spanish": "Por ahora, esperemos."
+  },
+  {
+    "english": "By chance we met at the mall.",
+    "spanish": "Por casualidad nos encontramos en el centro comercial."
+  },
+  {
+    "english": "Generally speaking, it's correct.",
+    "spanish": "Por lo general, es correcto."
+  },
+  {
+    "english": "For example, use this method.",
+    "spanish": "Por ejemplo, usa este método."
+  },
+  {
+    "english": "Don't mention it.",
+    "spanish": "Por nada."
+  },
+  {
+    "english": "I'm about to call him.",
+    "spanish": "Estoy por llamarlo."
+  },
+  {
+    "english": "The food is ready to serve.",
+    "spanish": "La comida está para servir."
+  },
+  {
+    "english": "I'm not in the mood for going out.",
+    "spanish": "No estoy para salir."
+  },
+  {
+    "english": "He is respectful toward his elders.",
+    "spanish": "Es respetuoso para con sus mayores."
+  },
+  {
+    "english": "I want you to know the truth.",
+    "spanish": "Quiero que sepas la verdad."
+  },
+  {
+    "english": "It's necessary that we talk.",
+    "spanish": "Es necesario que hablemos."
+  },
+  {
+    "english": "It's possible that they cancel the flight.",
+    "spanish": "Es posible que cancelen el vuelo."
+  },
+  {
+    "english": "I'm happy that you got the job.",
+    "spanish": "Me alegra que hayas conseguido el trabajo."
+  },
+  {
+    "english": "Call me before you leave.",
+    "spanish": "Llámame antes de que salgas."
+  },
+  {
+    "english": "As soon as I finish, I'll go.",
+    "spanish": "En cuanto termine, me iré."
+  },
+  {
+    "english": "I need a car that doesn't use much gas.",
+    "spanish": "Necesito un carro que no gaste mucha gasolina."
+  },
+  {
+    "english": "There is no one who can help.",
+    "spanish": "No hay nadie que pueda ayudar."
+  },
+  {
+    "english": "She started to learn guitar.",
+    "spanish": "Empezó a aprender guitarra."
+  },
+  {
+    "english": "He came to pick me up.",
+    "spanish": "Vino a recogerme."
+  },
+  {
+    "english": "They helped us move.",
+    "spanish": "Nos ayudaron a mudarnos."
+  },
+  {
+    "english": "I refuse to believe it.",
+    "spanish": "Me niego a creerlo."
+  },
+  {
+    "english": "We got used to the noise.",
+    "spanish": "Nos acostumbramos al ruido."
+  },
+  {
+    "english": "I just bought a new cellphone.",
+    "spanish": "Acabo de comprar un celular nuevo."
+  },
+  {
+    "english": "Stop interrupting me.",
+    "spanish": "Deja de interrumpirme."
+  },
+  {
+    "english": "Try to relax.",
+    "spanish": "Trata de relajarte."
+  },
+  {
+    "english": "Remember to charge your phone.",
+    "spanish": "Acuérdate de cargar tu celular."
+  },
+  {
+    "english": "I forgot to send the email.",
+    "spanish": "Me olvidé de enviar el correo."
+  },
+  {
+    "english": "She's tired of the traffic.",
+    "spanish": "Está cansada del tráfico."
+  },
+  {
+    "english": "I'll take care of the reservations.",
+    "spanish": "Me encargo de las reservaciones."
+  },
+  {
+    "english": "I regret not going.",
+    "spanish": "Me arrepiento de no haber ido."
+  },
+  {
+    "english": "I'm thinking about buying a car.",
+    "spanish": "Estoy pensando en comprar un carro."
+  },
+  {
+    "english": "Success consists of hard work.",
+    "spanish": "El éxito consiste en el trabajo duro."
+  },
+  {
+    "english": "He insists on paying.",
+    "spanish": "Insiste en pagar."
+  },
+  {
+    "english": "It took them a week to decide.",
+    "spanish": "Tardaron una semana en decidir."
+  },
+  {
+    "english": "Don't hesitate to contact us.",
+    "spanish": "No duden en contactarnos."
+  },
+  {
+    "english": "I dream of visiting Patagonia.",
+    "spanish": "Sueño con visitar la Patagonia."
+  },
+  {
+    "english": "You can count on our support.",
+    "spanish": "Pueden contar con nuestro apoyo."
+  },
+  {
+    "english": "They threatened to sue.",
+    "spanish": "Amenazaron con demandar."
+  },
+  {
+    "english": "We opted for staying home.",
+    "spanish": "Optamos por quedarnos en casa."
+  },
+  {
+    "english": "I'm worried about the exam.",
+    "spanish": "Me preocupo por el examen."
+  },
+  {
+    "english": "This is the most beautiful place I've visited.",
+    "spanish": "Este es el lugar más bonito que he visitado."
+  },
+  {
+    "english": "My phone is newer than yours.",
+    "spanish": "Mi celular es más nuevo que el tuyo."
+  },
+  {
+    "english": "The two movies are equally good.",
+    "spanish": "Las dos películas son igual de buenas."
+  },
+  {
+    "english": "He is the oldest of the brothers.",
+    "spanish": "Él es el mayor de los hermanos."
+  }
+]
