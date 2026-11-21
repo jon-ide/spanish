@@ -469,6 +469,7 @@ function speak(text, lang, rate, voiceSelectId) {
         const u = new SpeechSynthesisUtterance(text);
         u.lang = lang;
         u.rate = baseRate;
+        u.volume = 1;
         if (voice) u.voice = voice;
         u.onend = finish;
         u.onerror = finish;
@@ -478,17 +479,17 @@ function speak(text, lang, rate, voiceSelectId) {
       return;
     }
 
-    // ---- Desktop (Chrome) path: simplest possible ----
-    window.speechSynthesis.resume();
+    // Desktop: clean speak, volume forced to 1, no silent warmups
+    try { window.speechSynthesis.resume(); } catch (e) {}
 
     const u = new SpeechSynthesisUtterance(text);
     u.lang = lang;
     u.rate = baseRate;
     u.volume = 1;
-    // Only set voice if we actually found one; a stale voice object can silence Chrome
+    u.pitch = 1;
     if (voice) u.voice = voice;
 
-    const safety = setTimeout(finish, Math.min(6000, Math.max(2000, text.length * 50)));
+    const safety = setTimeout(finish, Math.min(8000, Math.max(2500, text.length * 60)));
     u.onend = () => { clearTimeout(safety); finish(); };
     u.onerror = (e) => {
       clearTimeout(safety);
@@ -497,17 +498,6 @@ function speak(text, lang, rate, voiceSelectId) {
     };
 
     window.speechSynthesis.speak(u);
-
-    // Diagnostic
-    setTimeout(() => {
-      const sp = window.speechSynthesis.speaking;
-      const pe = window.speechSynthesis.pending;
-      if (!sp && !pe) {
-        setStatus('Engine silent after speak() — speaking=false, pending=false. Voice: ' + (voice ? voice.name : 'default'));
-      } else {
-        setStatus('Engine active (speaking=' + sp + ', pending=' + pe + '). Voice: ' + (voice ? voice.name : 'default'));
-      }
-    }, 300);
   });
 }
 
