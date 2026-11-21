@@ -165,6 +165,7 @@ let currentIndex = -1;
 let lastPlayedIndex = parseInt(localStorage.getItem('lastPlayedIndex') || '-1', 10);
 let activeRangeStart = 0;
 let activeRangeEnd = 0;
+let playbackGeneration = 0; // increments to abort previous sequences
 let importedFilename = localStorage.getItem('importedFilename') || '';
 
 const statusEl = document.getElementById('status');
@@ -455,10 +456,18 @@ async function playSequence(startIdx, endIdx) {
     return;
   }
 
+  // Claim a new generation so any previous sequence will exit
+  playbackGeneration++;
+  const myGeneration = playbackGeneration;
+
   if (isPlaying) {
-    stop();
-    await new Promise(r => setTimeout(r, 200));
+    stopRequested = true;
+    window.speechSynthesis.cancel();
+    await new Promise(r => setTimeout(r, 150));
   }
+  // If something else took over while we waited, abort
+  if (myGeneration !== playbackGeneration) return;
+
   isPlaying = true;
   stopRequested = false;
   window.speechSynthesis.cancel();
@@ -472,31 +481,34 @@ async function playSequence(startIdx, endIdx) {
   activeRangeStart = safeStart;
   activeRangeEnd = end;
 
-  while (!stopRequested) {
-    for (let i = safeStart; i <= end && !stopRequested; i++) {
+  while (!stopRequested && myGeneration === playbackGeneration) {
+    for (let i = safeStart; i <= end && !stopRequested && myGeneration === playbackGeneration; i++) {
       currentIndex = i;
       render();
       updateCurrentDisplay();
       const s = sentences[i];
       setStatus(`Playing ${i + 1}/${sentences.length}...`);
       await speak(s.english, 'en-US', 1, 'enVoice');
-      if (stopRequested) break;
+      if (stopRequested || myGeneration !== playbackGeneration) break;
       await new Promise(r => setTimeout(r, pauseEnMs));
-      if (stopRequested) break;
+      if (stopRequested || myGeneration !== playbackGeneration) break;
       await speak(s.spanish, 'es-MX', spanishRate, 'esVoice');
-      if (stopRequested) break;
+      if (stopRequested || myGeneration !== playbackGeneration) break;
       await new Promise(r => setTimeout(r, pauseEsMs));
-      if (stopRequested) break;
+      if (stopRequested || myGeneration !== playbackGeneration) break;
       // Only mark this sentence as completed (for Resume) after the full cycle finishes
       saveLastPlayed(i);
     }
-    if (stopRequested) break;
+    if (stopRequested || myGeneration !== playbackGeneration) break;
   }
-  isPlaying = false;
-  currentIndex = -1;
-  render();
-  updateCurrentDisplay();
-  setStatus(stopRequested ? 'Stopped.' : 'Finished.');
+  // Only clean up UI if this sequence is still the active one
+  if (myGeneration === playbackGeneration) {
+    isPlaying = false;
+    currentIndex = -1;
+    render();
+    updateCurrentDisplay();
+    setStatus(stopRequested ? 'Stopped.' : 'Finished.');
+  }
 }
 
 async function playOne(idx) {
@@ -544,11 +556,15 @@ function replayPrevious() {
   if (prev < activeRangeStart) {
     prev = activeRangeEnd; // wrap to last in the current range/all
   }
-  // Immediately stop current playback and restart from the previous sentence
-  stop();
+  const rangeEnd = activeRangeEnd;
+  // Invalidate current sequence immediately
+  playbackGeneration++;
+  stopRequested = true;
+  window.speechSynthesis.cancel();
+  // Start the new sequence (it will take the new generation)
   setTimeout(() => {
-    playSequence(prev, activeRangeEnd);
-  }, 250);
+    playSequence(prev, rangeEnd);
+  }, 100);
 }
 
 // Event listeners
