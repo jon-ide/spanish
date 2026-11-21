@@ -450,13 +450,7 @@ function speak(text, lang, rate, voiceSelectId) {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-    // Do not cancel here on desktop — a recent cancel() makes Chrome fire
-    // a 'canceled' error on the next utterance and drop the audio.
-    if (isIOS) {
-      window.speechSynthesis.resume();
-    } else {
-      window.speechSynthesis.resume();
-    }
+    window.speechSynthesis.resume();
 
     const voice = getSelectedVoice(voiceSelectId);
     const baseRate = parseFloat(rate) || 1;
@@ -465,6 +459,7 @@ function speak(text, lang, rate, voiceSelectId) {
       const utter = new SpeechSynthesisUtterance(text);
       utter.lang = lang;
       utter.rate = baseRate;
+      utter.volume = 1;
       if (voice) utter.voice = voice;
 
       let settled = false;
@@ -475,18 +470,37 @@ function speak(text, lang, rate, voiceSelectId) {
       };
       utter.onend = finish;
       utter.onerror = (e) => {
-        // 'canceled' is often a side-effect of a previous cancel(); log it but still finish
         if (e && e.error !== 'canceled') {
           console.warn('Speech error', e);
         }
         finish();
       };
-      setTimeout(finish, Math.max(8000, text.length * 100 / baseRate));
+
+      // Chrome bug: speechSynthesis can silently pause. Keep poking resume().
+      let resumeTimer = null;
+      if (!isIOS) {
+        resumeTimer = setInterval(() => {
+          if (window.speechSynthesis.speaking) {
+            window.speechSynthesis.resume();
+          }
+        }, 200);
+      }
+
+      const safetyMs = Math.min(15000, Math.max(3000, text.length * 80 / baseRate));
+      const safety = setTimeout(() => {
+        if (resumeTimer) clearInterval(resumeTimer);
+        finish();
+      }, safetyMs);
+
+      utter.onend = () => {
+        if (resumeTimer) clearInterval(resumeTimer);
+        clearTimeout(safety);
+        finish();
+      };
+
       window.speechSynthesis.speak(utter);
     };
 
-    // On iOS keep a short silent prime to reduce start clipping.
-    // On desktop just speak immediately — extra primes were interfering.
     if (isIOS) {
       const prime = new SpeechSynthesisUtterance('\u200b');
       prime.volume = 0;
@@ -527,10 +541,13 @@ async function playSequence(startIdx, endIdx) {
 
   isPlaying = true;
   stopRequested = false;
-  // One clean cancel, then a short settle so Chrome doesn't cancel the first real utterance
-  window.speechSynthesis.cancel();
+  const isIOSSeq = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                   (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (isIOSSeq) {
+    window.speechSynthesis.cancel();
+  }
   window.speechSynthesis.resume();
-  await new Promise(r => setTimeout(r, 250));
+  await new Promise(r => setTimeout(r, isIOSSeq ? 150 : 50));
 
   const pauseEnMs = parseFloat(document.getElementById('pauseEn').value) * 1000 || 0;
   const pauseEsMs = parseFloat(document.getElementById('pauseEs').value) * 1000 || 0;
