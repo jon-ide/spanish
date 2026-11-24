@@ -173,6 +173,7 @@ let activeRangeStart = 0;
 let activeRangeEnd = 0;
 let originalRangeStart = 0;
 let originalRangeEnd = 0;
+let wakeLock = null;
 let playbackGeneration = 0; // increments to abort previous sequences
 let importedFilename = localStorage.getItem('importedFilename') || '';
 
@@ -184,6 +185,27 @@ const spanishPreview = document.getElementById('spanishPreview');
 
 function setStatus(msg) {
   if (statusEl) statusEl.textContent = msg;
+}
+
+async function requestWakeLock() {
+  if (!('wakeLock' in navigator)) return;
+  try {
+    if (wakeLock) return; // already held
+    wakeLock = await navigator.wakeLock.request('screen');
+    wakeLock.addEventListener('release', () => {
+      wakeLock = null;
+    });
+  } catch (e) {
+    // Not allowed or not supported in this context; ignore
+    console.warn('Wake lock failed', e);
+  }
+}
+
+function releaseWakeLock() {
+  if (wakeLock) {
+    wakeLock.release().catch(() => {});
+    wakeLock = null;
+  }
 }
 
 function updateFilenameDisplay() {
@@ -529,6 +551,7 @@ async function playSequence(startIdx, endIdx) {
 
   isPlaying = true;
   stopRequested = false;
+  requestWakeLock();
   const isIOSSeq = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   if (isIOSSeq) {
@@ -569,6 +592,7 @@ async function playSequence(startIdx, endIdx) {
   if (myGeneration === playbackGeneration) {
     isPlaying = false;
     currentIndex = -1;
+    releaseWakeLock();
     render();
     updateCurrentDisplay();
     setStatus(stopRequested ? 'Stopped.' : 'Finished.');
@@ -606,6 +630,7 @@ function stop() {
   window.speechSynthesis.cancel();
   isPlaying = false;
   currentIndex = -1;
+  releaseWakeLock();
   render();
   updateCurrentDisplay();
   setStatus('Stopped.');
@@ -756,6 +781,12 @@ function persistSettings() {
 
 restoreSettings();
 updateFilenameDisplay();
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && isPlaying) {
+    requestWakeLock();
+  }
+});
 
 // Initial render
 render();
