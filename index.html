@@ -193,6 +193,16 @@ function stripBrackets(text) {
   return text.replace(/\[[^\]]*\]/g, '').replace(/\s+/g, ' ').trim();
 }
 
+function formatWithBrackets(text) {
+  if (!text) return '—';
+  // Escape HTML, then wrap [bracketed] sections so they are visible but styled as non-spoken
+  const escaped = text
+    .replace(/&/g, '&')
+    .replace(/</g, '<')
+    .replace(/>/g, '>');
+  return escaped.replace(/\[([^\]]+)\]/g, '<span style="color:#888; font-style:italic;">[$1]</span>');
+}
+
 async function requestWakeLock() {
   if (!('wakeLock' in navigator)) return;
   try {
@@ -234,8 +244,8 @@ function updateCurrentDisplay() {
   if (currentIndex >= 0 && currentIndex < sentences.length) {
     const s = sentences[currentIndex];
     const num = currentIndex + 1;
-    enEl.innerHTML = '<strong>#' + num + '</strong><br>' + (s.english || '—');
-    esEl.textContent = s.spanish || '—';
+    enEl.innerHTML = '<strong>#' + num + '</strong><br>' + formatWithBrackets(s.english);
+    esEl.innerHTML = formatWithBrackets(s.spanish);
     const note = (s.note || '').trim();
     if (note) {
       noteEl.textContent = note;

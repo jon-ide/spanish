@@ -5,10 +5,11 @@
   },
   {
     "english": "We need a bigger box so that all the books fit.",
-    "spanish": "Necesitamos una caja más grande para que quepan todos los libros."
+    "spanish": "Necesitamos una caja más grande para que quepan todos los libros.",
+    "note": "'quepan' is 3rd person plural subjunctive of 'caber'. 'caber' becomes 'quepo' in 1st person singular indicative."
   },
   {
-    "english": "Could you pay the bill for me, please?",
+    "english": "Could you [tú] pay the bill for me, please?",
     "spanish": "¿Me podrías pagar la cuenta, por favor?"
   },
   {
@@ -24,11 +25,11 @@
     "spanish": "Pagó la cuenta por mí."
   },
   {
-    "english": "This gift is for you.",
+    "english": "This gift is for you [tú].",
     "spanish": "Este regalo es para ti."
   },
   {
-    "english": "I did it because of you.",
+    "english": "I did it because of you [tú].",
     "spanish": "Lo hice por ti."
   },
   {
@@ -40,15 +41,16 @@
     "spanish": "Lleva un paraguas por si llueve."
   },
   {
-    "english": "I want you to come to the party.",
+    "english": "I want you [tú] to come to the party.",
     "spanish": "Quiero que vengas a la fiesta."
   },
   {
     "english": "I hope everything goes well.",
-    "spanish": "Espero que todo salga bien."
+    "spanish": "Espero que todo salga bien.",
+    "note": "'salga' is 3rd person singular subjunctive of 'salir', here meaning 'to turn out'."
   },
   {
-    "english": "It's important that you arrive early.",
+    "english": "It's important that you [tú] arrive early.",
     "spanish": "Es importante que llegues temprano."
   },
   {
@@ -57,14 +59,16 @@
   },
   {
     "english": "I don't think he's going to come.",
-    "spanish": "No creo que vaya a venir."
+    "spanish": "No creo que vaya a venir.",
+    "note": "'vaya' is 3rd person singular subjunctive of 'ir'."
   },
   {
-    "english": "I'm glad that you're here.",
-    "spanish": "Me alegra que estés aquí."
+    "english": "I'm glad that you're [tú] here.",
+    "spanish": "Me alegra que estés aquí.",
+    "note": "'alegra' means 'it makes me glad'. The verb is 'alegrar'. Also possible is 'me alegro de' or 'I am glad', in which case the verb is 'alegrarse' and the 'de' is required."
   },
   {
-    "english": "Call me when you arrive.",
+    "english": "Call me when you [tú] arrive.",
     "spanish": "Llámame cuando llegues."
   },
   {
@@ -77,7 +81,8 @@
   },
   {
     "english": "She started to cry.",
-    "spanish": "Se puso a llorar."
+    "spanish": "Se puso a llorar.",
+    "note": "'ponerse a' is used (in contrast to 'empezar a' or 'comenzar a') to indicate the sudden beginning of an action."
   },
   {
     "english": "I stopped smoking last year.",
@@ -101,14 +106,15 @@
   },
   {
     "english": "It took him two hours to arrive.",
-    "spanish": "Tardó dos horas en llegar."
+    "spanish": "Tardó dos horas en llegar.",
+    "note": "'tardar' talks about how long something/someone takes, often suggesting it's taken too long."
   },
   {
     "english": "I dream of traveling to Japan.",
     "spanish": "Sueño con viajar a Japón."
   },
   {
-    "english": "You can count on me.",
+    "english": "You [tú] can count on me.",
     "spanish": "Puedes contar conmigo."
   },
   {
@@ -128,11 +134,11 @@
     "spanish": "Él es el mejor estudiante de la clase."
   },
   {
-    "english": "I thank you with all my heart.",
+    "english": "I thank you [tú] with all my heart.",
     "spanish": "Te agradezco de todo corazón."
   },
   {
-    "english": "I formally thank you with all my heart.",
+    "english": "I thank you [usted] with all my heart.",
     "spanish": "Le agradezco de todo corazón."
   },
   {
@@ -141,7 +147,8 @@
   },
   {
     "english": "The meeting was supposed to be just as short tomorrow.",
-    "spanish": "La reunión iba a ser igual de corta mañana."
+    "spanish": "La reunión iba a ser igual de corta mañana.",
+    "note": "'iba a ser' (imperfect) indicates future-in-the-past, i.e., what the plan or expectation was at a moment in the past."
   },
   {
     "english": "I study in order to pass the exam.",
@@ -184,11 +191,7 @@
     "spanish": "¡Por fin!"
   },
   {
-    "english": "Of course.",
-    "spanish": "Por supuesto."
-  },
-  {
-    "english": "At least try.",
+    "english": "At least try [tú].",
     "spanish": "Por lo menos inténtalo."
   },
   {
@@ -197,7 +200,8 @@
   },
   {
     "english": "Not at all.",
-    "spanish": "Para nada."
+    "spanish": "Para nada.",
+    "note": "Has the sense of absolutely not or by no means."
   },
   {
     "english": "Forever.",
@@ -212,11 +216,11 @@
     "spanish": "Para variar."
   },
   {
-    "english": "I recommend that you rest.",
+    "english": "I recommend that you [tú] rest.",
     "spanish": "Te recomiendo que descanses."
   },
   {
-    "english": "It's necessary that you study more.",
+    "english": "It's necessary that you [tú] study more.",
     "spanish": "Es necesario que estudies más."
   },
   {
@@ -248,7 +252,7 @@
     "spanish": "Mi papá me enseñó a cocinar."
   },
   {
-    "english": "Can you help me move this table?",
+    "english": "Can you [tú] help me move this table?",
     "spanish": "¿Me ayudas a mover esta mesa?"
   },
   {
