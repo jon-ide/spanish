@@ -120,7 +120,7 @@
     </div>
     <div>
       <label for="rangeEnd">End sentence #</label>
-      <input type="number" id="rangeEnd" value="999" min="1">
+      <input type="number" id="rangeEnd" value="1" min="1">
     </div>
   </div>
   <div class="row">
@@ -255,8 +255,25 @@ function save() {
   render();
 }
 
+function updateRangeEndDefault() {
+  const endInput = document.getElementById('rangeEnd');
+  if (!endInput) return;
+  const max = Math.max(1, sentences.length);
+  endInput.max = max;
+  // Only auto-set if the user hasn't manually changed it away from the previous max,
+  // or if it's still the old placeholder / larger than available.
+  // Simplest reliable behavior: always set it to the current sentence count
+  // when sentences are loaded/changed, unless the user has typed a smaller valid number.
+  const current = parseInt(endInput.value, 10);
+  if (isNaN(current) || current > max || current === 999 || endInput.dataset.auto !== 'false') {
+    endInput.value = max;
+    endInput.dataset.auto = 'true';
+  }
+}
+
 function render() {
   countEl.textContent = sentences.length;
+  updateRangeEndDefault();
   listEl.innerHTML = '';
   sentences.forEach((s, i) => {
     const div = document.createElement('div');
@@ -810,6 +827,11 @@ function persistSettings() {
 ['pauseEn', 'pauseEs', 'rate'].forEach(id => {
   document.getElementById(id).addEventListener('change', persistSettings);
   document.getElementById(id).addEventListener('input', persistSettings);
+});
+
+// If the user manually edits End sentence #, stop auto-overwriting it
+document.getElementById('rangeEnd').addEventListener('input', () => {
+  document.getElementById('rangeEnd').dataset.auto = 'false';
 });
 
 restoreSettings();
