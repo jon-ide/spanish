@@ -187,6 +187,12 @@ function setStatus(msg) {
   if (statusEl) statusEl.textContent = msg;
 }
 
+function stripBrackets(text) {
+  if (!text) return '';
+  // Remove anything inside square brackets (including the brackets) and clean up whitespace
+  return text.replace(/\[[^\]]*\]/g, '').replace(/\s+/g, ' ').trim();
+}
+
 async function requestWakeLock() {
   if (!('wakeLock' in navigator)) return;
   try {
@@ -385,8 +391,32 @@ function populateVoiceSelects() {
     return list;
   }
 
+  function voiceKey(v) {
+    // Prefer voiceURI when available (unique); fall back to name+lang
+    return v.voiceURI || (v.name + '|' + v.lang);
+  }
+
+  function dedupeVoices(list) {
+    // On iOS Safari the same voice often appears twice.
+    // Keep one per name+lang, preferring localService or default.
+    const map = new Map();
+    for (const v of list) {
+      const key = (v.name + '|' + v.lang).toLowerCase();
+      const existing = map.get(key);
+      if (!existing) {
+        map.set(key, v);
+      } else {
+        // Prefer the one that is local or marked default
+        const existingScore = (existing.localService ? 2 : 0) + (existing.default ? 1 : 0);
+        const newScore = (v.localService ? 2 : 0) + (v.default ? 1 : 0);
+        if (newScore > existingScore) map.set(key, v);
+      }
+    }
+    return Array.from(map.values());
+  }
+
   function addOptions(select, list, preferredLangs, storageKey) {
-    const filtered = filterPreferred(list);
+    const filtered = dedupeVoices(filterPreferred(list));
     if (!filtered.length) {
       const opt = document.createElement('option');
       opt.textContent = 'No voices found';
@@ -401,12 +431,13 @@ function populateVoiceSelects() {
     });
     filtered.forEach(v => {
       const opt = document.createElement('option');
-      opt.value = v.name;
+      opt.value = voiceKey(v);
       opt.textContent = `${v.name} (${v.lang})`;
+      opt.dataset.name = v.name;
       select.appendChild(opt);
     });
 
-    // Restore previous or saved selection
+    // Restore previous or saved selection (by unique key)
     const saved = localStorage.getItem(storageKey);
     const currentPrev = select.id === 'enVoice' ? prevEn : prevEs;
     const toSelect = currentPrev || saved;
@@ -430,9 +461,10 @@ function populateVoiceSelects() {
 }
 
 function getSelectedVoice(selectId) {
-  const name = document.getElementById(selectId).value;
-  if (!name) return null;
-  return window.speechSynthesis.getVoices().find(v => v.name === name) || null;
+  const key = document.getElementById(selectId).value;
+  if (!key) return null;
+  const voices = window.speechSynthesis.getVoices();
+  return voices.find(v => (v.voiceURI || (v.name + '|' + v.lang)) === key) || null;
 }
 
 let speechUnlocked = false;
@@ -469,6 +501,7 @@ function unlockSpeech() {
 
 function speak(text, lang, rate, voiceSelectId) {
   return new Promise((resolve) => {
+    text = stripBrackets(text);
     if (!text) { resolve(); return; }
 
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
@@ -629,10 +662,10 @@ function stop() {
   stopRequested = true;
   window.speechSynthesis.cancel();
   isPlaying = false;
-  currentIndex = -1;
+  // Leave currentIndex as-is so the Currently playing windows stay filled
   releaseWakeLock();
   render();
-  updateCurrentDisplay();
+  // Do not call updateCurrentDisplay() — it would clear the windows when currentIndex is -1
   setStatus('Stopped.');
 }
 
