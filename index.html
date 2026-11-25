@@ -258,17 +258,9 @@ function save() {
 function updateRangeEndDefault() {
   const endInput = document.getElementById('rangeEnd');
   if (!endInput) return;
-  const max = Math.max(1, sentences.length);
-  endInput.max = max;
-  // Only auto-set if the user hasn't manually changed it away from the previous max,
-  // or if it's still the old placeholder / larger than available.
-  // Simplest reliable behavior: always set it to the current sentence count
-  // when sentences are loaded/changed, unless the user has typed a smaller valid number.
-  const current = parseInt(endInput.value, 10);
-  if (isNaN(current) || current > max || current === 999 || endInput.dataset.auto !== 'false') {
-    endInput.value = max;
-    endInput.dataset.auto = 'true';
-  }
+  const max = Math.max(1, sentences.length || 1);
+  endInput.max = String(max);
+  endInput.value = String(max);
 }
 
 function render() {
@@ -776,6 +768,7 @@ document.getElementById('importFile').addEventListener('change', (e) => {
         importedFilename = file.name || 'imported.json';
         localStorage.setItem('importedFilename', importedFilename);
         save();
+        updateRangeEndDefault();
         updateFilenameDisplay();
         setStatus('Imported ' + data.length + ' sentences from ' + importedFilename + '.');
       }
@@ -845,6 +838,7 @@ document.addEventListener('visibilitychange', () => {
 
 // Initial render
 render();
+updateRangeEndDefault();
 setStatus('Ready. Translations use a free on-device model (NLLB-200). First load downloads ~240 MB.');
 </script>
 </body>
