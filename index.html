@@ -47,21 +47,26 @@
     font-weight: 500;
     margin-top: 8px;
   }
-  button:hover { opacity: 0.9; }
+  button:hover:not(:disabled) { opacity: 0.9; }
   button.secondary { background: #e5e5ea; color: var(--text); }
-  button.danger { background: #ff3b30; }
+  button.danger { background: #ff3b30; color: white; }
   button:disabled { opacity: 0.5; cursor: not-allowed; }
   .row { display: flex; gap: 8px; flex-wrap: wrap; }
   .row > * { flex: 1; min-width: 120px; }
   .sentence-item {
     border-bottom: 1px solid var(--border);
-    padding: 12px 0;
+    padding: 12px 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
   }
   .sentence-item:last-child { border-bottom: none; }
   .num { font-weight: bold; color: var(--primary); margin-right: 8px; }
   .controls { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
   .status { font-size: 0.9rem; color: var(--muted); margin: 8px 0; min-height: 1.2em; }
   .playing { background: #e8f4ff; }
+  .shortcut-hint { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
+  .edit-field { margin-top: 6px; }
+  .edit-field label { font-size: 0.85rem; color: var(--muted); margin: 4px 0 2px; }
   @media (min-width: 600px) {
     body { max-width: 800px; margin: 0 auto; }
   }
@@ -130,6 +135,7 @@
     <button id="replayPrevBtn" class="secondary">Replay Previous</button>
     <button id="stopBtn" class="danger">Stop</button>
   </div>
+  <p class="shortcut-hint">Shortcuts (outside text fields): <strong>Space</strong> = Stop / Resume, <strong>Left Arrow</strong> = Replay Previous</p>
   <div class="row" style="margin-top: 12px;">
     <div style="flex: 1;">
       <label>Currently playing (English)</label>
@@ -152,7 +158,7 @@
     <button id="exportBtn" class="secondary">Export JSON</button>
     <button id="importBtn" class="secondary">Import JSON</button>
     <input type="file" id="importFile" accept=".json" style="display:none">
-    <button id="clearBtn" class="danger secondary">Clear All</button>
+    <button id="clearBtn" class="danger">Clear All</button>
   </div>
   <div id="list"></div>
 </div>
@@ -169,22 +175,28 @@ let isPlaying = false;
 let stopRequested = false;
 let currentIndex = -1;
 let lastPlayedIndex = parseInt(localStorage.getItem('lastPlayedIndex') || '-1', 10);
-let activeRangeStart = 0;
-let activeRangeEnd = 0;
 let originalRangeStart = 0;
 let originalRangeEnd = 0;
 let wakeLock = null;
 let playbackGeneration = 0; // increments to abort previous sequences
 let importedFilename = localStorage.getItem('importedFilename') || '';
+let currentUtterance = null; // module-level reference prevents premature GC in Chrome/Safari
 
 const statusEl = document.getElementById('status');
 const listEl = document.getElementById('list');
 const countEl = document.getElementById('count');
 const englishInput = document.getElementById('englishInput');
 const spanishPreview = document.getElementById('spanishPreview');
+const translateBtn = document.getElementById('translateBtn');
 
 function setStatus(msg) {
   if (statusEl) statusEl.textContent = msg;
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
 }
 
 function stripBrackets(text) {
@@ -195,11 +207,8 @@ function stripBrackets(text) {
 
 function formatWithBrackets(text) {
   if (!text) return '—';
-  // Escape HTML, then wrap [bracketed] sections so they are visible but styled as non-spoken
-  const escaped = text
-    .replace(/&/g, '&')
-    .replace(/</g, '<')
-    .replace(/>/g, '>');
+  // Safely escape HTML first, then wrap [bracketed] sections so they are visible but styled as non-spoken
+  const escaped = escapeHtml(text);
   return escaped.replace(/\[([^\]]+)\]/g, '<span style="color:#888; font-style:italic;">[$1]</span>');
 }
 
@@ -212,7 +221,6 @@ async function requestWakeLock() {
       wakeLock = null;
     });
   } catch (e) {
-    // Not allowed or not supported in this context; ignore
     console.warn('Wake lock failed', e);
   }
 }
@@ -260,9 +268,25 @@ function updateCurrentDisplay() {
   }
 }
 
-function save() {
+function updateHighlight(scrollIntoView = false) {
+  const items = listEl.querySelectorAll('.sentence-item');
+  items.forEach((item, i) => {
+    if (i === currentIndex) {
+      item.classList.add('playing');
+      if (scrollIntoView) {
+        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    } else {
+      item.classList.remove('playing');
+    }
+  });
+}
+
+function save(shouldRender = true) {
   localStorage.setItem('sentences', JSON.stringify(sentences));
-  render();
+  if (shouldRender) {
+    render();
+  }
 }
 
 function updateRangeEndDefault() {
@@ -270,7 +294,16 @@ function updateRangeEndDefault() {
   if (!endInput) return;
   const max = Math.max(1, sentences.length || 1);
   endInput.max = String(max);
+  if (endInput.dataset.auto === 'false') {
+    const currentVal = parseInt(endInput.value, 10);
+    if (!isNaN(currentVal) && currentVal > max) {
+      endInput.value = String(max);
+      persistSettings();
+    }
+    return;
+  }
   endInput.value = String(max);
+  persistSettings();
 }
 
 function render() {
@@ -279,44 +312,83 @@ function render() {
   sentences.forEach((s, i) => {
     const div = document.createElement('div');
     div.className = 'sentence-item' + (i === currentIndex ? ' playing' : '');
-    const noteHtml = (s.note && s.note.trim())
-      ? `<div style="margin-top: 6px; padding: 8px; background: #fff8e6; border-radius: 4px; font-style: italic;"><strong>Note:</strong> ${escapeHtml(s.note)}</div>`
-      : '';
     div.innerHTML = `
-      <div><span class="num">${i + 1}.</span> <strong>EN:</strong> ${escapeHtml(s.english)}</div>
-      <div><strong>ES:</strong> <textarea data-idx="${i}" class="es-edit">${escapeHtml(s.spanish)}</textarea></div>
-      ${noteHtml}
+      <div class="edit-field">
+        <label><span class="num">${i + 1}.</span> <strong>EN:</strong></label>
+        <textarea data-idx="${i}" class="en-edit">${escapeHtml(s.english)}</textarea>
+      </div>
+      <div class="edit-field">
+        <label><strong>ES:</strong></label>
+        <textarea data-idx="${i}" class="es-edit">${escapeHtml(s.spanish)}</textarea>
+      </div>
+      <div class="edit-field">
+        <label><strong>Note (optional):</strong></label>
+        <textarea data-idx="${i}" class="note-edit" placeholder="Add a note..." style="min-height: 44px;">${escapeHtml(s.note || '')}</textarea>
+      </div>
       <div class="controls">
         <button class="play-one secondary" data-idx="${i}">Play this</button>
-        <button class="delete secondary danger" data-idx="${i}">Delete</button>
+        <button class="delete danger" data-idx="${i}">Delete</button>
       </div>
     `;
     listEl.appendChild(div);
   });
 
-  // Wire edit listeners
-  listEl.querySelectorAll('.es-edit').forEach(ta => {
+  // Wire inline edit listeners (save without full DOM rebuild so focus is preserved)
+  listEl.querySelectorAll('.en-edit').forEach(ta => {
     ta.addEventListener('change', (e) => {
-      const idx = parseInt(e.target.dataset.idx);
-      sentences[idx].spanish = e.target.value;
-      save();
+      const idx = parseInt(e.target.dataset.idx, 10);
+      sentences[idx].english = e.target.value;
+      save(false);
+      if (idx === currentIndex) updateCurrentDisplay();
     });
   });
+  listEl.querySelectorAll('.es-edit').forEach(ta => {
+    ta.addEventListener('change', (e) => {
+      const idx = parseInt(e.target.dataset.idx, 10);
+      sentences[idx].spanish = e.target.value;
+      save(false);
+      if (idx === currentIndex) updateCurrentDisplay();
+    });
+  });
+  listEl.querySelectorAll('.note-edit').forEach(ta => {
+    ta.addEventListener('change', (e) => {
+      const idx = parseInt(e.target.dataset.idx, 10);
+      const val = e.target.value.trim();
+      if (val) {
+        sentences[idx].note = val;
+      } else {
+        delete sentences[idx].note;
+      }
+      save(false);
+      if (idx === currentIndex) updateCurrentDisplay();
+    });
+  });
+
   listEl.querySelectorAll('.play-one').forEach(btn => {
-    btn.addEventListener('click', () => playOne(parseInt(btn.dataset.idx)));
+    btn.addEventListener('click', () => {
+      unlockSpeech();
+      playOne(parseInt(btn.dataset.idx, 10));
+    });
   });
   listEl.querySelectorAll('.delete').forEach(btn => {
     btn.addEventListener('click', () => {
-      sentences.splice(parseInt(btn.dataset.idx), 1);
-      save();
+      const idx = parseInt(btn.dataset.idx, 10);
+      sentences.splice(idx, 1);
+      if (lastPlayedIndex >= sentences.length) {
+        saveLastPlayed(sentences.length - 1);
+      } else if (idx <= lastPlayedIndex) {
+        saveLastPlayed(Math.max(-1, lastPlayedIndex - 1));
+      }
+      if (currentIndex === idx) {
+        currentIndex = -1;
+        updateCurrentDisplay();
+      } else if (idx < currentIndex) {
+        currentIndex--;
+      }
+      save(true);
+      updateRangeEndDefault();
     });
   });
-}
-
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
 }
 
 async function initTranslator() {
@@ -325,7 +397,7 @@ async function initTranslator() {
   try {
     translator = await pipeline('translation', 'Xenova/nllb-200-distilled-600M', {
       progress_callback: (p) => {
-        if (p.status === 'downloading') {
+        if (p.status === 'downloading' && p.total) {
           const pct = Math.round((p.loaded / p.total) * 100);
           setStatus(`Downloading model: ${pct}%`);
         }
@@ -343,15 +415,18 @@ async function initTranslator() {
 async function doTranslate() {
   const text = englishInput.value.trim();
   if (!text) return;
-  const t = await initTranslator();
-  if (!t) return;
-  setStatus('Translating...');
+  translateBtn.disabled = true;
   try {
+    const t = await initTranslator();
+    if (!t) return;
+    setStatus('Translating...');
     const result = await t(text, { src_lang: 'eng_Latn', tgt_lang: 'spa_Latn' });
     spanishPreview.value = result[0].translation_text;
     setStatus('Translation done (Latin American Spanish model). Edit if needed.');
   } catch (err) {
     setStatus('Translation error: ' + err.message);
+  } finally {
+    translateBtn.disabled = false;
   }
 }
 
@@ -366,12 +441,10 @@ function addSentence() {
   englishInput.value = '';
   spanishPreview.value = '';
   document.getElementById('noteInput').value = '';
-  save();
+  save(true);
+  updateRangeEndDefault();
   setStatus('Sentence saved.');
 }
-
-// Speech helpers
-let voicesLoaded = false;
 
 function populateVoiceSelects() {
   const voices = window.speechSynthesis.getVoices();
@@ -380,7 +453,6 @@ function populateVoiceSelects() {
   const enSelect = document.getElementById('enVoice');
   const esSelect = document.getElementById('esVoice');
 
-  // Remember current selections before clearing
   const prevEn = enSelect.value;
   const prevEs = esSelect.value;
 
@@ -390,33 +462,11 @@ function populateVoiceSelects() {
   const enVoices = voices.filter(v => v.lang.toLowerCase().startsWith('en'));
   const esVoices = voices.filter(v => v.lang.toLowerCase().startsWith('es'));
 
-  function isEnhanced(v) {
-    const n = v.name.toLowerCase();
-    return n.includes('enhanced') || n.includes('premium') || n.includes('mejorada') || n.includes('premium');
-  }
-
-  function isLowQuality(v) {
-    const n = v.name.toLowerCase();
-    const bad = ['eloquence', 'bad news', 'bahh', 'bells', 'boing', 'bubbles', 'cellos', 'deranged', 
-                 'good news', 'hysterical', 'pipe organ', 'trinoids', 'whisper', 'zarvox', 'junior',
-                 'princess', 'ralph', 'fred', 'kathy', 'agnes', 'albert', 'bruce'];
-    return bad.some(b => n.includes(b));
-  }
-
-  function filterPreferred(list) {
-    // On iOS Safari, enhanced voices often never appear in getVoices().
-    // Show everything the browser actually exposes so the user can see what's available.
-    return list;
-  }
-
   function voiceKey(v) {
-    // Prefer voiceURI when available (unique); fall back to name+lang
     return v.voiceURI || (v.name + '|' + v.lang);
   }
 
   function dedupeVoices(list) {
-    // On iOS Safari the same voice often appears twice.
-    // Keep one per name+lang, preferring localService or default.
     const map = new Map();
     for (const v of list) {
       const key = (v.name + '|' + v.lang).toLowerCase();
@@ -424,7 +474,6 @@ function populateVoiceSelects() {
       if (!existing) {
         map.set(key, v);
       } else {
-        // Prefer the one that is local or marked default
         const existingScore = (existing.localService ? 2 : 0) + (existing.default ? 1 : 0);
         const newScore = (v.localService ? 2 : 0) + (v.default ? 1 : 0);
         if (newScore > existingScore) map.set(key, v);
@@ -434,14 +483,13 @@ function populateVoiceSelects() {
   }
 
   function addOptions(select, list, preferredLangs, storageKey) {
-    const filtered = dedupeVoices(filterPreferred(list));
+    const filtered = dedupeVoices(list);
     if (!filtered.length) {
       const opt = document.createElement('option');
       opt.textContent = 'No voices found';
       select.appendChild(opt);
       return;
     }
-    // Prefer certain locales
     filtered.sort((a, b) => {
       const aScore = preferredLangs.includes(a.lang) ? 0 : 1;
       const bScore = preferredLangs.includes(b.lang) ? 0 : 1;
@@ -455,7 +503,6 @@ function populateVoiceSelects() {
       select.appendChild(opt);
     });
 
-    // Restore previous or saved selection (by unique key)
     const saved = localStorage.getItem(storageKey);
     const currentPrev = select.id === 'enVoice' ? prevEn : prevEs;
     const toSelect = currentPrev || saved;
@@ -467,11 +514,9 @@ function populateVoiceSelects() {
   addOptions(enSelect, enVoices, ['en-US', 'en-GB'], 'enVoicePref');
   addOptions(esSelect, esVoices, ['es-MX', 'es-US', 'es-419', 'es-ES'], 'esVoicePref');
 
-  // Persist on change
   enSelect.onchange = () => localStorage.setItem('enVoicePref', enSelect.value);
   esSelect.onchange = () => localStorage.setItem('esVoicePref', esSelect.value);
 
-  voicesLoaded = true;
   const enCount = enSelect.options.length;
   const esCount = esSelect.options.length;
   const total = voices.length;
@@ -486,10 +531,7 @@ function getSelectedVoice(selectId) {
 }
 
 let speechUnlocked = false;
-let chromePrimed = false;
 
-// Tiny silent WAV (base64) used to switch iOS audio session to media/playback
-// so speechSynthesis is more likely to ignore the silent switch
 const SILENT_WAV = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
 
 function unlockSpeech() {
@@ -499,7 +541,6 @@ function unlockSpeech() {
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-  // Only do extra unlocking on iOS. On desktop Chrome it can interfere.
   if (!isIOS) return;
 
   try {
@@ -527,44 +568,53 @@ function speak(text, lang, rate, voiceSelectId) {
 
     const voice = getSelectedVoice(voiceSelectId);
     const baseRate = parseFloat(rate) || 1;
+    // Dynamic timeout scaled to text length and speech rate (no 8s cap cutting off long paragraphs)
+    const timeoutMs = Math.max(4000, Math.round((text.length * 110) / baseRate));
 
     const finish = (() => {
       let done = false;
-      return () => { if (!done) { done = true; resolve(); } };
+      return () => {
+        if (!done) {
+          done = true;
+          currentUtterance = null;
+          resolve();
+        }
+      };
     })();
 
     if (isIOS) {
       window.speechSynthesis.resume();
-      const prime = new SpeechSynthesisUtterance('\u200b');
+      const prime = new SpeechSynthesisUtterance('​');
       prime.volume = 0;
       prime.rate = 10;
       if (voice) prime.voice = voice;
       window.speechSynthesis.speak(prime);
       setTimeout(() => {
         const u = new SpeechSynthesisUtterance(text);
+        currentUtterance = u;
         u.lang = lang;
         u.rate = baseRate;
         u.volume = 1;
         if (voice) u.voice = voice;
-        u.onend = finish;
-        u.onerror = finish;
-        setTimeout(finish, Math.max(4000, text.length * 80));
+        const safety = setTimeout(finish, timeoutMs);
+        u.onend = () => { clearTimeout(safety); finish(); };
+        u.onerror = () => { clearTimeout(safety); finish(); };
         window.speechSynthesis.speak(u);
       }, 50);
       return;
     }
 
-    // Desktop: clean speak, volume forced to 1, no silent warmups
     try { window.speechSynthesis.resume(); } catch (e) {}
 
     const u = new SpeechSynthesisUtterance(text);
+    currentUtterance = u;
     u.lang = lang;
     u.rate = baseRate;
     u.volume = 1;
     u.pitch = 1;
     if (voice) u.voice = voice;
 
-    const safety = setTimeout(finish, Math.min(8000, Math.max(2500, text.length * 60)));
+    const safety = setTimeout(finish, timeoutMs);
     u.onend = () => { clearTimeout(safety); finish(); };
     u.onerror = (e) => {
       clearTimeout(safety);
@@ -576,7 +626,7 @@ function speak(text, lang, rate, voiceSelectId) {
   });
 }
 
-async function playSequence(startIdx, endIdx) {
+async function playSequence(startIdx, endIdx, loop = true) {
   if (!sentences.length) {
     setStatus('No sentences loaded.');
     return;
@@ -588,7 +638,6 @@ async function playSequence(startIdx, endIdx) {
     return;
   }
 
-  // Claim a new generation so any previous sequence will exit
   playbackGeneration++;
   const myGeneration = playbackGeneration;
 
@@ -597,7 +646,6 @@ async function playSequence(startIdx, endIdx) {
     window.speechSynthesis.cancel();
     await new Promise(r => setTimeout(r, 200));
   }
-  // If something else took over while we waited, abort
   if (myGeneration !== playbackGeneration) return;
 
   isPlaying = true;
@@ -615,14 +663,11 @@ async function playSequence(startIdx, endIdx) {
   const pauseEsMs = parseFloat(document.getElementById('pauseEs').value) * 1000 || 0;
   const spanishRate = document.getElementById('rate').value;
   const end = safeEnd;
-  activeRangeStart = safeStart;
-  activeRangeEnd = end;
-  // originalRangeStart/End are set by the play buttons and left unchanged by Replay Previous
 
   while (!stopRequested && myGeneration === playbackGeneration) {
     for (let i = safeStart; i <= end && !stopRequested && myGeneration === playbackGeneration; i++) {
       currentIndex = i;
-      render();
+      updateHighlight(true);
       updateCurrentDisplay();
       const s = sentences[i];
       setStatus(`Playing ${i + 1}/${sentences.length}...`);
@@ -634,63 +679,40 @@ async function playSequence(startIdx, endIdx) {
       if (stopRequested || myGeneration !== playbackGeneration) break;
       await new Promise(r => setTimeout(r, pauseEsMs));
       if (stopRequested || myGeneration !== playbackGeneration) break;
-      // Only mark this sentence as completed (for Resume) after the full cycle finishes
       saveLastPlayed(i);
     }
-    if (stopRequested || myGeneration !== playbackGeneration) break;
+    if (!loop || stopRequested || myGeneration !== playbackGeneration) break;
   }
-  // Only clean up UI if this sequence is still the active one
+
   if (myGeneration === playbackGeneration) {
     isPlaying = false;
     releaseWakeLock();
     if (!stopRequested) {
-      // Natural finish: clear the playing highlight
       currentIndex = -1;
-      render();
+      updateHighlight(false);
       updateCurrentDisplay();
       setStatus('Finished.');
     } else {
-      // Stop was clicked: leave the Currently playing windows as they are
-      render();
+      updateHighlight(false);
       setStatus('Stopped.');
     }
   }
 }
 
-async function playOne(idx) {
-  if (isPlaying) stop();
-  await new Promise(r => setTimeout(r, 200));
-  window.speechSynthesis.cancel();
-  window.speechSynthesis.resume();
-  await new Promise(r => setTimeout(r, 100));
-
-  const spanishRate = document.getElementById('rate').value;
-  const pauseEnMs = parseFloat(document.getElementById('pauseEn').value) * 1000 || 0;
-  const pauseEsMs = parseFloat(document.getElementById('pauseEs').value) * 1000 || 0;
-  currentIndex = idx;
-  render();
-  updateCurrentDisplay();
-  const s = sentences[idx];
-  setStatus(`Playing sentence ${idx + 1}...`);
-  await speak(s.english, 'en-US', 1, 'enVoice');
-  await new Promise(r => setTimeout(r, pauseEnMs));
-  await speak(s.spanish, 'es-MX', spanishRate, 'esVoice');
-  await new Promise(r => setTimeout(r, pauseEsMs));
-  saveLastPlayed(idx);
-  currentIndex = -1;
-  render();
-  updateCurrentDisplay();
-  setStatus('Ready.');
+function playOne(idx) {
+  originalRangeStart = idx;
+  originalRangeEnd = idx;
+  playSequence(idx, idx, false);
 }
 
 function stop() {
+  playbackGeneration++;
   stopRequested = true;
   window.speechSynthesis.cancel();
+  currentUtterance = null;
   isPlaying = false;
-  // Leave currentIndex as-is so the Currently playing windows stay filled
   releaseWakeLock();
-  render();
-  // Do not call updateCurrentDisplay() — it would clear the windows when currentIndex is -1
+  updateHighlight(false);
   setStatus('Stopped.');
 }
 
@@ -699,19 +721,17 @@ function replayPrevious() {
     setStatus('Nothing is currently playing.');
     return;
   }
-  // Always step to the previous sentence in the original list/range
   let prev = currentIndex - 1;
   if (prev < originalRangeStart) {
-    prev = originalRangeEnd; // wrap to last in the original range/all
+    prev = originalRangeEnd;
   }
   const rangeEnd = originalRangeEnd;
-  // Invalidate current sequence immediately
   playbackGeneration++;
   stopRequested = true;
   window.speechSynthesis.cancel();
-  // Restart from the previous sentence, keeping the original range end
+  currentUtterance = null;
   setTimeout(() => {
-    playSequence(prev, rangeEnd);
+    playSequence(prev, rangeEnd, true);
   }, 100);
 }
 
@@ -728,7 +748,7 @@ document.getElementById('playAllBtn').addEventListener('click', () => {
   if (!sentences.length) return;
   originalRangeStart = 0;
   originalRangeEnd = sentences.length - 1;
-  playSequence(0, sentences.length - 1);
+  playSequence(0, sentences.length - 1, true);
 });
 document.getElementById('playRangeBtn').addEventListener('click', () => {
   unlockSpeech();
@@ -750,25 +770,47 @@ document.getElementById('playRangeBtn').addEventListener('click', () => {
   }
   originalRangeStart = Math.max(0, start);
   originalRangeEnd = Math.min(end, sentences.length - 1);
-  playSequence(start, end);
+  playSequence(start, end, true);
 });
 document.getElementById('resumeBtn').addEventListener('click', () => {
   unlockSpeech();
   if (!sentences.length) return;
-  const nextIdx = Math.min(Math.max(0, lastPlayedIndex + 1), sentences.length - 1);
+  const nextIdx = (lastPlayedIndex + 1) >= sentences.length ? 0 : Math.max(0, lastPlayedIndex + 1);
   originalRangeStart = 0;
   originalRangeEnd = sentences.length - 1;
-  playSequence(nextIdx, sentences.length - 1);
+  playSequence(nextIdx, sentences.length - 1, true);
 });
 document.getElementById('stopBtn').addEventListener('click', stop);
 document.getElementById('replayPrevBtn').addEventListener('click', replayPrevious);
 
+// Keyboard shortcuts for hands-free practice
+document.addEventListener('keydown', (e) => {
+  const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+  if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+
+  if (e.code === 'Space') {
+    e.preventDefault();
+    if (isPlaying) {
+      stop();
+    } else if (sentences.length) {
+      document.getElementById('resumeBtn').click();
+    }
+  } else if (e.code === 'ArrowLeft') {
+    if (isPlaying) {
+      e.preventDefault();
+      replayPrevious();
+    }
+  }
+});
+
 document.getElementById('exportBtn').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify(sentences, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'sentences.json';
+  a.href = url;
+  a.download = importedFilename || 'sentences.json';
   a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 
 document.getElementById('importBtn').addEventListener('click', () => document.getElementById('importFile').click());
@@ -783,13 +825,21 @@ document.getElementById('importFile').addEventListener('change', (e) => {
         sentences = data;
         importedFilename = file.name || 'imported.json';
         localStorage.setItem('importedFilename', importedFilename);
-        save();
+        saveLastPlayed(-1);
+        currentIndex = -1;
+        document.getElementById('rangeEnd').dataset.auto = 'true';
+        save(true);
         updateRangeEndDefault();
         updateFilenameDisplay();
+        updateCurrentDisplay();
         setStatus('Imported ' + data.length + ' sentences from ' + importedFilename + '.');
+      } else {
+        setStatus('Invalid JSON format: expected an array of sentences.');
       }
     } catch {
       setStatus('Invalid JSON file.');
+    } finally {
+      e.target.value = '';
     }
   };
   reader.readAsText(file);
@@ -797,50 +847,66 @@ document.getElementById('importFile').addEventListener('change', (e) => {
 
 document.getElementById('clearBtn').addEventListener('click', () => {
   if (confirm('Clear all sentences?')) {
+    if (isPlaying) stop();
     sentences = [];
     importedFilename = '';
     localStorage.removeItem('importedFilename');
-    save();
+    saveLastPlayed(-1);
+    currentIndex = -1;
+    document.getElementById('rangeEnd').dataset.auto = 'true';
+    save(true);
+    updateRangeEndDefault();
     updateFilenameDisplay();
+    updateCurrentDisplay();
+    setStatus('All sentences cleared.');
   }
 });
 
-// Voices load asynchronously on some browsers
 function loadVoicesWhenReady() {
   populateVoiceSelects();
   if (window.speechSynthesis.onvoiceschanged !== undefined) {
     window.speechSynthesis.onvoiceschanged = populateVoiceSelects;
   }
 }
-// Try immediately and also after a short delay (Safari sometimes needs this)
 loadVoicesWhenReady();
 setTimeout(loadVoicesWhenReady, 500);
 
-// Restore persistent settings
 function restoreSettings() {
   const pauseEn = localStorage.getItem('pauseEn');
   const pauseEs = localStorage.getItem('pauseEs');
   const rate = localStorage.getItem('rate');
+  const rangeStart = localStorage.getItem('rangeStart');
+  const rangeEnd = localStorage.getItem('rangeEnd');
+  const rangeEndAuto = localStorage.getItem('rangeEndAuto');
+
   if (pauseEn !== null) document.getElementById('pauseEn').value = pauseEn;
   if (pauseEs !== null) document.getElementById('pauseEs').value = pauseEs;
   if (rate !== null) document.getElementById('rate').value = rate;
+  if (rangeStart !== null) document.getElementById('rangeStart').value = rangeStart;
+  if (rangeEndAuto === 'false' && rangeEnd !== null) {
+    const endEl = document.getElementById('rangeEnd');
+    endEl.dataset.auto = 'false';
+    endEl.value = rangeEnd;
+  }
 }
 
 function persistSettings() {
   localStorage.setItem('pauseEn', document.getElementById('pauseEn').value);
   localStorage.setItem('pauseEs', document.getElementById('pauseEs').value);
   localStorage.setItem('rate', document.getElementById('rate').value);
+  localStorage.setItem('rangeStart', document.getElementById('rangeStart').value);
+  localStorage.setItem('rangeEnd', document.getElementById('rangeEnd').value);
+  localStorage.setItem('rangeEndAuto', document.getElementById('rangeEnd').dataset.auto || 'true');
 }
 
-// Wire persistence for settings
-['pauseEn', 'pauseEs', 'rate'].forEach(id => {
+['pauseEn', 'pauseEs', 'rate', 'rangeStart', 'rangeEnd'].forEach(id => {
   document.getElementById(id).addEventListener('change', persistSettings);
   document.getElementById(id).addEventListener('input', persistSettings);
 });
 
-// If the user manually edits End sentence #, stop auto-overwriting it
 document.getElementById('rangeEnd').addEventListener('input', () => {
   document.getElementById('rangeEnd').dataset.auto = 'false';
+  persistSettings();
 });
 
 restoreSettings();
