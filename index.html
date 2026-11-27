@@ -275,7 +275,6 @@ function updateRangeEndDefault() {
 
 function render() {
   countEl.textContent = sentences.length;
-  updateRangeEndDefault();
   listEl.innerHTML = '';
   sentences.forEach((s, i) => {
     const div = document.createElement('div');
@@ -643,11 +642,18 @@ async function playSequence(startIdx, endIdx) {
   // Only clean up UI if this sequence is still the active one
   if (myGeneration === playbackGeneration) {
     isPlaying = false;
-    currentIndex = -1;
     releaseWakeLock();
-    render();
-    updateCurrentDisplay();
-    setStatus(stopRequested ? 'Stopped.' : 'Finished.');
+    if (!stopRequested) {
+      // Natural finish: clear the playing highlight
+      currentIndex = -1;
+      render();
+      updateCurrentDisplay();
+      setStatus('Finished.');
+    } else {
+      // Stop was clicked: leave the Currently playing windows as they are
+      render();
+      setStatus('Stopped.');
+    }
   }
 }
 
