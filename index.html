@@ -201,13 +201,11 @@ function escapeHtml(text) {
 
 function stripBrackets(text) {
   if (!text) return '';
-  // Remove anything inside square brackets (including the brackets) and clean up whitespace
   return text.replace(/\[[^\]]*\]/g, '').replace(/\s+/g, ' ').trim();
 }
 
 function formatWithBrackets(text) {
   if (!text) return '—';
-  // Safely escape HTML first, then wrap [bracketed] sections so they are visible but styled as non-spoken
   const escaped = escapeHtml(text);
   return escaped.replace(/\[([^\]]+)\]/g, '<span style="color:#888; font-style:italic;">[$1]</span>');
 }
@@ -215,7 +213,7 @@ function formatWithBrackets(text) {
 async function requestWakeLock() {
   if (!('wakeLock' in navigator)) return;
   try {
-    if (wakeLock) return; // already held
+    if (wakeLock) return;
     wakeLock = await navigator.wakeLock.request('screen');
     wakeLock.addEventListener('release', () => {
       wakeLock = null;
@@ -268,14 +266,12 @@ function updateCurrentDisplay() {
   }
 }
 
-function updateHighlight(scrollIntoView = false) {
+// Highlight the active card without scrolling the page
+function updateHighlight() {
   const items = listEl.querySelectorAll('.sentence-item');
   items.forEach((item, i) => {
     if (i === currentIndex) {
       item.classList.add('playing');
-      if (scrollIntoView) {
-        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
     } else {
       item.classList.remove('playing');
     }
@@ -333,7 +329,6 @@ function render() {
     listEl.appendChild(div);
   });
 
-  // Wire inline edit listeners (save without full DOM rebuild so focus is preserved)
   listEl.querySelectorAll('.en-edit').forEach(ta => {
     ta.addEventListener('change', (e) => {
       const idx = parseInt(e.target.dataset.idx, 10);
@@ -568,7 +563,6 @@ function speak(text, lang, rate, voiceSelectId) {
 
     const voice = getSelectedVoice(voiceSelectId);
     const baseRate = parseFloat(rate) || 1;
-    // Dynamic timeout scaled to text length and speech rate (no 8s cap cutting off long paragraphs)
     const timeoutMs = Math.max(4000, Math.round((text.length * 110) / baseRate));
 
     const finish = (() => {
@@ -626,17 +620,23 @@ function speak(text, lang, rate, voiceSelectId) {
   });
 }
 
-async function playSequence(startIdx, endIdx, loop = true) {
+// loopStartIdx / loopEndIdx define the true loop boundaries; initialStartIdx is where the first pass begins
+async function playSequence(loopStartIdx, loopEndIdx, loop = true, initialStartIdx = loopStartIdx) {
   if (!sentences.length) {
     setStatus('No sentences loaded.');
     return;
   }
-  const safeStart = Math.max(0, Math.min(startIdx, sentences.length - 1));
-  const safeEnd = Math.max(0, Math.min(endIdx, sentences.length - 1));
-  if (safeStart > safeEnd) {
+  const safeLoopStart = Math.max(0, Math.min(loopStartIdx, sentences.length - 1));
+  const safeLoopEnd = Math.max(0, Math.min(loopEndIdx, sentences.length - 1));
+  const safeInitialStart = Math.max(safeLoopStart, Math.min(initialStartIdx, safeLoopEnd));
+
+  if (safeLoopStart > safeLoopEnd) {
     setStatus('Invalid range: start is after end (or outside loaded sentences).');
     return;
   }
+
+  originalRangeStart = safeLoopStart;
+  originalRangeEnd = safeLoopEnd;
 
   playbackGeneration++;
   const myGeneration = playbackGeneration;
@@ -662,13 +662,12 @@ async function playSequence(startIdx, endIdx, loop = true) {
   const pauseEnMs = parseFloat(document.getElementById('pauseEn').value) * 1000 || 0;
   const pauseEsMs = parseFloat(document.getElementById('pauseEs').value) * 1000 || 0;
   const spanishRate = document.getElementById('rate').value;
-  const end = safeEnd;
-  let currentPassStart = safeStart;
+  let passStart = safeInitialStart;
 
   while (!stopRequested && myGeneration === playbackGeneration) {
-    for (let i = currentPassStart; i <= end && !stopRequested && myGeneration === playbackGeneration; i++) {
+    for (let i = passStart; i <= safeLoopEnd && !stopRequested && myGeneration === playbackGeneration; i++) {
       currentIndex = i;
-      updateHighlight(true);
+      updateHighlight();
       updateCurrentDisplay();
       const s = sentences[i];
       setStatus(`Playing ${i + 1}/${sentences.length}...`);
@@ -683,8 +682,8 @@ async function playSequence(startIdx, endIdx, loop = true) {
       saveLastPlayed(i);
     }
     if (!loop || stopRequested || myGeneration !== playbackGeneration) break;
-    // After the first pass finishes, always loop back to the original range start
-    currentPassStart = Math.max(0, Math.min(originalRangeStart, end));
+    // Subsequent loop passes always start from safeLoopStart
+    passStart = safeLoopStart;
   }
 
   if (myGeneration === playbackGeneration) {
@@ -692,20 +691,18 @@ async function playSequence(startIdx, endIdx, loop = true) {
     releaseWakeLock();
     if (!stopRequested) {
       currentIndex = -1;
-      updateHighlight(false);
+      updateHighlight();
       updateCurrentDisplay();
       setStatus('Finished.');
     } else {
-      updateHighlight(false);
+      updateHighlight();
       setStatus('Stopped.');
     }
   }
 }
 
 function playOne(idx) {
-  originalRangeStart = idx;
-  originalRangeEnd = idx;
-  playSequence(idx, idx, false);
+  playSequence(idx, idx, false, idx);
 }
 
 function stop() {
@@ -715,7 +712,7 @@ function stop() {
   currentUtterance = null;
   isPlaying = false;
   releaseWakeLock();
-  updateHighlight(false);
+  updateHighlight();
   setStatus('Stopped.');
 }
 
@@ -724,17 +721,19 @@ function replayPrevious() {
     setStatus('Nothing is currently playing.');
     return;
   }
+  const loopStart = originalRangeStart;
+  const loopEnd = originalRangeEnd;
   let prev = currentIndex - 1;
-  if (prev < originalRangeStart) {
-    prev = originalRangeEnd;
+  if (prev < loopStart) {
+    prev = loopEnd;
   }
-  const rangeEnd = originalRangeEnd;
   playbackGeneration++;
   stopRequested = true;
   window.speechSynthesis.cancel();
   currentUtterance = null;
   setTimeout(() => {
-    playSequence(prev, rangeEnd, true);
+    // Pass true loop boundaries (loopStart, loopEnd) AND the immediate jump target (prev)
+    playSequence(loopStart, loopEnd, true, prev);
   }, 100);
 }
 
@@ -749,9 +748,7 @@ document.getElementById('saveBtn').addEventListener('click', addSentence);
 document.getElementById('playAllBtn').addEventListener('click', () => {
   unlockSpeech();
   if (!sentences.length) return;
-  originalRangeStart = 0;
-  originalRangeEnd = sentences.length - 1;
-  playSequence(0, sentences.length - 1, true);
+  playSequence(0, sentences.length - 1, true, 0);
 });
 document.getElementById('playRangeBtn').addEventListener('click', () => {
   unlockSpeech();
@@ -771,17 +768,13 @@ document.getElementById('playRangeBtn').addEventListener('click', () => {
     setStatus('Start sentence #' + (start + 1) + ' is beyond the ' + sentences.length + ' loaded sentences.');
     return;
   }
-  originalRangeStart = Math.max(0, start);
-  originalRangeEnd = Math.min(end, sentences.length - 1);
-  playSequence(start, end, true);
+  playSequence(start, end, true, start);
 });
 document.getElementById('resumeBtn').addEventListener('click', () => {
   unlockSpeech();
   if (!sentences.length) return;
   const nextIdx = (lastPlayedIndex + 1) >= sentences.length ? 0 : Math.max(0, lastPlayedIndex + 1);
-  originalRangeStart = 0;
-  originalRangeEnd = sentences.length - 1;
-  playSequence(nextIdx, sentences.length - 1, true);
+  playSequence(0, sentences.length - 1, true, nextIdx);
 });
 document.getElementById('stopBtn').addEventListener('click', stop);
 document.getElementById('replayPrevBtn').addEventListener('click', replayPrevious);
