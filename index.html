@@ -663,9 +663,10 @@ async function playSequence(startIdx, endIdx, loop = true) {
   const pauseEsMs = parseFloat(document.getElementById('pauseEs').value) * 1000 || 0;
   const spanishRate = document.getElementById('rate').value;
   const end = safeEnd;
+  let currentPassStart = safeStart;
 
   while (!stopRequested && myGeneration === playbackGeneration) {
-    for (let i = safeStart; i <= end && !stopRequested && myGeneration === playbackGeneration; i++) {
+    for (let i = currentPassStart; i <= end && !stopRequested && myGeneration === playbackGeneration; i++) {
       currentIndex = i;
       updateHighlight(true);
       updateCurrentDisplay();
@@ -682,6 +683,8 @@ async function playSequence(startIdx, endIdx, loop = true) {
       saveLastPlayed(i);
     }
     if (!loop || stopRequested || myGeneration !== playbackGeneration) break;
+    // After the first pass finishes, always loop back to the original range start
+    currentPassStart = Math.max(0, Math.min(originalRangeStart, end));
   }
 
   if (myGeneration === playbackGeneration) {
