@@ -175,8 +175,9 @@ let isPlaying = false;
 let stopRequested = false;
 let currentIndex = -1;
 let lastPlayedIndex = parseInt(localStorage.getItem('lastPlayedIndex') || '-1', 10);
-let originalRangeStart = 0;
-let originalRangeEnd = 0;
+let playbackMode = localStorage.getItem('playbackMode') || 'all'; // 'all' or 'range'
+let originalRangeStart = parseInt(localStorage.getItem('originalRangeStart') || '0', 10);
+let originalRangeEnd = parseInt(localStorage.getItem('originalRangeEnd') || '-1', 10);
 let wakeLock = null;
 let playbackGeneration = 0; // increments to abort previous sequences
 let importedFilename = localStorage.getItem('importedFilename') || '';
@@ -240,6 +241,29 @@ function updateFilenameDisplay() {
 function saveLastPlayed(idx) {
   lastPlayedIndex = idx;
   localStorage.setItem('lastPlayedIndex', String(idx));
+}
+
+function saveLoopBounds(start, end, mode = playbackMode) {
+  originalRangeStart = start;
+  originalRangeEnd = end;
+  playbackMode = mode;
+  localStorage.setItem('originalRangeStart', String(start));
+  localStorage.setItem('originalRangeEnd', String(end));
+  localStorage.setItem('playbackMode', mode);
+}
+
+function getRangeBoundsFromInputs() {
+  let start = parseInt(document.getElementById('rangeStart').value, 10);
+  let end = parseInt(document.getElementById('rangeEnd').value, 10);
+  if (isNaN(start) || isNaN(end) || start < 1 || end < 1) {
+    return null;
+  }
+  start = Math.max(0, Math.min(start - 1, sentences.length - 1));
+  end = Math.max(0, Math.min(end - 1, sentences.length - 1));
+  if (start > end) {
+    return null;
+  }
+  return { start, end };
 }
 
 function updateCurrentDisplay() {
@@ -373,6 +397,11 @@ function render() {
         saveLastPlayed(sentences.length - 1);
       } else if (idx <= lastPlayedIndex) {
         saveLastPlayed(Math.max(-1, lastPlayedIndex - 1));
+      }
+      if (originalRangeEnd >= sentences.length) {
+        saveLoopBounds(Math.min(originalRangeStart, Math.max(0, sentences.length - 1)), sentences.length - 1, playbackMode);
+      } else if (idx <= originalRangeEnd) {
+        saveLoopBounds(originalRangeStart, Math.max(originalRangeStart, originalRangeEnd - 1), playbackMode);
       }
       if (currentIndex === idx) {
         currentIndex = -1;
@@ -621,7 +650,7 @@ function speak(text, lang, rate, voiceSelectId) {
 }
 
 // loopStartIdx / loopEndIdx define the true loop boundaries; initialStartIdx is where the first pass begins
-async function playSequence(loopStartIdx, loopEndIdx, loop = true, initialStartIdx = loopStartIdx) {
+async function playSequence(loopStartIdx, loopEndIdx, loop = true, initialStartIdx = loopStartIdx, preserveLoopBounds = false) {
   if (!sentences.length) {
     setStatus('No sentences loaded.');
     return;
@@ -635,8 +664,10 @@ async function playSequence(loopStartIdx, loopEndIdx, loop = true, initialStartI
     return;
   }
 
-  originalRangeStart = safeLoopStart;
-  originalRangeEnd = safeLoopEnd;
+  if (!preserveLoopBounds) {
+    const mode = (safeLoopStart === 0 && safeLoopEnd === sentences.length - 1) ? 'all' : 'range';
+    saveLoopBounds(safeLoopStart, safeLoopEnd, mode);
+  }
 
   playbackGeneration++;
   const myGeneration = playbackGeneration;
@@ -670,7 +701,7 @@ async function playSequence(loopStartIdx, loopEndIdx, loop = true, initialStartI
       updateHighlight();
       updateCurrentDisplay();
       const s = sentences[i];
-      setStatus(`Playing ${i + 1}/${sentences.length}...`);
+      setStatus(`Playing ${i + 1}/${sentences.length} (loop ${safeLoopStart + 1}–${safeLoopEnd + 1})...`);
       await speak(s.english, 'en-US', 1, 'enVoice');
       if (stopRequested || myGeneration !== playbackGeneration) break;
       await new Promise(r => setTimeout(r, pauseEnMs));
@@ -702,7 +733,8 @@ async function playSequence(loopStartIdx, loopEndIdx, loop = true, initialStartI
 }
 
 function playOne(idx) {
-  playSequence(idx, idx, false, idx);
+  // Play a single sentence once without overwriting the user's saved range loop bounds
+  playSequence(idx, idx, false, idx, true);
 }
 
 function stop() {
@@ -732,8 +764,7 @@ function replayPrevious() {
   window.speechSynthesis.cancel();
   currentUtterance = null;
   setTimeout(() => {
-    // Pass true loop boundaries (loopStart, loopEnd) AND the immediate jump target (prev)
-    playSequence(loopStart, loopEnd, true, prev);
+    playSequence(loopStart, loopEnd, true, prev, true);
   }, 100);
 }
 
@@ -748,7 +779,8 @@ document.getElementById('saveBtn').addEventListener('click', addSentence);
 document.getElementById('playAllBtn').addEventListener('click', () => {
   unlockSpeech();
   if (!sentences.length) return;
-  playSequence(0, sentences.length - 1, true, 0);
+  saveLoopBounds(0, sentences.length - 1, 'all');
+  playSequence(0, sentences.length - 1, true, 0, true);
 });
 document.getElementById('playRangeBtn').addEventListener('click', () => {
   unlockSpeech();
@@ -768,13 +800,43 @@ document.getElementById('playRangeBtn').addEventListener('click', () => {
     setStatus('Start sentence #' + (start + 1) + ' is beyond the ' + sentences.length + ' loaded sentences.');
     return;
   }
-  playSequence(start, end, true, start);
+  const safeStart = Math.max(0, start);
+  const safeEnd = Math.min(end, sentences.length - 1);
+  saveLoopBounds(safeStart, safeEnd, 'range');
+  playSequence(safeStart, safeEnd, true, safeStart, true);
 });
 document.getElementById('resumeBtn').addEventListener('click', () => {
   unlockSpeech();
   if (!sentences.length) return;
-  const nextIdx = (lastPlayedIndex + 1) >= sentences.length ? 0 : Math.max(0, lastPlayedIndex + 1);
-  playSequence(0, sentences.length - 1, true, nextIdx);
+
+  let loopStart = 0;
+  let loopEnd = sentences.length - 1;
+
+  if (playbackMode === 'range') {
+    const inputBounds = getRangeBoundsFromInputs();
+    if (inputBounds) {
+      loopStart = inputBounds.start;
+      loopEnd = inputBounds.end;
+      saveLoopBounds(loopStart, loopEnd, 'range');
+    } else if (originalRangeEnd >= originalRangeStart && originalRangeStart >= 0 && originalRangeEnd < sentences.length) {
+      loopStart = originalRangeStart;
+      loopEnd = originalRangeEnd;
+    }
+  }
+
+  // If stopped mid-sentence (currentIndex is within [loopStart, loopEnd]), resume from currentIndex;
+  // otherwise advance from lastPlayedIndex within [loopStart, loopEnd]
+  let nextIdx;
+  if (currentIndex >= loopStart && currentIndex <= loopEnd) {
+    nextIdx = currentIndex;
+  } else {
+    nextIdx = lastPlayedIndex + 1;
+    if (nextIdx < loopStart || nextIdx > loopEnd) {
+      nextIdx = loopStart;
+    }
+  }
+
+  playSequence(loopStart, loopEnd, true, nextIdx, true);
 });
 document.getElementById('stopBtn').addEventListener('click', stop);
 document.getElementById('replayPrevBtn').addEventListener('click', replayPrevious);
@@ -822,6 +884,7 @@ document.getElementById('importFile').addEventListener('change', (e) => {
         importedFilename = file.name || 'imported.json';
         localStorage.setItem('importedFilename', importedFilename);
         saveLastPlayed(-1);
+        saveLoopBounds(0, data.length - 1, 'all');
         currentIndex = -1;
         document.getElementById('rangeEnd').dataset.auto = 'true';
         save(true);
@@ -848,6 +911,7 @@ document.getElementById('clearBtn').addEventListener('click', () => {
     importedFilename = '';
     localStorage.removeItem('importedFilename');
     saveLastPlayed(-1);
+    saveLoopBounds(0, -1, 'all');
     currentIndex = -1;
     document.getElementById('rangeEnd').dataset.auto = 'true';
     save(true);
@@ -898,6 +962,19 @@ function persistSettings() {
 ['pauseEn', 'pauseEs', 'rate', 'rangeStart', 'rangeEnd'].forEach(id => {
   document.getElementById(id).addEventListener('change', persistSettings);
   document.getElementById(id).addEventListener('input', persistSettings);
+});
+
+['rangeStart', 'rangeEnd'].forEach(id => {
+  const syncRangeIfEdited = () => {
+    if (playbackMode === 'range') {
+      const bounds = getRangeBoundsFromInputs();
+      if (bounds) {
+        saveLoopBounds(bounds.start, bounds.end, 'range');
+      }
+    }
+  };
+  document.getElementById(id).addEventListener('change', syncRangeIfEdited);
+  document.getElementById(id).addEventListener('input', syncRangeIfEdited);
 });
 
 document.getElementById('rangeEnd').addEventListener('input', () => {
